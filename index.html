@@ -65,7 +65,6 @@
       border-color: #D4AF37;
       box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.25);
     }
-    /* Hero Cinematic Backdrop */
     .hero-cinematic-bg {
       position: absolute;
       inset: 0;
@@ -80,8 +79,6 @@
       background: radial-gradient(circle at center, rgba(18, 5, 8, 0.45) 0%, rgba(15, 3, 6, 0.85) 65%, rgba(10, 1, 3, 0.96) 100%),
                   linear-gradient(to bottom, rgba(15, 3, 6, 0.8) 0%, transparent 25%, transparent 75%, #FAF6EE 100%);
     }
-
-    /* Baraat Journey Scenic Backdrop */
     .baraat-cinematic-bg {
       position: absolute;
       inset: 0;
@@ -96,7 +93,6 @@
       background: radial-gradient(circle at center, rgba(36, 3, 7, 0.55) 0%, rgba(18, 2, 4, 0.88) 75%, rgba(10, 1, 2, 0.98) 100%),
                   linear-gradient(to bottom, #FAF6EE 0%, transparent 18%, transparent 82%, #FAF6EE 100%);
     }
-
     #petalCanvas {
       position: fixed;
       top: 0;
@@ -111,10 +107,8 @@
 
 <body class="bg-royal-cream text-royal-charcoal font-sans antialiased selection:bg-royal-gold selection:text-royal-deepmaroon relative">
 
-  <!-- Ambient Floating Petals -->
   <canvas id="petalCanvas"></canvas>
 
-  <!-- Floating Audio & QR Button -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
     <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
@@ -124,7 +118,6 @@
     </button>
   </div>
 
-  <!-- Transparent Glass Navbar -->
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/85 backdrop-blur-md border-b border-royal-gold/30 transition-all">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
       <a href="#" class="flex items-center gap-3">
@@ -151,7 +144,6 @@
     </div>
   </nav>
 
-  <!-- Editorial Hero Section -->
   <header class="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
     <div class="hero-cinematic-bg"></div>
     <div class="hero-vignette-overlay"></div>
@@ -176,7 +168,6 @@
         Wednesday, 22nd January 2025 &bull; Gopalpur-on-Sea & Cuttack, Odisha
       </p>
 
-      <!-- Glassmorphic Married Counter Card -->
       <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-royal-gold/50 shadow-2xl text-royal-charcoal mb-8">
         <p class="text-[10px] uppercase tracking-[0.3em] text-royal-cardinal font-bold mb-4 flex items-center justify-center gap-2">
           <span>❤️</span> DAYS OF TOGETHERNESS & SACRED BOND <span>❤️</span>
@@ -212,32 +203,31 @@
     </div>
   </header>
 
-  <!-- THE ROYAL CINEMA LOUNGE (REORDERED STRICTLY TO SPECIFICATION) -->
+  <!-- THE ROYAL CINEMA LOUNGE (CLEAN LABELS: NO 0/1/2/3/4 & NO A/B/C) -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-14">
         <span class="text-xs uppercase tracking-[0.35em] text-royal-gold font-semibold block mb-2 drop-shadow">4K Cinema Hall &bull; Buffer-Free Streaming</span>
         <h2 class="font-cinzel text-4xl sm:text-6xl text-white font-extrabold mb-4">The Royal Cinema Lounge</h2>
         <p class="text-stone-300 text-sm max-w-2xl mx-auto leading-relaxed">
-          Relive our wedding journey across eleven chapters, streaming seamlessly in ultra-high definition.
+          Relive our wedding journey across all eleven ceremonial chapters, streaming seamlessly in ultra-high definition.
         </p>
         <div class="w-24 h-1 bg-royal-gold mx-auto mt-6 rounded-full shadow-lg"></div>
       </div>
 
-      <!-- Video Filter Categories in Ordered Sequence: 0 -> 1 -> 2 -> 3 -> 4 -->
+      <!-- Category Filter Tabs: Clean labels without numbers -->
       <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
-        <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg">0. All 11 Chapters</button>
-        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">1. Engagement (Nirbandha)</button>
-        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">2. Pre-Wedding Shoots</button>
-        <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">3. Ring Ceremony</button>
-        <button onclick="filterCinema('marriage')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">4. Wedding Celebration</button>
+        <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg">All 11 Chapters</button>
+        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Engagement (Nirbandha)</button>
+        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Pre-Wedding Shoots</button>
+        <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Ring Ceremony</button>
+        <button onclick="filterCinema('marriage')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Wedding Celebration</button>
       </div>
 
-      <!-- Video Grid (A through K in Exact Sequence: Teaser -> Short -> Ceremony) -->
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-        <!-- A. Teaser of Engagement Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('A. Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'dQw4w9WgXcQ')">
+        <!-- Teaser of Engagement Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -249,14 +239,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 2:10</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">A. Teaser of Engagement Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Engagement Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">Auspicious exchange of vows, betel nuts (Gua), and the sacred engagement bond.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
         </div>
 
-        <!-- B. Short Video of Engagement Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('B. Short Video of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'dQw4w9WgXcQ')">
+        <!-- Short Video of Engagement Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Short Video of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Engagement Short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -268,14 +258,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 7:15</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">B. Short Video of Engagement Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Short Video of Engagement Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">Celebration with elders, exchanging gifts, and the auspicious family gathering.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Short Video</span>
           </div>
         </div>
 
-        <!-- C. Engagement Ceremony (Full) -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="engagement" onclick="launchCinema('C. Engagement Ceremony', 'The full uncut cinematic recording of our Nirbandha & engagement ceremony.', 'dQw4w9WgXcQ')">
+        <!-- Engagement Ceremony (Full) -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="engagement" onclick="launchCinema('Engagement Ceremony', 'The full uncut cinematic recording of our Nirbandha & engagement ceremony.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -287,14 +277,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 55 mins</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">C. Engagement Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Engagement Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">Complete traditional Nirbandha ceremony recorded from start to finish without cuts.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Stream Full Ceremony</span>
           </div>
         </div>
 
-        <!-- D. Teaser for Ring Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="ring" onclick="launchCinema('D. Teaser for Ring Ceremony', 'Golden rings, laughter, and celebratory toasts at Hotel 7 Saat, Bhubaneswar.', 'dQw4w9WgXcQ')">
+        <!-- Teaser for Ring Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="ring" onclick="launchCinema('Teaser for Ring Ceremony', 'Golden rings, laughter, and celebratory toasts at Hotel 7 Saat, Bhubaneswar.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -306,14 +296,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 2:30</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">D. Teaser for Ring Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser for Ring Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
         </div>
 
-        <!-- E. Short Video of Ring Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="ring" onclick="launchCinema('E. Short Video of Ring Ceremony', 'Stage celebrations, ring exchange rituals, and musical festivities with loved ones.', 'dQw4w9WgXcQ')">
+        <!-- Short Video of Ring Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="ring" onclick="launchCinema('Short Video of Ring Ceremony', 'Stage celebrations, ring exchange rituals, and musical festivities with loved ones.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -325,14 +315,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 8:45</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">E. Short Video of Ring Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Short Video of Ring Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">Family congratulations, stage moments, and celebrations from 18th December 2024.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Short Video</span>
           </div>
         </div>
 
-        <!-- F. Ring Ceremony (Full) -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="ring" onclick="launchCinema('F. Ring Ceremony', 'Complete uncut recording of the Ring Ceremony celebration at Hotel 7 Saat.', 'dQw4w9WgXcQ')">
+        <!-- Ring Ceremony (Full) -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="ring" onclick="launchCinema('Ring Ceremony', 'Complete uncut recording of the Ring Ceremony celebration at Hotel 7 Saat.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -344,14 +334,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 1h 15m</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">F. Ring Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Ring Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The complete unedited recording of all stage ceremonies and the grand feast.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Stream Full Ceremony</span>
           </div>
         </div>
 
-        <!-- G. Teaser of Pre-Wedding -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('G. Teaser of Pre-Wedding', 'Romantic glimpses, scenic vistas, and the quiet beauty before our wedding day.', 'dQw4w9WgXcQ')">
+        <!-- Teaser of Pre-Wedding -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Teaser of Pre-Wedding', 'Romantic glimpses, scenic vistas, and the quiet beauty before our wedding day.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -363,14 +353,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 1:50</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">G. Teaser of Pre-Wedding</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Pre-Wedding</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">Scenic landscapes and romantic backdrops capturing the early chapter of our bond.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
         </div>
 
-        <!-- H. Short Video of Pre-Wedding -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('H. Short Video of Pre-Wedding', 'A cinematic music-video journey through our favorite scenic landscapes.', 'dQw4w9WgXcQ')">
+        <!-- Short Video of Pre-Wedding -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Short Video of Pre-Wedding', 'A cinematic music-video journey through our favorite scenic landscapes.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -382,14 +372,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 5:30</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">H. Short Video of Pre-Wedding</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Short Video of Pre-Wedding</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The full music-video edition of our romantic pre-wedding shoots across scenic locations.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Short Video</span>
           </div>
         </div>
 
-        <!-- I. Teaser of Marriage Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="marriage" onclick="launchCinema('I. Teaser of Marriage Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'dQw4w9WgXcQ')">
+        <!-- Teaser of Marriage Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="marriage" onclick="launchCinema('Teaser of Marriage Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Marriage Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -401,14 +391,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 3:45</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">I. Teaser of Marriage Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Marriage Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The cinematic trailer capturing the sacred pheras, varmala, and ocean breeze at OTDC Panthanivas, Gopalpur.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
         </div>
 
-        <!-- J. Short Video of Marriage Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="marriage" onclick="launchCinema('J. Short Video of Marriage Ceremony', 'Baradhara, Haldi, Mehendi, the sacred Mandap, and Grand Reception celebrations.', 'dQw4w9WgXcQ')">
+        <!-- Short Video of Marriage Ceremony -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="marriage" onclick="launchCinema('Short Video of Marriage Ceremony', 'Baradhara, Haldi, Mehendi, the sacred Mandap, and Grand Reception celebrations.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Marriage Short" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -420,14 +410,14 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 14:20</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">J. Short Video of Marriage Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Short Video of Marriage Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">A montage journey covering Baradhara, Haldi, Mehendi, the beachside Mandap, and our Grand Reception.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Short Video</span>
           </div>
         </div>
 
-        <!-- K. Marriage Ceremony (Full) -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/60" data-cat="marriage" onclick="launchCinema('K. Marriage Ceremony', 'The master film: Baradhara, Haldi, Mehendi, sacred Vedic pheras, and Reception feast.', 'dQw4w9WgXcQ')">
+        <!-- Marriage Ceremony (Full) -->
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/60" data-cat="marriage" onclick="launchCinema('Marriage Ceremony', 'The master film: Baradhara, Haldi, Mehendi, sacred Vedic pheras, and Reception feast.', 'dQw4w9WgXcQ')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Marriage Ceremony Complete" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -439,7 +429,7 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> 2h 45m</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-royal-gold mb-1">K. Marriage Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-royal-gold mb-1">Marriage Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The full uncut cinematic chronicle documenting every sacred chanting, Vedic ritual, and family feast.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-goldlight font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Stream Full Ceremony</span>
           </div>
