@@ -122,6 +122,13 @@
       cursor: pointer;
       border: none;
     }
+    @keyframes pulseSlow {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+    .pulse-heart {
+      animation: pulseSlow 3s infinite ease-in-out;
+    }
   </style>
 </head>
 
@@ -154,7 +161,7 @@
         <a href="#culture" class="hover:text-royal-gold transition">Odia Traditions</a>
         <a href="#gallery" class="hover:text-royal-gold transition">Albums</a>
         <a href="#cinema" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Cinema Hub</a>
-        <a href="#anniversary" class="hover:text-royal-gold transition">Anniversary</a>
+        <a href="#anniversary" class="hover:text-royal-gold transition">Our Story</a>
         <a href="#blessings" class="hover:text-royal-gold transition">Wishes</a>
       </div>
       <div class="flex items-center gap-3">
@@ -345,24 +352,24 @@
         </div>
       </div>
 
-      <!-- 6. 1st Anniversary Ceremony -->
+      <!-- 6. 1st Anniversary Ceremony Milestone Card -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-royal-cardinal px-3 py-1 rounded-full shadow-sm">First Anniversary 🥂</span>
             <span class="text-xs font-semibold text-royal-velvet">Sun, 1 Mar 2026</span>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary Ceremony</h3>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary Milestone</h3>
           <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            Commemorating 365 days of love, companionship, and shared memories with a special anniversary gathering and blessings from our elders.
+            Commemorating 365 days of love, companionship, and shared memories celebrated with family, dear friends, and elder blessings.
           </p>
         </div>
         <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
+            <i class="fa-regular fa-heart text-royal-cardinal mr-1"></i> Completed with Gratitude
           </span>
-          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
+          <a href="#anniversary" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+            <span>Our Journey</span> <i class="fa-solid fa-arrow-down"></i>
           </a>
         </div>
       </div>
@@ -593,7 +600,7 @@
     </div>
   </section>
 
-  <!-- 5. CINEMA HUB (Cards updated: Marriage -> Wedding) -->
+  <!-- 5. CINEMA HUB -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -771,7 +778,7 @@
           </div>
         </div>
 
-        <!-- 9. Teaser of Wedding Ceremony (Updated: Marriage -> Wedding) -->
+        <!-- 9. Teaser of Wedding Ceremony -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -790,7 +797,7 @@
           </div>
         </div>
 
-        <!-- 10. Highlights of Wedding Ceremony (Updated: Marriage -> Wedding) -->
+        <!-- 10. Highlights of Wedding Ceremony -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Highlights of Wedding Ceremony', 'Baradhara, Haldi, Mehendi, the sacred Mandap, and Grand Reception celebrations.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -809,7 +816,7 @@
           </div>
         </div>
 
-        <!-- 11. Wedding Ceremony Full (Updated: Marriage -> Wedding) -->
+        <!-- 11. Wedding Ceremony Complete -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/60" data-cat="wedding" onclick="launchCinema('Wedding Ceremony', 'The master film: Baradhara, Haldi, Mehendi, sacred Vedic pheras, and Reception feast.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -832,58 +839,112 @@
     </div>
   </section>
 
-  <!-- 6. DEDICATED ANNIVERSARY CELEBRATION SECTION -->
+  <!-- 6. INNOVATIVE POST-ANNIVERSARY SHOWCASE: "THE CHAPTER CONTINUES" -->
   <section id="anniversary" class="py-28 px-6 max-w-7xl mx-auto relative z-30">
     <div class="text-center mb-16">
-      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Milestone Reunion</span>
-      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">1st Wedding Anniversary</h2>
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">
+        A Sacred Milestone Surpassed &bull; Still Counting Forever
+      </span>
+      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">The Chapter Continues</h2>
       <p class="text-stone-600 text-sm max-w-xl mx-auto mt-3">
-        Celebrating 365 days of sacred vows, continuous laughter, and togetherness surrounded by family and close friends.
+        From the sacred ocean shores of Gopalpur into a lifetime of shared dreams, laughter, and endless companionhood.
       </p>
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
 
-    <div class="max-w-4xl mx-auto velvet-card rounded-3xl p-8 sm:p-12 border-2 border-royal-gold/40 shadow-2xl relative overflow-hidden">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <span class="px-4 py-1.5 rounded-full bg-royal-cardinal text-white text-xs font-bold uppercase tracking-widest mb-4 inline-block shadow-sm">
-            Special Milestone Event 🥂
-          </span>
-          <h3 class="font-serif text-3xl sm:text-4xl font-bold text-royal-charcoal mb-4">
-            Sunday, 1st March 2026
+    <!-- Interactive Anniversary Master Card -->
+    <div class="max-w-5xl mx-auto velvet-card rounded-3xl p-8 sm:p-12 border-2 border-royal-gold/40 shadow-2xl relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Interactive Love Reel & Memory Revealer -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-2">
+            <span class="px-4 py-1.5 rounded-full bg-royal-cardinal text-white text-xs font-bold uppercase tracking-widest inline-block shadow-sm">
+              365+ Days of Sacred Bond 🥂
+            </span>
+            <span class="text-xs text-royal-golddark font-semibold tracking-wider uppercase">
+              #AbhishaForever
+            </span>
+          </div>
+
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold text-royal-charcoal leading-tight">
+            One Sacred Year Behind Us, <br class="hidden sm:inline">
+            <span class="font-script text-royal-cardinal text-4xl sm:text-5xl lowercase">an eternity</span> Yet to Write
           </h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-6">
-            Join us for an auspicious afternoon celebration featuring traditional Odia delicacies, cherished wedding highlights, and family blessings.
+
+          <p class="text-stone-600 text-sm leading-relaxed">
+            Our wedding day was the first sacred step around Agni Devata. Over 365 sunrises later, our promise remains as steady as the Gopalpur tide and as vibrant as the Cuttack sky.
           </p>
 
-          <div class="space-y-3 text-xs sm:text-sm text-stone-700">
-            <div class="flex items-center gap-3">
-              <i class="fa-regular fa-clock text-royal-gold text-base w-5"></i>
-              <span><strong>Time:</strong> Around 12:00 PM Onward</span>
+          <!-- Interactive Memory Card Box -->
+          <div class="bg-royal-cream/80 border border-royal-gold/40 rounded-2xl p-6 relative shadow-inner">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase font-bold text-royal-cardinal tracking-widest flex items-center gap-1.5">
+                <i class="fa-solid fa-heart pulse-heart text-royal-cardinal"></i> MEMORY CAPSULE
+              </span>
+              <span id="memoryCounter" class="text-[10px] font-mono text-stone-400">1 / 5</span>
             </div>
-            <div class="flex items-start gap-3">
-              <i class="fa-solid fa-location-dot text-royal-cardinal text-base w-5 mt-0.5"></i>
-              <span><strong>Venue:</strong> Hotel 7 Saat, Infocity, Sailashree Vihar, Patia, Bhubaneswar, Odisha</span>
+            
+            <p id="memoryQuoteText" class="font-serif text-lg sm:text-xl text-royal-charcoal italic leading-relaxed min-h-[56px] flex items-center">
+              "The first quiet cup of morning tea shared in our own home as husband and wife."
+            </p>
+            
+            <div class="mt-4 pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+              <span id="memoryLocationText" class="text-xs font-semibold text-royal-golddark">
+                <i class="fa-solid fa-location-dot mr-1 text-royal-cardinal"></i> Katak Residence
+              </span>
+              <button onclick="revealNextMemory()" class="px-4 py-1.5 rounded-full bg-royal-cardinal hover:bg-royal-deepmaroon text-royal-goldlight text-[11px] font-bold tracking-wider uppercase transition shadow flex items-center gap-1.5">
+                <span>Next Memory</span> <i class="fa-solid fa-sparkles text-xs"></i>
+              </button>
             </div>
           </div>
 
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
-              <i class="fa-solid fa-location-arrow"></i> Get Directions
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="#gallery" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
+              <i class="fa-solid fa-images"></i> Relive Our Albums
             </a>
             <a href="#blessings" class="px-6 py-2.5 rounded-full bg-white border border-royal-gold/50 text-royal-charcoal font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-gold/10 transition flex items-center gap-2">
-              <i class="fa-regular fa-heart text-royal-cardinal"></i> Send Warm Wishes
+              <i class="fa-regular fa-heart text-royal-cardinal"></i> Bestow New Wishes
             </a>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden aspect-4/3 shadow-xl border border-royal-gold/30">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Anniversary Celebration" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
-            <span class="text-white font-script text-3xl">Forever & Always #Abhisha</span>
+        <!-- Right: Photo Keepsake Frame with Live Days Together Overlay -->
+        <div class="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-4/5 shadow-2xl border-2 border-royal-gold/40">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Forever Abhisha" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
+            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-4 border border-white/20 mb-3">
+              <span class="text-[9px] uppercase tracking-[0.25em] text-royal-goldlight font-semibold block mb-1">DAYS IN HARMONY</span>
+              <div class="font-serif text-3xl font-bold text-white flex items-baseline gap-2">
+                <span id="storyDaysCount">--</span> <span class="text-sm font-sans text-stone-300 font-normal uppercase tracking-widest">Days & Counting</span>
+              </div>
+            </div>
+            <p class="font-script text-3xl sm:text-4xl text-royal-goldlight">Forever & Always #Abhisha</p>
           </div>
         </div>
+
       </div>
+
+      <!-- Bottom Mini-Cards: Milestone Pillars -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-royal-gold/20 text-center">
+        <div class="p-4 rounded-2xl bg-white/60 border border-royal-gold/25">
+          <span class="text-2xl mb-1 block">🌿</span>
+          <h5 class="font-serif text-base font-bold text-royal-cardinal">Sacred Roots</h5>
+          <p class="text-xs text-stone-600 mt-1">Grounded in Vedic traditions and unconditional elder blessings.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/60 border border-royal-gold/25">
+          <span class="text-2xl mb-1 block">🕊️</span>
+          <h5 class="font-serif text-base font-bold text-royal-cardinal">Peaceful Growth</h5>
+          <p class="text-xs text-stone-600 mt-1">Learning, laughing, and building our world hand in hand.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/60 border border-royal-gold/25">
+          <span class="text-2xl mb-1 block">✨</span>
+          <h5 class="font-serif text-base font-bold text-royal-cardinal">Unwritten Tomorrows</h5>
+          <p class="text-xs text-stone-600 mt-1">Looking ahead to countless anniversaries yet to be celebrated.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1008,19 +1069,70 @@
 
   <!-- Scripts -->
   <script>
+    // Live Togetherness Timer (Calculates exact days since 22 Jan 2025)
     const weddingTimestamp = new Date('2025-01-22T07:05:00+05:30').getTime();
     function runTimer() {
       const now = new Date().getTime();
       const diff = now - weddingTimestamp;
       if (diff > 0) {
-        document.getElementById('daysBox').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('daysBox').textContent = days;
         document.getElementById('hoursBox').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         document.getElementById('minsBox').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         document.getElementById('secsBox').textContent = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        // Also update the anniversary story section counter
+        const storyDays = document.getElementById('storyDaysCount');
+        if (storyDays) {
+          storyDays.textContent = days;
+        }
       }
     }
     setInterval(runTimer, 1000);
     runTimer();
+
+    // Interactive Memories Reel
+    const memoriesList = [
+      {
+        quote: "The first quiet cup of morning tea shared in our own home as husband and wife.",
+        location: "Katak Residence"
+      },
+      {
+        quote: "Looking back at the sacred Gopalpur seashore, knowing that the waves carried our vows into eternity.",
+        location: "OTDC Panthanivas, Gopalpur"
+      },
+      {
+        quote: "Surrounded by our extended family celebrating 365 days of harmony and continuous happiness.",
+        location: "Hotel 7 Saat, Infocity"
+      },
+      {
+        quote: "Unplanned evening drives across the Mahanadi bridge, talking about where the years will take us.",
+        location: "Mahanadi Riverbank, Katak"
+      },
+      {
+        quote: "Every single day proves that the best decision was choosing each other for this lifetime.",
+        location: "Forever in Our Hearts"
+      }
+    ];
+    let currentMemoryIdx = 0;
+
+    function revealNextMemory() {
+      currentMemoryIdx = (currentMemoryIdx + 1) % memoriesList.length;
+      const mem = memoriesList[currentMemoryIdx];
+      const quoteEl = document.getElementById('memoryQuoteText');
+      const locEl = document.getElementById('memoryLocationText');
+      const counterEl = document.getElementById('memoryCounter');
+
+      quoteEl.style.opacity = '0';
+      locEl.style.opacity = '0';
+      setTimeout(() => {
+        quoteEl.textContent = `"${mem.quote}"`;
+        locEl.innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-royal-cardinal"></i> ${mem.location}`;
+        counterEl.textContent = `${currentMemoryIdx + 1} / ${memoriesList.length}`;
+        quoteEl.style.opacity = '1';
+        locEl.style.opacity = '1';
+      }, 200);
+    }
 
     const canvas = document.getElementById('petalCanvas');
     const ctx = canvas.getContext('2d');
