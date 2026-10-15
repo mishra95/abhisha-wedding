@@ -876,7 +876,7 @@
             Our wedding day was the first sacred step around Agni Devata. Over 365 sunrises later, our promise remains as steady as the Gopalpur tide and as vibrant as the Cuttack sky.
           </p>
 
-          <!-- Interactive Memory Card Box -->
+          <!-- Interactive Memory Card Box (Updated with 5 Romantic Honeymoon & Anniversary Travel Quotes) -->
           <div class="bg-royal-cream/80 border border-royal-gold/40 rounded-2xl p-6 relative shadow-inner">
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] uppercase font-bold text-royal-cardinal tracking-widest flex items-center gap-1.5">
@@ -885,13 +885,13 @@
               <span id="memoryCounter" class="text-[10px] font-mono text-stone-400">1 / 5</span>
             </div>
             
-            <p id="memoryQuoteText" class="font-serif text-lg sm:text-xl text-royal-charcoal italic leading-relaxed min-h-[56px] flex items-center">
-              "The first quiet cup of morning tea shared in our own home as husband and wife."
+            <p id="memoryQuoteText" class="font-serif text-lg sm:text-xl text-royal-charcoal italic leading-relaxed min-h-[56px] flex items-center transition-opacity duration-300">
+              "Golden desert sunsets and city lights mirrored in your eyes, beginning our journey where dreams touch the sky."
             </p>
             
             <div class="mt-4 pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-              <span id="memoryLocationText" class="text-xs font-semibold text-royal-golddark">
-                <i class="fa-solid fa-location-dot mr-1 text-royal-cardinal"></i> Katak Residence
+              <span id="memoryLocationText" class="text-xs font-semibold text-royal-golddark transition-opacity duration-300">
+                <i class="fa-solid fa-plane-departure mr-1 text-royal-cardinal"></i> Honeymoon in Dubai
               </span>
               <button onclick="revealNextMemory()" class="px-4 py-1.5 rounded-full bg-royal-cardinal hover:bg-royal-deepmaroon text-royal-goldlight text-[11px] font-bold tracking-wider uppercase transition shadow flex items-center gap-1.5">
                 <span>Next Memory</span> <i class="fa-solid fa-sparkles text-xs"></i>
@@ -899,13 +899,13 @@
             </div>
           </div>
 
-          <!-- Action Buttons -->
+          <!-- Action Buttons (Updated: Relive our Best Day -> navigates to #cinema) -->
           <div class="pt-2 flex flex-wrap gap-4">
             <a href="#gallery" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
               <i class="fa-solid fa-images"></i> Relive Our Albums
             </a>
-            <a href="#blessings" class="px-6 py-2.5 rounded-full bg-white border border-royal-gold/50 text-royal-charcoal font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-gold/10 transition flex items-center gap-2">
-              <i class="fa-regular fa-heart text-royal-cardinal"></i> Bestow New Wishes
+            <a href="#cinema" class="px-6 py-2.5 rounded-full bg-white border border-royal-gold/50 text-royal-charcoal font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-gold/10 transition flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-circle-play text-royal-cardinal"></i> Relive our Best Day
             </a>
           </div>
         </div>
@@ -1054,7 +1054,7 @@
       <h4 class="font-cinzel text-xl font-bold text-royal-cardinal mb-2">Scan & Share</h4>
       <p class="text-xs text-stone-500 mb-6">Scan to open Abhisek & Barsha's wedding celebration</p>
       <div class="p-4 bg-royal-cream rounded-2xl inline-block border border-royal-gold/30 mb-6">
-        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://mishra95.github.io/abhisha-wedding/" alt="QR Code" class="mx-auto rounded">
+        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(window.location.href)}" alt="QR Code" class="mx-auto rounded">
       </div>
       <button onclick="copyCurrentLink()" class="w-full py-2.5 rounded-xl bg-royal-velvet text-white text-xs uppercase tracking-widest font-semibold hover:bg-stone-900 transition">Copy Website Link</button>
     </div>
@@ -1081,7 +1081,6 @@
         document.getElementById('minsBox').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         document.getElementById('secsBox').textContent = Math.floor((diff % (1000 * 60)) / 1000);
         
-        // Also update the anniversary story section counter
         const storyDays = document.getElementById('storyDaysCount');
         if (storyDays) {
           storyDays.textContent = days;
@@ -1091,27 +1090,27 @@
     setInterval(runTimer, 1000);
     runTimer();
 
-    // Interactive Memories Reel
+    // The 5 Romantic Travel & Life Memories
     const memoriesList = [
       {
-        quote: "The first quiet cup of morning tea shared in our own home as husband and wife.",
-        location: "Katak Residence"
+        quote: "Golden desert sunsets and city lights mirrored in your eyes, beginning our journey where dreams touch the sky.",
+        location: "Honeymoon in Dubai"
       },
       {
-        quote: "Looking back at the sacred Gopalpur seashore, knowing that the waves carried our vows into eternity.",
-        location: "OTDC Panthanivas, Gopalpur"
+        quote: "Amidst the rhythmic beats of dhak, radiant pandal lights, and festive warmth, holding your hand as husband and wife in our beloved silver city.",
+        location: "Cuttack Durga Puja"
       },
       {
-        quote: "Surrounded by our extended family celebrating 365 days of harmony and continuous happiness.",
-        location: "Hotel 7 Saat, Infocity"
+        quote: "Quiet morning walks along sunlit French avenues and whispering ocean breezes, finding our own gentle rhythm away from the world.",
+        location: "Pondicherry Getaway"
       },
       {
-        quote: "Unplanned evening drives across the Mahanadi bridge, talking about where the years will take us.",
-        location: "Mahanadi Riverbank, Katak"
+        quote: "One full year of love celebrated where lush emerald valleys meet sacred waters—reaffirming our forever promise under tropical skies.",
+        location: "First Anniversary • Bali"
       },
       {
-        quote: "Every single day proves that the best decision was choosing each other for this lifetime.",
-        location: "Forever in Our Hearts"
+        quote: "Bowing our heads together in sacred sanctums, seeking Mahaprabhu’s eternal grace for every step of the path we walk as one.",
+        location: "Divine Temple Journeys"
       }
     ];
     let currentMemoryIdx = 0;
@@ -1127,7 +1126,7 @@
       locEl.style.opacity = '0';
       setTimeout(() => {
         quoteEl.textContent = `"${mem.quote}"`;
-        locEl.innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-royal-cardinal"></i> ${mem.location}`;
+        locEl.innerHTML = `<i class="fa-solid fa-heart mr-1 text-royal-cardinal"></i> ${mem.location}`;
         counterEl.textContent = `${currentMemoryIdx + 1} / ${memoriesList.length}`;
         quoteEl.style.opacity = '1';
         locEl.style.opacity = '1';
