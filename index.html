@@ -121,10 +121,7 @@
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/85 backdrop-blur-md border-b border-royal-gold/30 transition-all">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
       <div class="flex items-center gap-3">
-        <!-- Secret Owner Mode Toggle Crest -->
-        <button onclick="toggleOwnerMode()" title="Toggle Creator Access" class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider hover:scale-105 transition-transform">
-          A&B
-        </button>
+        <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider">A&B</span>
         <div class="text-left">
           <span class="block font-cinzel text-sm sm:text-base tracking-widest text-royal-goldlight font-bold">ABHISEK & BARSHA</span>
           <span class="block text-[9px] tracking-[0.25em] text-stone-300 uppercase">22 January 2025 • #Abhisha</span>
@@ -746,43 +743,47 @@
     </div>
   </section>
 
-  <!-- 4K CINEMA MODAL WITH DUAL MODE (GUEST SHIELDED VS OWNER UNLOCKED) -->
+  <!-- 4K CINEMA MODAL (CLEAN FULL-VIEW VISITOR SHIELDS + OWNER MODE TOGGLE) -->
   <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
     <button onclick="closeCinemaModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205]">
       
-      <!-- Video Player Area -->
-      <div class="aspect-video w-full bg-black relative overflow-hidden select-none">
+      <!-- Video Player Area (Full 16:9, completely unblocked view) -->
+      <div class="aspect-video w-full bg-black relative select-none">
         
-        <!-- VISITOR SHIELDS (Active by default for all visitors; bypassed in Owner Mode) -->
+        <!-- INVISIBLE CLICK SHIELDS (100% Transparent - Stops accidental navigation, leaves full view unobstructed) -->
         <div id="visitorShields" class="block">
-          <!-- Shield 1: Solid top bar masking title, channel avatar & volume/CC/settings icons -->
-          <div class="absolute top-0 left-0 w-full h-[58px] bg-[#120205] z-30 pointer-events-auto"></div>
+          <!-- Transparent Top Strip: Absorbs clicks on channel name, title & top right icons -->
+          <div class="absolute top-0 left-0 w-full h-14 bg-transparent z-20 pointer-events-auto"></div>
           
-          <!-- Shield 2: Bottom-left block covering the YouTube share/copy-link icon -->
-          <div class="absolute bottom-0 left-0 w-24 h-11 bg-[#120205] z-30 pointer-events-auto"></div>
+          <!-- Transparent Bottom-Left Area: Absorbs clicks on YouTube copy-link icon -->
+          <div class="absolute bottom-0 left-0 w-28 h-10 bg-transparent z-20 pointer-events-auto"></div>
 
-          <!-- Shield 3: Bottom-right block covering YouTube logo while preserving fullscreen button [⤢] -->
-          <div class="absolute bottom-0 right-10 w-28 h-11 bg-[#120205] z-30 pointer-events-auto"></div>
+          <!-- Transparent Bottom-Right: Absorbs clicks on YouTube logo while leaving fullscreen button [⤢] clickable -->
+          <div class="absolute bottom-0 right-12 w-24 h-10 bg-transparent z-20 pointer-events-auto"></div>
         </div>
 
-        <!-- Dynamic Player Frame -->
+        <!-- Video Player Frame with Captions (CC) Disabled by default -->
         <iframe id="cinemaFrame" class="w-full h-full relative z-10" src="" frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
           allowfullscreen>
         </iframe>
       </div>
       
-      <!-- Modal Footer -->
-      <div class="p-6 bg-[#180509] border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <!-- Modal Footer (Clean: with prominent Creator Mode button) -->
+      <div class="p-6 bg-[#180509] border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h4 id="cinemaModalTitle" class="font-cinzel text-xl text-royal-goldlight font-bold">Film Title</h4>
           <p id="cinemaModalDesc" class="text-xs text-stone-400 mt-1">Film synopsis and ceremonial details.</p>
         </div>
-        <div id="ownerBadge" class="hidden text-xs text-amber-400 font-semibold tracking-wider uppercase">
-          <i class="fa-solid fa-crown text-royal-gold mr-1"></i> Creator Mode Active
+        
+        <!-- Direct Owner Mode Toggle Button -->
+        <div class="flex items-center gap-3">
+          <button id="ownerToggleBtn" onclick="toggleOwnerMode()" class="px-4 py-2 rounded-full border border-royal-gold/40 text-royal-gold text-[11px] font-semibold tracking-wider uppercase hover:bg-royal-gold/10 transition flex items-center gap-2">
+            <i class="fa-solid fa-key text-xs"></i> <span id="ownerBtnText">Creator Access</span>
+          </button>
         </div>
       </div>
 
@@ -825,28 +826,46 @@
 
     function updateOwnerUI() {
       const shields = document.getElementById('visitorShields');
-      const badge = document.getElementById('ownerBadge');
-      if (shields && badge) {
+      const btnText = document.getElementById('ownerBtnText');
+      const btn = document.getElementById('ownerToggleBtn');
+
+      if (shields && btnText && btn) {
         if (isOwner) {
           shields.classList.add('hidden');
           shields.classList.remove('block');
-          badge.classList.remove('hidden');
+          btnText.textContent = "Creator Mode (Active)";
+          btn.classList.add('bg-royal-gold/20', 'border-royal-gold');
         } else {
           shields.classList.remove('hidden');
           shields.classList.add('block');
-          badge.classList.add('hidden');
+          btnText.textContent = "Creator Access";
+          btn.classList.remove('bg-royal-gold/20', 'border-royal-gold');
         }
       }
     }
 
     function toggleOwnerMode() {
-      isOwner = !isOwner;
-      localStorage.setItem('abhisha_owner', isOwner);
-      updateOwnerUI();
-      if (isOwner) {
-        alert("Creator Mode Enabled: Full YouTube controls & links unlocked.");
+      if (!isOwner) {
+        const pass = prompt("Enter Creator PIN to unlock full YouTube controls:", "");
+        if (pass === "1234") {
+          isOwner = true;
+          localStorage.setItem('abhisha_owner', 'true');
+          updateOwnerUI();
+          if (currentVideoId) {
+            reloadCurrentVideo();
+          }
+          alert("Creator Mode Unlocked: All YouTube controls, settings, and direct links are now active.");
+        } else if (pass !== null) {
+          alert("Incorrect PIN.");
+        }
       } else {
-        alert("Visitor Mode Enabled: Privacy shields active.");
+        isOwner = false;
+        localStorage.setItem('abhisha_owner', 'false');
+        updateOwnerUI();
+        if (currentVideoId) {
+          reloadCurrentVideo();
+        }
+        alert("Switched back to Visitor Mode: Privacy shields active.");
       }
     }
 
@@ -932,29 +951,32 @@
     }
 
     let currentVideoId = '';
+    function reloadCurrentVideo() {
+      const frame = document.getElementById('cinemaFrame');
+      if (isOwner) {
+        frame.removeAttribute('sandbox');
+        frame.src = `https://www.youtube.com/embed/${currentVideoId}?autoplay=1&controls=1&rel=0&cc_load_policy=0`;
+      } else {
+        frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
+        // cc_load_policy=0 ensures captions/subtitles are turned off by default
+        frame.src = `https://www.youtube-nocookie.com/embed/${currentVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&fs=1&cc_load_policy=0`;
+      }
+    }
+
     function launchCinema(title, desc, youtubeId) {
       currentVideoId = youtubeId;
       document.getElementById('cinemaModalTitle').textContent = title;
       document.getElementById('cinemaModalDesc').textContent = desc;
       
-      const frame = document.getElementById('cinemaFrame');
       updateOwnerUI();
-
-      if (isOwner) {
-        // Creator Mode: No sandbox restrictions, full native YouTube features
-        frame.removeAttribute('sandbox');
-        frame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0`;
-      } else {
-        // Visitor Mode: Sandboxed (blocks popups/new tabs) + shields active
-        frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
-        frame.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&fs=1`;
-      }
+      reloadCurrentVideo();
 
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
     }
 
     function closeCinemaModal() {
+      currentVideoId = '';
       document.getElementById('cinemaFrame').src = "";
       document.getElementById('cinemaModal').classList.add('hidden');
       document.getElementById('cinemaModal').classList.remove('flex');
@@ -1045,7 +1067,6 @@
       document.getElementById('blessingForm').reset();
     }
 
-    // Run Owner check on initial load
     updateOwnerUI();
   </script>
 </body>
