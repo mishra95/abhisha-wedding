@@ -743,22 +743,26 @@
     </div>
   </section>
 
-  <!-- LOCKED-DOWN 4K CINEMA MODAL (UI ELEMENTS CROPPED & NO "PRIVATE CINEMA STREAM") -->
+  <!-- 4K CINEMA MODAL (RESTORED PROGRESS BAR, TIME DISPLAY & FULLSCREEN) -->
   <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
     <button onclick="closeCinemaModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
       <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205]">
       
-      <!-- Video Area: Scaled and offset to crop YouTube's header and bottom watermark -->
-      <div class="aspect-video w-full bg-black relative overflow-hidden">
-        <div class="absolute -top-[12%] -bottom-[12%] -left-[2%] -right-[2%] pointer-events-auto">
-          <iframe id="cinemaFrame" class="w-full h-full" src="" frameborder="0" 
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
+      <!-- Video Player Area -->
+      <div class="aspect-video w-full bg-black relative">
+        <!-- Shield 1: Covers top channel name & video title header from clicks -->
+        <div class="absolute top-0 left-0 w-full h-14 bg-gradient-to-b from-[#120205]/95 via-[#120205]/60 to-transparent z-20 pointer-events-auto"></div>
+        
+        <!-- Shield 2: Covers YouTube logo button in bottom tray while leaving Fullscreen [⤢] button clickable on far right -->
+        <div class="absolute bottom-1 right-12 w-24 h-10 z-20 pointer-events-auto cursor-default"></div>
+
+        <iframe id="cinemaFrame" class="w-full h-full relative z-10" src="" frameborder="0" 
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+          allowfullscreen>
+        </iframe>
       </div>
       
       <!-- Modal Footer (Clean: "PRIVATE CINEMA STREAM" removed) -->
@@ -883,8 +887,8 @@
     function launchCinema(title, desc, youtubeId) {
       document.getElementById('cinemaModalTitle').textContent = title;
       document.getElementById('cinemaModalDesc').textContent = desc;
-      // Controls hidden and margins cropped to eliminate YouTube branding overlays
-      document.getElementById('cinemaFrame').src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&controls=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1`;
+      // Controls enabled: progress scrubber, timestamps, and fullscreen are interactive
+      document.getElementById('cinemaFrame').src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&fs=1`;
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
     }
