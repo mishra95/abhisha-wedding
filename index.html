@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhisek & Barsha — Our Forever Chapter (#Abhisha)</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            wedding: {
+              cream: '#FDFBF7',
+              ivory: '#F7EFE3',
+              gold: '#C59A4E',
+              goldlight: '#ECD6A8',
+              golddark: '#936F2C',
+              maroon: '#6A1523',
+              rose: '#D97D84',
+              charcoal: '#23201D',
+              cardbg: '#FFFFFF'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            script: ['"Pinyon Script"', 'cursive'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #A27932 0%, #D4AF37 50%, #8C6524 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border: 1px solid rgba(197, 154, 78, 0.28);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #C59A4E;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-wedding-cream text-wedding-charcoal font-sans antialiased overflow-x-hidden selection:bg-wedding-gold selection:text-white">
+
+  <!-- Floating Audio & Quick Controls -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-13 h-13 rounded-full bg-wedding-maroon text-wedding-gold shadow-2xl flex items-center justify-center border-2 border-wedding-gold hover:scale-110 transition-transform duration-300" title="Play Ambient Music">
+      <i id="audioIcon" class="fa-solid fa-music text-lg"></i>
+    </button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-40 bg-wedding-cream/90 backdrop-blur-md border-b border-wedding-gold/20 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="font-script text-3xl md:text-4xl gold-gradient-text">Abhisek & Barsha</span>
+        <span class="text-xs tracking-widest text-wedding-gold uppercase font-medium hidden sm:inline-block">#Abhisha</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-xs uppercase tracking-widest font-medium">
+        <a href="#events" class="hover:text-wedding-gold transition">Events</a>
+        <a href="#route" class="hover:text-wedding-gold transition">Baraat Route</a>
+        <a href="#traditions" class="hover:text-wedding-gold transition">Odia Traditions</a>
+        <a href="#memories" class="hover:text-wedding-gold transition">Memories</a>
+        <a href="#anniversary" class="hover:text-wedding-gold transition">Anniversary</a>
+        <a href="#wishes" class="hover:text-wedding-gold transition">Blessings</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="shareWebsite()" class="px-4 py-2 rounded-full border border-wedding-gold/40 text-xs tracking-wider uppercase hover:bg-wedding-gold hover:text-white transition flex items-center gap-2">
+          <i class="fa-solid fa-share-nodes"></i> <span class="hidden sm:inline">Share</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="min-h-screen pt-28 pb-16 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto z-10">
+      <p class="font-script text-3xl md:text-5xl text-wedding-gold mb-3">Our Forever Chapter</p>
+      <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl font-normal tracking-wide uppercase mb-4 gold-gradient-text">
+        Abhisek <span class="font-script lowercase text-4xl sm:text-6xl text-wedding-maroon">&</span> Barsha
+      </h1>
+      <p class="text-xs sm:text-sm tracking-[0.3em] uppercase text-stone-600 mb-8">
+        United in Matrimony on 22nd January 2025 • Cuttack & Gopalpur, Odisha
+      </p>
+
+      <!-- Live Married Counter -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-4 sm:gap-6 bg-white/80 backdrop-blur-md px-6 sm:px-10 py-5 rounded-2xl gold-border shadow-lg mb-8">
+        <div>
+          <span id="counterDays" class="block font-serif text-3xl sm:text-4xl text-wedding-maroon font-semibold">--</span>
+          <span class="text-[10px] tracking-widest uppercase text-stone-500">Days</span>
+        </div>
+        <span class="text-wedding-gold font-serif text-2xl">•</span>
+        <div>
+          <span id="counterHours" class="block font-serif text-3xl sm:text-4xl text-wedding-maroon font-semibold">--</span>
+          <span class="text-[10px] tracking-widest uppercase text-stone-500">Hours</span>
+        </div>
+        <span class="text-wedding-gold font-serif text-2xl">•</span>
+        <div>
+          <span id="counterMinutes" class="block font-serif text-3xl sm:text-4xl text-wedding-maroon font-semibold">--</span>
+          <span class="text-[10px] tracking-widest uppercase text-stone-500">Minutes</span>
+        </div>
+        <span class="text-wedding-gold font-serif text-2xl">•</span>
+        <div>
+          <span id="counterSeconds" class="block font-serif text-3xl sm:text-4xl text-wedding-maroon font-semibold">--</span>
+          <span class="text-[10px] tracking-widest uppercase text-stone-500">Seconds</span>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-2 text-xs font-medium text-wedding-golddark">
+        <span class="px-3 py-1 rounded-full bg-wedding-gold/10">#Abhisha</span>
+        <span class="px-3 py-1 rounded-full bg-wedding-gold/10">#ForeverBegins</span>
+        <span class="px-3 py-1 rounded-full bg-wedding-gold/10">#AbhiKiBarsha</span>
+        <span class="px-3 py-1 rounded-full bg-wedding-gold/10">#OdiaWeddingDiaries</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Event Itinerary Section -->
+  <section id="events" class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-wedding-gold block mb-2">Sacred Milestone Timeline</span>
+      <h2 class="font-serif text-4xl sm:text-5xl gold-gradient-text">Wedding Ceremonies</h2>
+      <div class="w-16 h-0.5 bg-wedding-gold mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Nirbandha -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">Pre-Wedding Ritual</span>
+            <span class="text-xs bg-amber-50 text-amber-800 px-3 py-1 rounded-full border border-amber-200">Sunday • 12 May 2024</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-charcoal mb-2">Nirbandha Ceremony</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            The auspicious Odia formal engagement and commitment ritual blessed by our families, formalizing the union according to sacred traditions.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
+          <span><i class="fa-solid fa-sparkles text-wedding-gold mr-1"></i> Details pending update</span>
+        </div>
+      </div>
+
+      <!-- Ring Ceremony -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">Ring Exchange 💍</span>
+            <span class="text-xs bg-stone-50 text-stone-700 px-3 py-1 rounded-full border border-stone-200">Wednesday • 18 Dec 2024</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-charcoal mb-2">Ring Ceremony</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            Time: Around 12:00 PM<br>
+            Venue: Hotel 7 Saat, F/19 & F24, Near Infocity, Sailashree Vihar, Patia, Bhubaneswar
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-wedding-gold mr-1"></i> 12:00 PM</span>
+          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-wedding-maroon hover:text-wedding-gold font-medium flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Haldi & Mehendi -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">Festive Colors 🌼🌸</span>
+            <span class="text-xs bg-amber-50 text-amber-900 px-3 py-1 rounded-full border border-amber-200">Monday • 20 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-charcoal mb-2">Haldi & Mehendi Ceremony</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            <strong>Haldi:</strong> 10:05 AM &nbsp;|&nbsp; <strong>Mehendi:</strong> 12:05 PM<br>
+            Venue: Our Residence — House No-01, At-Tarini Vihar, Po-Bidanasi, Cuttack, Odisha
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-wedding-gold mr-1"></i> 10:05 AM onwards</span>
+          <a href="https://goo.gl/maps/qPSfxadtvwqjARMx7" target="_blank" class="text-xs text-wedding-maroon hover:text-wedding-gold font-medium flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Marriage Ceremony -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between border-2 border-wedding-gold/40">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-bold">The Big Day 🌸</span>
+            <span class="text-xs bg-red-50 text-red-900 px-3 py-1 rounded-full border border-red-200">Wednesday • 22 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-maroon mb-2">Marriage Ceremony</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            <strong>Baraat Departure:</strong> 7:05 AM (Tarini Vihar, Bidanasi, Cuttack)<br>
+            <strong>Baraat Halt:</strong> Hotel Aditya Inn, Gopalpur, Buxipalli<br>
+            <strong>Marriage Mandap:</strong> OTDC Panthanivas, Gopalpur, Buxipalli, Odisha
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-solid fa-car text-wedding-gold mr-1"></i> Departure: 7:05 AM</span>
+          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="text-xs text-wedding-maroon hover:text-wedding-gold font-semibold flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> Mandap Location
+          </a>
+        </div>
+      </div>
+
+      <!-- Reception -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">Grand Celebration ✨</span>
+            <span class="text-xs bg-stone-50 text-stone-700 px-3 py-1 rounded-full border border-stone-200">Wednesday • 29 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-charcoal mb-2">Grand Reception</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            Time: 7:00 PM onwards<br>
+            Venue: JBS Garden, Near TV Centre, Hindolkothi Road, Tulsipur, Cuttack - 753014
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-wedding-gold mr-1"></i> 7:00 PM Onwards</span>
+          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-wedding-maroon hover:text-wedding-gold font-medium flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- 1st Anniversary -->
+      <div class="bg-white rounded-2xl p-8 gold-border shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">Milestone 💍✨</span>
+            <span class="text-xs bg-purple-50 text-purple-900 px-3 py-1 rounded-full border border-purple-200">Sunday • 1 Mar 2026</span>
+          </div>
+          <h3 class="font-serif text-3xl text-wedding-charcoal mb-2">1st Anniversary Celebration</h3>
+          <p class="text-stone-600 text-sm mb-4 leading-relaxed">
+            Time: Around 12:00 PM<br>
+            Venue: Hotel 7 Saat, F/19 & F24, Near Infocity, Sailashree Vihar, Patia, Bhubaneswar
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-wedding-gold mr-1"></i> 12:00 PM</span>
+          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-wedding-maroon hover:text-wedding-gold font-medium flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Baraat Travel Route Section -->
+  <section id="route" class="py-20 bg-wedding-ivory/50 border-y border-wedding-gold/20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.3em] text-wedding-gold block mb-2">Road to Gopalpur-on-Sea</span>
+        <h2 class="font-serif text-4xl gold-gradient-text">The Baraat Journey</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <div class="bg-white p-6 rounded-2xl gold-border shadow-sm text-center">
+          <div class="w-12 h-12 rounded-full bg-wedding-maroon text-wedding-gold mx-auto flex items-center justify-center text-lg mb-4">1</div>
+          <h4 class="font-serif text-xl mb-1">Departure Point</h4>
+          <p class="text-xs text-stone-500 mb-2">7:05 AM • 22 Jan 2025</p>
+          <p class="text-sm text-stone-700">Tarini Vihar, Bidanasi, Cuttack</p>
+          <a href="https://goo.gl/maps/dzH9qaRfEZLwQax66" target="_blank" class="inline-block mt-3 text-xs text-wedding-gold font-semibold underline">Open Map</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl gold-border shadow-sm text-center">
+          <div class="w-12 h-12 rounded-full bg-wedding-gold text-white mx-auto flex items-center justify-center text-lg mb-4">2</div>
+          <h4 class="font-serif text-xl mb-1">Baraat Halt</h4>
+          <p class="text-xs text-stone-500 mb-2">Highway Rest & Prep</p>
+          <p class="text-sm text-stone-700">Hotel Aditya Inn, Gopalpur, Buxipalli</p>
+          <a href="https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8" target="_blank" class="inline-block mt-3 text-xs text-wedding-gold font-semibold underline">Open Map</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl gold-border shadow-sm text-center">
+          <div class="w-12 h-12 rounded-full bg-wedding-maroon text-wedding-gold mx-auto flex items-center justify-center text-lg mb-4">3</div>
+          <h4 class="font-serif text-xl mb-1">Wedding Mandap</h4>
+          <p class="text-xs text-stone-500 mb-2">Sacred Pheras by the Sea</p>
+          <p class="text-sm text-stone-700">OTDC Panthanivas, Gopalpur</p>
+          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="inline-block mt-3 text-xs text-wedding-gold font-semibold underline">Open Map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Odia Traditions Guide -->
+  <section id="traditions" class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-wedding-gold block mb-2">Cultural Heritage</span>
+      <h2 class="font-serif text-4xl sm:text-5xl gold-gradient-text">Odia Wedding Traditions</h2>
+      <div class="w-16 h-0.5 bg-wedding-gold mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Nirbandha</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The sacred formal engagement where families exchange holy vows and betel nuts (Gua), seeking divine blessings.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Baraat (Baran)</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The joyous arrival of the groom and his family, welcomed at the entrance with a traditional aarti by the bride's mother.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Hastaganthi</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The knotting of hands over sacred grass and betel leaves, symbolizing an inseparable spiritual bond of love.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Saptapadi</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The seven sacred steps around the holy fire, solemnizing lifelong companionship, health, fidelity, and happiness.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Sala Bidha</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">A fun, playful Odia tradition where the bride's brother playfully taps the groom's back before gifts are exchanged.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <h4 class="font-serif text-2xl text-wedding-maroon mb-2">Griha Pravesh</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The auspicious welcoming of the new bride into the groom's home with an overturned pot of rice symbolizing abundance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Album Gallery -->
+  <section id="memories" class="py-24 bg-wedding-ivory/30 border-t border-wedding-gold/20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.3em] text-wedding-gold block mb-2">Gallery & Keepsakes</span>
+        <h2 class="font-serif text-4xl sm:text-5xl gold-gradient-text">Moments in Time</h2>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <button onclick="filterGallery('all')" class="gallery-tab-btn px-5 py-2 rounded-full text-xs uppercase tracking-wider bg-wedding-maroon text-white font-medium">All</button>
+        <button onclick="filterGallery('ring')" class="gallery-tab-btn px-5 py-2 rounded-full text-xs uppercase tracking-wider bg-white gold-border text-stone-700 font-medium">Ring Ceremony</button>
+        <button onclick="filterGallery('haldi')" class="gallery-tab-btn px-5 py-2 rounded-full text-xs uppercase tracking-wider bg-white gold-border text-stone-700 font-medium">Haldi & Mehendi</button>
+        <button onclick="filterGallery('marriage')" class="gallery-tab-btn px-5 py-2 rounded-full text-xs uppercase tracking-wider bg-white gold-border text-stone-700 font-medium">Marriage (Gopalpur)</button>
+        <button onclick="filterGallery('reception')" class="gallery-tab-btn px-5 py-2 rounded-full text-xs uppercase tracking-wider bg-white gold-border text-stone-700 font-medium">Reception (Cuttack)</button>
+      </div>
+
+      <!-- Sample Gallery Grid (Ready for your photos) -->
+      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded-2xl gold-border shadow-sm text-center flex flex-col items-center justify-center min-h-[220px]">
+          <i class="fa-solid fa-camera text-4xl text-wedding-gold/60 mb-3"></i>
+          <h4 class="font-serif text-xl mb-1">Your Photos Arriving Soon</h4>
+          <p class="text-xs text-stone-500">Links for the 100 GB collection are queued on the master checklist.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest Blessings & Wishes -->
+  <section id="wishes" class="py-24 px-6 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-[0.3em] text-wedding-gold block mb-2">Blessings Wall</span>
+      <h2 class="font-serif text-4xl sm:text-5xl gold-gradient-text">Warm Wishes</h2>
+    </div>
+
+    <!-- Add Wish Form -->
+    <div class="bg-white p-8 rounded-2xl gold-border shadow-md mb-12">
+      <h3 class="font-serif text-2xl mb-4 text-center">Leave a Blessing for Abhisek & Barsha</h3>
+      <form id="wishForm" onsubmit="submitWish(event)" class="space-y-4">
+        <div>
+          <input type="text" id="wishName" placeholder="Your Name & Relation (e.g., Uncle, Friend)" required class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-wedding-gold">
+        </div>
+        <div>
+          <textarea id="wishMessage" rows="3" placeholder="Write your heartfelt blessing..." required class="w-full px-4 py-3 rounded-xl border border-stone-200 text-sm focus:outline-none focus:border-wedding-gold"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 bg-wedding-maroon text-white font-medium text-xs uppercase tracking-widest rounded-xl hover:bg-stone-900 transition">
+          Post Blessing
+        </button>
+      </form>
+    </div>
+
+    <div id="wishesContainer" class="space-y-4">
+      <!-- Default Wish -->
+      <div class="bg-white p-6 rounded-2xl gold-border">
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-serif text-lg font-semibold text-wedding-maroon">Mishra Family</span>
+          <span class="text-xs text-stone-400">22 Jan 2025</span>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">May Lord Jagannath bless Abhisek and Barsha with eternal happiness, prosperity, and endless laughter throughout life!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-wedding-charcoal text-white text-center text-xs tracking-wider border-t border-wedding-gold/30">
+    <p class="font-script text-4xl text-wedding-gold mb-2">Abhisek & Barsha</p>
+    <p class="text-stone-400 uppercase text-[10px] tracking-[0.2em] mb-4">#Abhisha • #ForeverBegins</p>
+    <p class="text-stone-500">Handcrafted with love for our wedding celebration.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Live married timer since 22 Jan 2025 (7:05 AM departure)
+    const weddingDate = new Date('2025-01-22T07:05:00+05:30').getTime();
+
+    function updateMarriedCounter() {
+      const now = new Date().getTime();
+      const diff = now - weddingDate;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('counterDays').textContent = days;
+        document.getElementById('counterHours').textContent = hours;
+        document.getElementById('counterMinutes').textContent = minutes;
+        document.getElementById('counterSeconds').textContent = seconds;
+      }
+    }
+    setInterval(updateMarriedCounter, 1000);
+    updateMarriedCounter();
+
+    // Guest Wishes Local Storage
+    function loadSavedWishes() {
+      const container = document.getElementById('wishesContainer');
+      const saved = JSON.parse(localStorage.getItem('abhisha_wishes') || '[]');
+      saved.forEach(w => {
+        const div = document.createElement('div');
+        div.className = 'bg-white p-6 rounded-2xl gold-border';
+        div.innerHTML = `
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-serif text-lg font-semibold text-wedding-maroon">${w.name}</span>
+            <span class="text-xs text-stone-400">${w.date}</span>
+          </div>
+          <p class="text-sm text-stone-600 leading-relaxed">${w.msg}</p>
+        `;
+        container.prepend(div);
+      });
+    }
+
+    function submitWish(e) {
+      e.preventDefault();
+      const name = document.getElementById('wishName').value.trim();
+      const msg = document.getElementById('wishMessage').value.trim();
+      if (!name || !msg) return;
+
+      const newWish = {
+        name: name,
+        msg: msg,
+        date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+      };
+
+      const saved = JSON.parse(localStorage.getItem('abhisha_wishes') || '[]');
+      saved.push(newWish);
+      localStorage.setItem('abhisha_wishes', JSON.stringify(saved));
+
+      const container = document.getElementById('wishesContainer');
+      const div = document.createElement('div');
+      div.className = 'bg-white p-6 rounded-2xl gold-border';
+      div.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-serif text-lg font-semibold text-wedding-maroon">${newWish.name}</span>
+          <span class="text-xs text-stone-400">${newWish.date}</span>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">${newWish.msg}</p>
+      `;
+      container.prepend(div);
+
+      document.getElementById('wishForm').reset();
+    }
+    loadSavedWishes();
+
+    // Simple Web Audio Tone Generator for Ambient Wedding Harp Melodies
+    let audioCtx = null;
+    let isPlaying = false;
+    let noteTimer = null;
+
+    function toggleAudio() {
+      const icon = document.getElementById('audioIcon');
+      if (!isPlaying) {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        playChords();
+        isPlaying = true;
+        icon.className = 'fa-solid fa-volume-high text-lg';
+      } else {
+        clearInterval(noteTimer);
+        isPlaying = false;
+        icon.className = 'fa-solid fa-music text-lg';
+      }
+    }
+
+    function playChords() {
+      const notes = [261.63, 329.63, 392.00, 523.25, 440.00, 349.23, 293.66, 392.00];
+      let i = 0;
+      noteTimer = setInterval(() => {
+        if (!audioCtx || !isPlaying) return;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(notes[i % notes.length], audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.8);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.8);
+        i++;
+      }, 700);
+    }
+
+    function shareWebsite() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Abhisek & Barsha Wedding Celebration',
+          text: 'Explore photos, ceremonies, and memories of Abhisek & Barsha (#Abhisha)',
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Website link copied to clipboard!');
+      }
+    }
+  </script>
+</body>
+</html>
