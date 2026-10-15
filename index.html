@@ -105,7 +105,6 @@
       pointer-events: none;
       z-index: 25;
     }
-    /* Custom Range Scrubber Styling */
     input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
       height: 14px;
@@ -1072,13 +1071,11 @@
       const creatorFrame = document.getElementById('creatorFrame');
 
       if (isOwner) {
-        // Creator Mode: Open standard YouTube embed with full creator settings
         visitorWrap.classList.add('hidden');
         controlsBar.classList.add('hidden');
         creatorFrame.classList.remove('hidden');
         creatorFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0`;
       } else {
-        // Visitor Mode: Custom HTML5 controls, zero YouTube leaks
         creatorFrame.classList.add('hidden');
         creatorFrame.src = "";
         visitorWrap.classList.remove('hidden');
@@ -1087,7 +1084,6 @@
         if (window.YT && window.YT.Player) {
           initVisitorPlayer(youtubeId);
         } else {
-          // Poll if API is still loading
           const checkAPI = setInterval(() => {
             if (window.YT && window.YT.Player) {
               clearInterval(checkAPI);
