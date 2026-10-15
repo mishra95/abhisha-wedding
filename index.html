@@ -743,12 +743,25 @@
     </div>
   </section>
 
-  <!-- Interactive 4K Cinema Modal -->
+  <!-- LOCKED-DOWN 4K CINEMA MODAL (METHOD-A: SANDBOXED & SHIELDED) -->
   <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
-    <button onclick="closeCinemaModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold"><i class="fa-solid fa-xmark"></i></button>
+    <button onclick="closeCinemaModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
     <div class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205]">
-      <div class="aspect-video w-full bg-black">
-        <iframe id="cinemaFrame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="aspect-video w-full bg-black relative">
+        <!-- Shield 1: Covers top title & channel avatar from external clicks -->
+        <div class="absolute top-0 left-0 w-full h-16 z-30 pointer-events-auto"></div>
+        
+        <!-- Shield 2: Covers bottom-right YouTube logo from opening new tab -->
+        <div class="absolute bottom-0 right-0 w-36 h-14 z-30 pointer-events-auto"></div>
+
+        <!-- Sandboxed iframe: blocks popups and external navigation -->
+        <iframe id="cinemaFrame" class="w-full h-full relative z-10" src="" frameborder="0" 
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
       </div>
       <div class="p-6 bg-[#180509] flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-royal-gold/20">
         <div>
@@ -756,7 +769,7 @@
           <p id="cinemaModalDesc" class="text-xs text-stone-400 mt-1">Film synopsis and ceremonial details.</p>
         </div>
         <div class="flex items-center gap-3">
-          <span class="text-xs text-stone-400 uppercase tracking-widest"><i class="fa-solid fa-shield-halved text-royal-gold mr-1"></i> 4K Adaptive Zero-Buffer</span>
+          <span class="text-xs text-stone-400 uppercase tracking-widest"><i class="fa-solid fa-shield-halved text-royal-gold mr-1"></i> Private Cinema Stream</span>
         </div>
       </div>
     </div>
@@ -875,7 +888,7 @@
     function launchCinema(title, desc, youtubeId) {
       document.getElementById('cinemaModalTitle').textContent = title;
       document.getElementById('cinemaModalDesc').textContent = desc;
-      document.getElementById('cinemaFrame').src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`;
+      document.getElementById('cinemaFrame').src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
     }
