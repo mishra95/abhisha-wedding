@@ -7,7 +7,7 @@
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
   
   <!-- FontAwesome -->
@@ -125,7 +125,7 @@
   </style>
 </head>
 
-<body class="bg-royal-cream text-royal-charcoal font-sans antialiased selection:bg-royal-gold selection:text-royal-deepmaroon relative">
+<body id="top" class="bg-royal-cream text-royal-charcoal font-sans antialiased selection:bg-royal-gold selection:text-royal-deepmaroon relative">
 
   <canvas id="petalCanvas"></canvas>
 
@@ -138,21 +138,23 @@
     </button>
   </div>
 
+  <!-- NAVIGATION BAR (Exact chronological flow) -->
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/85 backdrop-blur-md border-b border-royal-gold/30 transition-all">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
-      <div class="flex items-center gap-3">
-        <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider">A&B</span>
+      <!-- 1st Circle: Clicking here returns to the top / home of the site -->
+      <a href="#top" class="flex items-center gap-3 group cursor-pointer">
+        <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider group-hover:scale-105 group-hover:border-royal-gold transition-transform">A&B</span>
         <div class="text-left">
-          <span class="block font-cinzel text-sm sm:text-base tracking-widest text-royal-goldlight font-bold">ABHISEK & BARSHA</span>
+          <span class="block font-cinzel text-sm sm:text-base tracking-widest text-royal-goldlight font-bold group-hover:text-white transition-colors">ABHISEK & BARSHA</span>
           <span class="block text-[9px] tracking-[0.25em] text-stone-300 uppercase">22 January 2025 • #Abhisha</span>
         </div>
-      </div>
-      <div class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-200">
+      </a>
+      <div class="hidden lg:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-200">
         <a href="#events" class="hover:text-royal-gold transition">Ceremonies</a>
         <a href="#journey" class="hover:text-royal-gold transition">Baraat Route</a>
-        <a href="#cinema" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Cinema Hub</a>
         <a href="#culture" class="hover:text-royal-gold transition">Odia Traditions</a>
         <a href="#gallery" class="hover:text-royal-gold transition">Albums</a>
+        <a href="#cinema" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Cinema Hub</a>
         <a href="#anniversary" class="hover:text-royal-gold transition">Anniversary</a>
         <a href="#blessings" class="hover:text-royal-gold transition">Wishes</a>
       </div>
@@ -164,6 +166,7 @@
     </div>
   </nav>
 
+  <!-- HERO SECTION -->
   <header class="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
     <div class="hero-cinematic-bg"></div>
     <div class="hero-vignette-overlay"></div>
@@ -223,7 +226,279 @@
     </div>
   </header>
 
-  <!-- THE ROYAL CINEMA LOUNGE -->
+  <!-- 1. CEREMONIES ITINERARY -->
+  <section id="events" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Timetable</span>
+      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">The Wedding Ceremonies</h2>
+      <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Nirbandha -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Sacred Ritual</span>
+            <span class="text-xs font-semibold text-royal-velvet">Sun, 12 May 2024</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Nirbandha Ceremony</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            The traditional Odia formal engagement and exchange of auspicious betel nut (Gua) and blessings that marked the beginning of our union.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between text-xs text-stone-500">
+          <span><i class="fa-solid fa-feather text-royal-gold mr-1"></i> Pre-wedding milestone</span>
+        </div>
+      </div>
+
+      <!-- Ring Ceremony -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Ring Exchange 💍</span>
+            <span class="text-xs font-semibold text-royal-velvet">Wed, 18 Dec 2024</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Ring Ceremony</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Around 12:00 PM<br>
+            <strong>Hotel 7 Saat</strong>, Near Infocity, Sailashree Vihar, Patia, Bhubaneswar
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM</span>
+          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- Haldi & Mehendi -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Vibrant Colors 🌼🌸</span>
+            <span class="text-xs font-semibold text-royal-velvet">Mon, 20 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Haldi & Mehendi</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            <strong>Haldi:</strong> 10:05 AM &bull; <strong>Mehendi:</strong> 12:05 PM<br>
+            House No-01, Tarini Vihar, Bidanasi, Cuttack
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:05 AM Onward</span>
+          <a href="https://goo.gl/maps/qPSfxadtvwqjARMx7" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- Marriage Ceremony -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between border-2 border-royal-gold hover:-translate-y-1.5 transition-transform duration-300 shadow-xl bg-gradient-to-br from-white via-royal-cream to-amber-50/40">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-royal-cardinal px-3 py-1 rounded-full">The Sacred Day 🌸</span>
+            <span class="text-xs font-bold text-royal-cardinal">Wed, 22 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-cardinal mb-2">Marriage Mandap</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            <strong>Baraat Departure:</strong> 7:05 AM (Cuttack Residence)<br>
+            <strong>Mandap Venue:</strong> OTDC Panthanivas, Gopalpur-on-Sea, Buxipalli
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-solid fa-car text-royal-gold mr-1"></i> 7:05 AM Departure</span>
+          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> View Mandap
+          </a>
+        </div>
+      </div>
+
+      <!-- Grand Reception -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Celebration ✨</span>
+            <span class="text-xs font-semibold text-royal-velvet">Wed, 29 Jan 2025</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Grand Reception</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            7:00 PM onwards<br>
+            <strong>JBS Garden</strong>, Near TV Centre, Hindolkothi Road, Tulsipur, Cuttack
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM</span>
+          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
+            <i class="fa-solid fa-location-dot"></i> Directions
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Preview Card to Milestone -->
+      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300 border border-purple-300 bg-purple-50/20">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] uppercase tracking-widest font-bold text-purple-900 bg-purple-100 px-3 py-1 rounded-full">First Anniversary 🥂</span>
+            <span class="text-xs font-semibold text-royal-velvet">Sun, 1 Mar 2026</span>
+          </div>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary</h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Around 12:00 PM<br>
+            <strong>Hotel 7 Saat</strong>, Sailashree Vihar, Patia, Bhubaneswar
+          </p>
+        </div>
+        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM</span>
+          <a href="#anniversary" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
+            <i class="fa-solid fa-arrow-down"></i> View Full Section
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2. BARAAT ROUTE JOURNEY -->
+  <section id="journey" class="py-28 relative z-30 overflow-hidden text-white border-y border-royal-gold/30">
+    <div class="baraat-cinematic-bg"></div>
+    <div class="baraat-vignette-overlay"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <span class="text-xs uppercase tracking-[0.35em] text-royal-goldlight font-semibold block mb-2 drop-shadow">The Scenic Route</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl text-white font-extrabold drop-shadow-2xl">The Baraat Road Journey</h2>
+        <p class="text-sm text-stone-300 mt-3 max-w-lg mx-auto leading-relaxed">
+          Traversing from Tarini Vihar, Cuttack through the coastal plains down to Gopalpur-on-Sea
+        </p>
+        <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full shadow-lg"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-16 h-16 rounded-full bg-royal-cardinal text-royal-goldlight mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">1</div>
+          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Departure Point</h4>
+          <p class="text-xs font-bold text-royal-cardinal mb-3">7:05 AM • 22 Jan 2025</p>
+          <p class="text-sm text-stone-600 mb-6 leading-relaxed">House No-01, Tarini Vihar, Bidanasi, Cuttack</p>
+          <a href="https://goo.gl/maps/dzH9qaRfEZLwQax66" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
+            <i class="fa-solid fa-location-arrow"></i> Google Maps
+          </a>
+        </div>
+
+        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">2</div>
+          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Highway Halt</h4>
+          <p class="text-xs font-bold text-royal-golddark mb-3">Rest & Procession Prep</p>
+          <p class="text-sm text-stone-600 mb-6 leading-relaxed">Hotel Aditya Inn, Gopalpur, Buxipalli</p>
+          <a href="https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition">
+            <i class="fa-solid fa-location-arrow"></i> Google Maps
+          </a>
+        </div>
+
+        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="w-16 h-16 rounded-full bg-royal-deepmaroon text-royal-goldlight mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">3</div>
+          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Wedding Mandap</h4>
+          <p class="text-xs font-bold text-royal-cardinal mb-3">Sacred Pheras by the Sea</p>
+          <p class="text-sm text-stone-600 mb-6 leading-relaxed">OTDC Panthanivas, Gopalpur-on-Sea</p>
+          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
+            <i class="fa-solid fa-location-arrow"></i> Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ODIA TRADITIONS -->
+  <section id="culture" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Heritage</span>
+      <h2 class="font-cinzel text-3xl sm:text-5xl text-royal-cardinal font-bold">Odia Wedding Traditions</h2>
+      <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Nirbandha</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The commitment ceremony where families exchange auspicious betel nuts (Gua) and coconuts, officially formalizing the wedding alliance.</p>
+      </div>
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Baran & Aarti</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The grand welcome of the groom. The bride's mother performs aarti, blessing him before entering the sacred mandap.</p>
+      </div>
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Hastaganthi</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The holy knotting of the couple's hands draped in cloth with betel leaves and mango twigs, blessed by sacred chants.</p>
+      </div>
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Saptapadi</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">Seven sacred circumambulations around the sacred fire (Agni Devata), symbolizing eternal nourishment, strength, and companionship.</p>
+      </div>
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Sala Bidha</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">An affectionate and lighthearted tradition where the brother-in-law playfully gives a gentle punch on the groom's back before gifts are exchanged.</p>
+      </div>
+      <div class="velvet-card p-7 rounded-2xl">
+        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Bahugora / Griha Pravesh</h4>
+        <p class="text-stone-600 text-sm leading-relaxed">The grand entrance of the new bride into the groom's household, gently overturning a measuring pot of rice symbolizing prosperity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ALBUMS & PHOTO GALLERY -->
+  <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Visual Keepsakes</span>
+      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">Captured Moments</h2>
+      <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+      <button onclick="filterGallery('all')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-royal-cardinal text-white font-semibold shadow">All Moments</button>
+      <button onclick="filterGallery('ring')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Ring Ceremony</button>
+      <button onclick="filterGallery('haldi')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Haldi & Mehendi</button>
+      <button onclick="filterGallery('wedding')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Wedding Mandap</button>
+      <button onclick="filterGallery('reception')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Grand Reception</button>
+    </div>
+
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Sacred Vows')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h5 class="font-serif text-lg font-bold text-royal-cardinal">Sacred Vows</h5>
+          <p class="text-xs text-stone-500">OTDC Panthanivas, Gopalpur</p>
+        </div>
+      </div>
+
+      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'The Golden Rings')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h5 class="font-serif text-lg font-bold text-royal-cardinal">The Golden Rings</h5>
+          <p class="text-xs text-stone-500">Hotel 7 Saat, Bhubaneswar</p>
+        </div>
+      </div>
+
+      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80', 'Joy of Mehendi')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Mehendi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <div class="p-4 text-center">
+          <h5 class="font-serif text-lg font-bold text-royal-cardinal">Joy of Mehendi</h5>
+          <p class="text-xs text-stone-500">Tarini Vihar, Cuttack</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CINEMA HUB (Now ordered cleanly after Albums) -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-14">
@@ -459,279 +734,62 @@
     </div>
   </section>
 
-  <!-- Ceremonies Itinerary -->
-  <section id="events" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
+  <!-- 6. DEDICATED ANNIVERSARY CELEBRATION SECTION -->
+  <section id="anniversary" class="py-28 px-6 max-w-7xl mx-auto relative z-30">
     <div class="text-center mb-16">
-      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Timetable</span>
-      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">The Wedding Ceremonies</h2>
+      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Milestone Reunion</span>
+      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">1st Wedding Anniversary</h2>
+      <p class="text-stone-600 text-sm max-w-xl mx-auto mt-3">
+        Celebrating 365 days of sacred vows, continuous laughter, and togetherness surrounded by family and close friends.
+      </p>
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Nirbandha -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+    <div class="max-w-4xl mx-auto velvet-card rounded-3xl p-8 sm:p-12 border-2 border-royal-gold/40 shadow-2xl relative overflow-hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Sacred Ritual</span>
-            <span class="text-xs font-semibold text-royal-velvet">Sun, 12 May 2024</span>
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Nirbandha Ceremony</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            The traditional Odia formal engagement and exchange of auspicious betel nut (Gua) and blessings that marked the beginning of our union.
+          <span class="px-4 py-1.5 rounded-full bg-purple-100 text-purple-900 text-xs font-bold uppercase tracking-widest mb-4 inline-block">
+            Special Milestone Event 🥂
+          </span>
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold text-royal-charcoal mb-4">
+            Sunday, 1st March 2026
+          </h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            Join us for an auspicious afternoon celebration featuring traditional Odia delicacies, cherished wedding highlights, and family blessings.
           </p>
-        </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between text-xs text-stone-500">
-          <span><i class="fa-solid fa-feather text-royal-gold mr-1"></i> Pre-wedding milestone</span>
-        </div>
-      </div>
 
-      <!-- Ring Ceremony -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Ring Exchange 💍</span>
-            <span class="text-xs font-semibold text-royal-velvet">Wed, 18 Dec 2024</span>
+          <div class="space-y-3 text-xs sm:text-sm text-stone-700">
+            <div class="flex items-center gap-3">
+              <i class="fa-regular fa-clock text-royal-gold text-base w-5"></i>
+              <span><strong>Time:</strong> Around 12:00 PM Onward</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-royal-cardinal text-base w-5 mt-0.5"></i>
+              <span><strong>Venue:</strong> Hotel 7 Saat, Near Infocity, Sailashree Vihar, Patia, Bhubaneswar, Odisha</span>
+            </div>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Ring Ceremony</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            Around 12:00 PM<br>
-            <strong>Hotel 7 Saat</strong>, Near Infocity, Sailashree Vihar, Patia, Bhubaneswar
-          </p>
-        </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM</span>
-          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
-        </div>
-      </div>
 
-      <!-- Haldi & Mehendi -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Vibrant Colors 🌼🌸</span>
-            <span class="text-xs font-semibold text-royal-velvet">Mon, 20 Jan 2025</span>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
+              <i class="fa-solid fa-location-arrow"></i> Get Directions
+            </a>
+            <a href="#blessings" class="px-6 py-2.5 rounded-full bg-white border border-royal-gold/50 text-royal-charcoal font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-gold/10 transition flex items-center gap-2">
+              <i class="fa-regular fa-heart text-royal-cardinal"></i> Send Warm Wishes
+            </a>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Haldi & Mehendi</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            <strong>Haldi:</strong> 10:05 AM &bull; <strong>Mehendi:</strong> 12:05 PM<br>
-            House No-01, Tarini Vihar, Bidanasi, Cuttack
-          </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:05 AM Onward</span>
-          <a href="https://goo.gl/maps/qPSfxadtvwqjARMx7" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
-        </div>
-      </div>
 
-      <!-- Marriage Ceremony -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between border-2 border-royal-gold hover:-translate-y-1.5 transition-transform duration-300 shadow-xl bg-gradient-to-br from-white via-royal-cream to-amber-50/40">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-royal-cardinal px-3 py-1 rounded-full">The Sacred Day 🌸</span>
-            <span class="text-xs font-bold text-royal-cardinal">Wed, 22 Jan 2025</span>
+        <div class="relative rounded-2xl overflow-hidden aspect-4/3 shadow-xl border border-royal-gold/30">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Anniversary Celebration" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+            <span class="text-white font-script text-3xl">Forever & Always #Abhisha</span>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-cardinal mb-2">Marriage Mandap</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            <strong>Baraat Departure:</strong> 7:05 AM (Cuttack Residence)<br>
-            <strong>Mandap Venue:</strong> OTDC Panthanivas, Gopalpur-on-Sea, Buxipalli
-          </p>
-        </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-          <span class="text-xs text-stone-500"><i class="fa-solid fa-car text-royal-gold mr-1"></i> 7:05 AM Departure</span>
-          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
-            <i class="fa-solid fa-location-dot"></i> View Mandap
-          </a>
-        </div>
-      </div>
-
-      <!-- Grand Reception -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-royal-golddark bg-royal-gold/10 px-3 py-1 rounded-full">Celebration ✨</span>
-            <span class="text-xs font-semibold text-royal-velvet">Wed, 29 Jan 2025</span>
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Grand Reception</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            7:00 PM onwards<br>
-            <strong>JBS Garden</strong>, Near TV Centre, Hindolkothi Road, Tulsipur, Cuttack
-          </p>
-        </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM</span>
-          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
-        </div>
-      </div>
-
-      <!-- 1st Anniversary -->
-      <div id="anniversary" class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
-        <div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-[10px] uppercase tracking-widest font-bold text-purple-900 bg-purple-100 px-3 py-1 rounded-full">First Anniversary 🥂</span>
-            <span class="text-xs font-semibold text-royal-velvet">Sun, 1 Mar 2026</span>
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-4">
-            Around 12:00 PM<br>
-            <strong>Hotel 7 Saat</strong>, Sailashree Vihar, Patia, Bhubaneswar
-          </p>
-        </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
-          <span class="text-xs text-stone-500"><i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM</span>
-          <a href="https://maps.app.goo.gl/y7jMv64iSyGDrzat5" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Baraat Journey Section with Scenic Backdrop & Vignette Overlay -->
-  <section id="journey" class="py-28 relative z-30 overflow-hidden text-white border-y border-royal-gold/30">
-    <div class="baraat-cinematic-bg"></div>
-    <div class="baraat-vignette-overlay"></div>
-
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16">
-        <span class="text-xs uppercase tracking-[0.35em] text-royal-goldlight font-semibold block mb-2 drop-shadow">The Scenic Route</span>
-        <h2 class="font-cinzel text-3xl sm:text-5xl text-white font-extrabold drop-shadow-2xl">The Baraat Road Journey</h2>
-        <p class="text-sm text-stone-300 mt-3 max-w-lg mx-auto leading-relaxed">
-          Traversing from Tarini Vihar, Cuttack through the coastal plains down to Gopalpur-on-Sea
-        </p>
-        <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full shadow-lg"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-16 h-16 rounded-full bg-royal-cardinal text-royal-goldlight mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">1</div>
-          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Departure Point</h4>
-          <p class="text-xs font-bold text-royal-cardinal mb-3">7:05 AM • 22 Jan 2025</p>
-          <p class="text-sm text-stone-600 mb-6 leading-relaxed">House No-01, Tarini Vihar, Bidanasi, Cuttack</p>
-          <a href="https://goo.gl/maps/dzH9qaRfEZLwQax66" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
-            <i class="fa-solid fa-location-arrow"></i> Google Maps
-          </a>
-        </div>
-
-        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">2</div>
-          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Highway Halt</h4>
-          <p class="text-xs font-bold text-royal-golddark mb-3">Rest & Procession Prep</p>
-          <p class="text-sm text-stone-600 mb-6 leading-relaxed">Hotel Aditya Inn, Gopalpur, Buxipalli</p>
-          <a href="https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition">
-            <i class="fa-solid fa-location-arrow"></i> Google Maps
-          </a>
-        </div>
-
-        <div class="velvet-card p-8 rounded-3xl text-center text-royal-charcoal transform hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-16 h-16 rounded-full bg-royal-deepmaroon text-royal-goldlight mx-auto flex items-center justify-center text-2xl font-bold mb-4 shadow-xl border border-royal-gold/40">3</div>
-          <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Wedding Mandap</h4>
-          <p class="text-xs font-bold text-royal-cardinal mb-3">Sacred Pheras by the Sea</p>
-          <p class="text-sm text-stone-600 mb-6 leading-relaxed">OTDC Panthanivas, Gopalpur-on-Sea</p>
-          <a href="https://maps.app.goo.gl/rmDy8AUKA3C5ZnRe8" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
-            <i class="fa-solid fa-location-arrow"></i> Google Maps
-          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Odia Customs Guide -->
-  <section id="culture" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
-    <div class="text-center mb-16">
-      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Heritage</span>
-      <h2 class="font-cinzel text-3xl sm:text-5xl text-royal-cardinal font-bold">Odia Wedding Traditions</h2>
-      <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Nirbandha</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">The commitment ceremony where families exchange auspicious betel nuts (Gua) and coconuts, officially formalizing the wedding alliance.</p>
-      </div>
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Baran & Aarti</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">The grand welcome of the groom. The bride's mother performs aarti, blessing him before entering the sacred mandap.</p>
-      </div>
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Hastaganthi</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">The holy knotting of the couple's hands draped in cloth with betel leaves and mango twigs, blessed by sacred chants.</p>
-      </div>
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Saptapadi</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">Seven sacred circumambulations around the sacred fire (Agni Devata), symbolizing eternal nourishment, strength, and companionship.</p>
-      </div>
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Sala Bidha</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">An affectionate and lighthearted tradition where the brother-in-law playfully gives a gentle punch on the groom's back before gifts are exchanged.</p>
-      </div>
-      <div class="velvet-card p-7 rounded-2xl">
-        <h4 class="font-serif text-2xl font-bold text-royal-cardinal mb-2">Bahugora / Griha Pravesh</h4>
-        <p class="text-stone-600 text-sm leading-relaxed">The grand entrance of the new bride into the groom's household, gently overturning a measuring pot of rice symbolizing prosperity.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Photo Gallery -->
-  <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
-    <div class="text-center mb-14">
-      <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Visual Keepsakes</span>
-      <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">Captured Moments</h2>
-      <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
-    </div>
-
-    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
-      <button onclick="filterGallery('all')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-royal-cardinal text-white font-semibold shadow">All Moments</button>
-      <button onclick="filterGallery('ring')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Ring Ceremony</button>
-      <button onclick="filterGallery('haldi')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Haldi & Mehendi</button>
-      <button onclick="filterGallery('wedding')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Wedding Mandap</button>
-      <button onclick="filterGallery('reception')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Grand Reception</button>
-    </div>
-
-    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Sacred Vows')">
-        <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h5 class="font-serif text-lg font-bold text-royal-cardinal">Sacred Vows</h5>
-          <p class="text-xs text-stone-500">OTDC Panthanivas, Gopalpur</p>
-        </div>
-      </div>
-
-      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'The Golden Rings')">
-        <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h5 class="font-serif text-lg font-bold text-royal-cardinal">The Golden Rings</h5>
-          <p class="text-xs text-stone-500">Hotel 7 Saat, Bhubaneswar</p>
-        </div>
-      </div>
-
-      <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80', 'Joy of Mehendi')">
-        <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Mehendi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-        </div>
-        <div class="p-4 text-center">
-          <h5 class="font-serif text-lg font-bold text-royal-cardinal">Joy of Mehendi</h5>
-          <p class="text-xs text-stone-500">Tarini Vihar, Cuttack</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Guest Wishes Wall -->
+  <!-- 7. GUEST WISHES WALL -->
   <section id="blessings" class="py-24 bg-royal-ivory/40 border-t border-royal-gold/25 relative z-30">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-14">
@@ -771,23 +829,19 @@
     
     <div id="playerContainer" class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205] flex flex-col">
       
-      <!-- Video Frame Area -->
       <div class="aspect-video w-full bg-black relative overflow-hidden select-none">
-        
-        <!-- VISITOR MODE EMBED (Controls=0, cc=0, zero-leak) -->
+        <!-- Visitor Zero-Leak Wrapper -->
         <div id="visitorPlayerWrap" class="w-full h-full relative">
-          <!-- Transparent Interaction Blocker (Prevents right-click and clicking into YouTube) -->
           <div id="videoClickCatcher" class="absolute inset-0 z-20 cursor-pointer" onclick="togglePlayState()"></div>
           <div id="ytPlayerSlot" class="w-full h-full pointer-events-none"></div>
         </div>
 
-        <!-- OWNER / CREATOR NATIVE EMBED (Only shown in Creator Mode) -->
+        <!-- Creator Unlocked Embed -->
         <iframe id="creatorFrame" class="w-full h-full hidden" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
       </div>
       
-      <!-- CUSTOM VISITOR CONTROL BAR (Active in Visitor Mode) -->
+      <!-- Custom Control Bar -->
       <div id="customControlsBar" class="bg-[#180509] px-4 py-3 border-t border-royal-gold/20 flex flex-col gap-2">
-        <!-- Scrubber Progress Bar -->
         <input type="range" id="videoScrubber" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-royal-gold" oninput="onScrub(this.value)">
 
         <div class="flex items-center justify-between text-xs text-stone-300">
@@ -802,7 +856,6 @@
             <button onclick="toggleMute()" id="muteBtn" class="text-stone-400 hover:text-royal-gold transition">
               <i class="fa-solid fa-volume-high"></i>
             </button>
-            <!-- Custom Container Fullscreen Button -->
             <button onclick="toggleContainerFullscreen()" title="Fullscreen" class="text-stone-300 hover:text-royal-gold transition text-sm">
               <i id="fsIcon" class="fa-solid fa-expand"></i>
             </button>
@@ -810,7 +863,7 @@
         </div>
       </div>
 
-      <!-- Modal Footer Info & Admin PIN Trigger -->
+      <!-- Modal Footer -->
       <div class="p-4 sm:p-5 bg-[#120205] border-t border-royal-gold/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h4 id="cinemaModalTitle" class="font-cinzel text-lg sm:text-xl text-royal-goldlight font-bold">Film Title</h4>
@@ -856,7 +909,6 @@
 
   <!-- Scripts -->
   <script>
-    // Live Married Counter
     const weddingTimestamp = new Date('2025-01-22T07:05:00+05:30').getTime();
     function runTimer() {
       const now = new Date().getTime();
@@ -871,7 +923,6 @@
     setInterval(runTimer, 1000);
     runTimer();
 
-    // Floating Petals
     const canvas = document.getElementById('petalCanvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -937,9 +988,7 @@
       });
     }
 
-    // ==========================================
-    // CUSTOM ZERO-LEAK PLAYER ARCHITECTURE
-    // ==========================================
+    // Custom Zero-Leak Player Logic
     let isOwner = localStorage.getItem('abhisha_owner') === 'true' || new URLSearchParams(window.location.search).get('admin') === 'true';
     let ytPlayer = null;
     let currentVideoId = '';
