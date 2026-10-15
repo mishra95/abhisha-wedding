@@ -162,7 +162,7 @@
         <a href="#gallery" class="hover:text-royal-gold transition">Albums</a>
         <a href="#cinema" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Cinema Hub</a>
         <a href="#anniversary" class="hover:text-royal-gold transition">Our Story</a>
-        <a href="#blessings" class="hover:text-royal-gold transition">Wishes</a>
+        <a href="#blessings" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Wishes</a>
       </div>
       <div class="flex items-center gap-3">
         <button onclick="shareLink()" class="px-5 py-2 rounded-full bg-royal-velvet border border-royal-gold/40 text-royal-goldlight text-xs tracking-widest uppercase font-semibold hover:bg-royal-cardinal transition shadow-md flex items-center gap-2">
@@ -734,7 +734,7 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> Play</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser for Ring Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Ring Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
@@ -899,7 +899,7 @@
             </div>
           </div>
 
-          <!-- Action Buttons: Both buttons in identical rich crimson & gold style -->
+          <!-- Action Buttons: Both matching rich crimson & gold buttons -->
           <div class="pt-2 flex flex-wrap gap-4">
             <a href="#gallery" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
               <i class="fa-solid fa-images"></i> Relive Our Albums
@@ -948,12 +948,13 @@
     </div>
   </section>
 
-  <!-- 7. GUEST WISHES WALL -->
+  <!-- 7. GUEST WISHES WALL (CONNECTED TO GOOGLE SHEET WEB APP) -->
   <section id="blessings" class="py-24 bg-royal-ivory/40 border-t border-royal-gold/25 relative z-30">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-14">
         <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Community Blessings</span>
         <h2 class="font-cinzel text-3xl sm:text-5xl text-royal-cardinal font-bold">Wishes & Prayers</h2>
+        <p class="text-xs text-stone-500 mt-2">Every blessing bestowed here is preserved forever as our sacred keepsake.</p>
         <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
       </div>
 
@@ -962,13 +963,15 @@
         <form id="blessingForm" onsubmit="postBlessing(event)" class="space-y-4">
           <input type="text" id="bName" placeholder="Your Name & Family Title" required class="w-full px-5 py-3 rounded-xl border border-royal-gold/30 bg-white/90 text-sm focus:outline-none focus:border-royal-cardinal">
           <textarea id="bMsg" rows="3" placeholder="Share your heartfelt blessing and prayer for the couple..." required class="w-full px-5 py-3 rounded-xl border border-royal-gold/30 bg-white/90 text-sm focus:outline-none focus:border-royal-cardinal"></textarea>
-          <button type="submit" class="w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg">
-            Bestow Blessing
+          <button type="submit" id="submitBlessingBtn" class="w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg flex items-center justify-center gap-2">
+            <span>Bestow Blessing</span> <i class="fa-solid fa-feather"></i>
           </button>
         </form>
       </div>
 
+      <!-- Live Stream Container -->
       <div id="blessingsStream" class="space-y-4">
+        <!-- Default Seed Card -->
         <div class="velvet-card p-6 rounded-2xl">
           <div class="flex items-center justify-between mb-2">
             <span class="font-serif text-lg font-bold text-royal-cardinal">The Mishra Family</span>
@@ -1500,25 +1503,99 @@
       }
     }
 
+    // ==========================================
+    // PERMANENT GOOGLE SHEETS WEB APP INTEGRATION
+    // ==========================================
+    const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxp3Lbxn4KJRPcAmgD8T4JiX0bJHev87geBFeE5iuUWjvRSd_qYosFfPed0yD0138P64g/exec";
+
+    function escapeHtml(string) {
+      return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+          '/': '&#x2F;',
+          '`': '&#x60;',
+          '=': '&#x3D;'
+        })[s];
+      });
+    }
+
+    function renderBlessingCard(name, message, dateStr) {
+      const stream = document.getElementById('blessingsStream');
+      const card = document.createElement('div');
+      card.className = 'velvet-card p-6 rounded-2xl transition-all duration-300';
+      card.innerHTML = `
+        <div class="flex items-center justify-between mb-2">
+          <span class="font-serif text-lg font-bold text-royal-cardinal">${escapeHtml(name)}</span>
+          <span class="text-xs text-stone-400">${escapeHtml(dateStr)}</span>
+        </div>
+        <p class="text-sm text-stone-600 leading-relaxed">${escapeHtml(message)}</p>
+      `;
+      stream.prepend(card);
+    }
+
+    // Loads saved wishes from Google Sheets
+    function fetchSavedBlessings() {
+      fetch(GOOGLE_SHEET_WEBAPP_URL)
+        .then(res => res.json())
+        .then(result => {
+          if (result && result.status === "success" && Array.isArray(result.data)) {
+            result.data.forEach(item => {
+              renderBlessingCard(item.name, item.message, item.date || 'Blessed Moment');
+            });
+          }
+        })
+        .catch(err => {
+          console.warn("Could not retrieve past wishes from Sheet:", err);
+        });
+    }
+
+    // Posts new wishes directly to your Google Sheet Web App
     function postBlessing(e) {
       e.preventDefault();
       const name = document.getElementById('bName').value.trim();
       const msg = document.getElementById('bMsg').value.trim();
       if (!name || !msg) return;
 
-      const card = document.createElement('div');
-      card.className = 'velvet-card p-6 rounded-2xl';
-      card.innerHTML = `
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-serif text-lg font-bold text-royal-cardinal">${name}</span>
-          <span class="text-xs text-stone-400">Just Now</span>
-        </div>
-        <p class="text-sm text-stone-600 leading-relaxed">${msg}</p>
-      `;
-      document.getElementById('blessingsStream').prepend(card);
-      document.getElementById('blessingForm').reset();
+      const submitBtn = document.getElementById('submitBlessingBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>Preserving Blessing...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+
+      const today = new Date();
+      const dateFormatted = today.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+      // Immediate visual feedback on page
+      renderBlessingCard(name, msg, dateFormatted);
+
+      // Permanent background post to your Google Sheet
+      fetch(GOOGLE_SHEET_WEBAPP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          message: msg,
+          date: dateFormatted
+        })
+      })
+      .then(() => {
+        document.getElementById('blessingForm').reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Bestow Blessing</span> <i class="fa-solid fa-feather"></i>`;
+      })
+      .catch((error) => {
+        console.error("Error saving to Google Sheet:", error);
+        document.getElementById('blessingForm').reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Bestow Blessing</span> <i class="fa-solid fa-feather"></i>`;
+      });
     }
 
+    // Call on load
+    fetchSavedBlessings();
     updateOwnerUI();
   </script>
 </body>
