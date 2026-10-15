@@ -13,6 +13,9 @@
   <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -101,6 +104,24 @@
       height: 100%;
       pointer-events: none;
       z-index: 25;
+    }
+    /* Custom Range Scrubber Styling */
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: #D4AF37;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(0,0,0,0.6);
+    }
+    input[type=range]::-moz-range-thumb {
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: #D4AF37;
+      cursor: pointer;
+      border: none;
     }
   </style>
 </head>
@@ -743,48 +764,63 @@
     </div>
   </section>
 
-  <!-- 4K CINEMA MODAL (CLEAN FULL-VIEW VISITOR SHIELDS + OWNER MODE TOGGLE) -->
-  <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
-    <button onclick="closeCinemaModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
+  <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
+  <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-2 sm:p-4">
+    <button onclick="closeCinemaModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
       <i class="fa-solid fa-xmark"></i>
     </button>
-    <div class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205]">
+    
+    <div id="playerContainer" class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205] flex flex-col">
       
-      <!-- Video Player Area (Full 16:9, completely unblocked view) -->
-      <div class="aspect-video w-full bg-black relative select-none">
+      <!-- Video Frame Area -->
+      <div class="aspect-video w-full bg-black relative overflow-hidden select-none">
         
-        <!-- INVISIBLE CLICK SHIELDS (100% Transparent - Stops accidental navigation, leaves full view unobstructed) -->
-        <div id="visitorShields" class="block">
-          <!-- Transparent Top Strip: Absorbs clicks on channel name, title & top right icons -->
-          <div class="absolute top-0 left-0 w-full h-14 bg-transparent z-20 pointer-events-auto"></div>
-          
-          <!-- Transparent Bottom-Left Area: Absorbs clicks on YouTube copy-link icon -->
-          <div class="absolute bottom-0 left-0 w-28 h-10 bg-transparent z-20 pointer-events-auto"></div>
-
-          <!-- Transparent Bottom-Right: Absorbs clicks on YouTube logo while leaving fullscreen button [⤢] clickable -->
-          <div class="absolute bottom-0 right-12 w-24 h-10 bg-transparent z-20 pointer-events-auto"></div>
+        <!-- VISITOR MODE EMBED (Controls=0, cc=0, zero-leak) -->
+        <div id="visitorPlayerWrap" class="w-full h-full relative">
+          <!-- Transparent Interaction Blocker (Prevents right-click and clicking into YouTube) -->
+          <div id="videoClickCatcher" class="absolute inset-0 z-20 cursor-pointer" onclick="togglePlayState()"></div>
+          <div id="ytPlayerSlot" class="w-full h-full pointer-events-none"></div>
         </div>
 
-        <!-- Video Player Frame with Captions (CC) Disabled by default -->
-        <iframe id="cinemaFrame" class="w-full h-full relative z-10" src="" frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
-          allowfullscreen>
-        </iframe>
+        <!-- OWNER / CREATOR NATIVE EMBED (Only shown in Creator Mode) -->
+        <iframe id="creatorFrame" class="w-full h-full hidden" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
       </div>
       
-      <!-- Modal Footer (Clean: with prominent Creator Mode button) -->
-      <div class="p-6 bg-[#180509] border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <!-- CUSTOM VISITOR CONTROL BAR (Active in Visitor Mode) -->
+      <div id="customControlsBar" class="bg-[#180509] px-4 py-3 border-t border-royal-gold/20 flex flex-col gap-2">
+        <!-- Scrubber Progress Bar -->
+        <input type="range" id="videoScrubber" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-royal-gold" oninput="onScrub(this.value)">
+
+        <div class="flex items-center justify-between text-xs text-stone-300">
+          <div class="flex items-center gap-3">
+            <button onclick="togglePlayState()" id="playPauseBtn" class="w-7 h-7 flex items-center justify-center text-royal-gold hover:text-white transition">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <span id="timeDisplay" class="font-mono text-[11px] text-stone-400">0:00 / 0:00</span>
+          </div>
+          
+          <div class="flex items-center gap-4">
+            <button onclick="toggleMute()" id="muteBtn" class="text-stone-400 hover:text-royal-gold transition">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <!-- Custom Container Fullscreen Button -->
+            <button onclick="toggleContainerFullscreen()" title="Fullscreen" class="text-stone-300 hover:text-royal-gold transition text-sm">
+              <i id="fsIcon" class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer Info & Admin PIN Trigger -->
+      <div class="p-4 sm:p-5 bg-[#120205] border-t border-royal-gold/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h4 id="cinemaModalTitle" class="font-cinzel text-xl text-royal-goldlight font-bold">Film Title</h4>
-          <p id="cinemaModalDesc" class="text-xs text-stone-400 mt-1">Film synopsis and ceremonial details.</p>
+          <h4 id="cinemaModalTitle" class="font-cinzel text-lg sm:text-xl text-royal-goldlight font-bold">Film Title</h4>
+          <p id="cinemaModalDesc" class="text-xs text-stone-400 mt-0.5">Film synopsis and ceremonial details.</p>
         </div>
         
-        <!-- Direct Owner Mode Toggle Button -->
-        <div class="flex items-center gap-3">
-          <button id="ownerToggleBtn" onclick="toggleOwnerMode()" class="px-4 py-2 rounded-full border border-royal-gold/40 text-royal-gold text-[11px] font-semibold tracking-wider uppercase hover:bg-royal-gold/10 transition flex items-center gap-2">
-            <i class="fa-solid fa-key text-xs"></i> <span id="ownerBtnText">Creator Access</span>
-          </button>
-        </div>
+        <button id="ownerToggleBtn" onclick="toggleOwnerMode()" class="self-start sm:self-auto px-4 py-1.5 rounded-full border border-royal-gold/40 text-royal-gold text-[10px] font-semibold tracking-wider uppercase hover:bg-royal-gold/10 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-key text-[10px]"></i> <span id="ownerBtnText">Creator Access</span>
+        </button>
       </div>
 
     </div>
@@ -821,54 +857,6 @@
 
   <!-- Scripts -->
   <script>
-    // Owner Mode State Management
-    let isOwner = localStorage.getItem('abhisha_owner') === 'true' || new URLSearchParams(window.location.search).get('admin') === 'true';
-
-    function updateOwnerUI() {
-      const shields = document.getElementById('visitorShields');
-      const btnText = document.getElementById('ownerBtnText');
-      const btn = document.getElementById('ownerToggleBtn');
-
-      if (shields && btnText && btn) {
-        if (isOwner) {
-          shields.classList.add('hidden');
-          shields.classList.remove('block');
-          btnText.textContent = "Creator Mode (Active)";
-          btn.classList.add('bg-royal-gold/20', 'border-royal-gold');
-        } else {
-          shields.classList.remove('hidden');
-          shields.classList.add('block');
-          btnText.textContent = "Creator Access";
-          btn.classList.remove('bg-royal-gold/20', 'border-royal-gold');
-        }
-      }
-    }
-
-    function toggleOwnerMode() {
-      if (!isOwner) {
-        const pass = prompt("Enter Creator PIN to unlock full YouTube controls:", "");
-        if (pass === "1234") {
-          isOwner = true;
-          localStorage.setItem('abhisha_owner', 'true');
-          updateOwnerUI();
-          if (currentVideoId) {
-            reloadCurrentVideo();
-          }
-          alert("Creator Mode Unlocked: All YouTube controls, settings, and direct links are now active.");
-        } else if (pass !== null) {
-          alert("Incorrect PIN.");
-        }
-      } else {
-        isOwner = false;
-        localStorage.setItem('abhisha_owner', 'false');
-        updateOwnerUI();
-        if (currentVideoId) {
-          reloadCurrentVideo();
-        }
-        alert("Switched back to Visitor Mode: Privacy shields active.");
-      }
-    }
-
     // Live Married Counter
     const weddingTimestamp = new Date('2025-01-22T07:05:00+05:30').getTime();
     function runTimer() {
@@ -950,38 +938,226 @@
       });
     }
 
+    // ==========================================
+    // CUSTOM ZERO-LEAK PLAYER ARCHITECTURE
+    // ==========================================
+    let isOwner = localStorage.getItem('abhisha_owner') === 'true' || new URLSearchParams(window.location.search).get('admin') === 'true';
+    let ytPlayer = null;
     let currentVideoId = '';
-    function reloadCurrentVideo() {
-      const frame = document.getElementById('cinemaFrame');
-      if (isOwner) {
-        frame.removeAttribute('sandbox');
-        frame.src = `https://www.youtube.com/embed/${currentVideoId}?autoplay=1&controls=1&rel=0&cc_load_policy=0`;
+    let trackerTimer = null;
+    let isUserSeeking = false;
+
+    function formatTime(sec) {
+      if (!sec || isNaN(sec)) return "0:00";
+      sec = Math.floor(sec);
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function initVisitorPlayer(vidId) {
+      const slot = document.getElementById('ytPlayerSlot');
+      slot.innerHTML = '<div id="ytIframe"></div>';
+
+      ytPlayer = new YT.Player('ytIframe', {
+        width: '100%',
+        height: '100%',
+        videoId: vidId,
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          fs: 0,
+          disablekb: 1,
+          iv_load_policy: 3,
+          cc_load_policy: 0
+        },
+        events: {
+          onReady: (e) => {
+            e.target.playVideo();
+            startTracking();
+          },
+          onStateChange: (e) => {
+            const icon = document.querySelector('#playPauseBtn i');
+            if (e.data === YT.PlayerState.PLAYING) {
+              icon.className = 'fa-solid fa-pause';
+            } else {
+              icon.className = 'fa-solid fa-play';
+            }
+          }
+        }
+      });
+    }
+
+    function startTracking() {
+      clearInterval(trackerTimer);
+      trackerTimer = setInterval(() => {
+        if (ytPlayer && ytPlayer.getCurrentTime && !isUserSeeking) {
+          const cur = ytPlayer.getCurrentTime() || 0;
+          const dur = ytPlayer.getDuration() || 0;
+          document.getElementById('timeDisplay').textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
+          if (dur > 0) {
+            document.getElementById('videoScrubber').value = (cur / dur) * 100;
+          }
+        }
+      }, 350);
+    }
+
+    function togglePlayState() {
+      if (!ytPlayer) return;
+      const state = ytPlayer.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) {
+        ytPlayer.pauseVideo();
       } else {
-        frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation');
-        // cc_load_policy=0 ensures captions/subtitles are turned off by default
-        frame.src = `https://www.youtube-nocookie.com/embed/${currentVideoId}?autoplay=1&controls=1&rel=0&modestbranding=1&playsinline=1&fs=1&cc_load_policy=0`;
+        ytPlayer.playVideo();
       }
     }
+
+    function onScrub(percent) {
+      if (!ytPlayer || !ytPlayer.getDuration) return;
+      isUserSeeking = true;
+      const dur = ytPlayer.getDuration();
+      const targetSec = (percent / 100) * dur;
+      ytPlayer.seekTo(targetSec, true);
+      document.getElementById('timeDisplay').textContent = `${formatTime(targetSec)} / ${formatTime(dur)}`;
+      setTimeout(() => { isUserSeeking = false; }, 300);
+    }
+
+    function toggleMute() {
+      if (!ytPlayer) return;
+      const icon = document.querySelector('#muteBtn i');
+      if (ytPlayer.isMuted()) {
+        ytPlayer.unMute();
+        icon.className = 'fa-solid fa-volume-high';
+      } else {
+        ytPlayer.mute();
+        icon.className = 'fa-solid fa-volume-xmark';
+      }
+    }
+
+    function toggleContainerFullscreen() {
+      const container = document.getElementById('playerContainer');
+      const fsIcon = document.getElementById('fsIcon');
+      if (!document.fullscreenElement) {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          container.webkitRequestFullscreen();
+        }
+        fsIcon.className = 'fa-solid fa-compress';
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+        fsIcon.className = 'fa-solid fa-expand';
+      }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      const fsIcon = document.getElementById('fsIcon');
+      if (!document.fullscreenElement && fsIcon) {
+        fsIcon.className = 'fa-solid fa-expand';
+      }
+    });
 
     function launchCinema(title, desc, youtubeId) {
       currentVideoId = youtubeId;
       document.getElementById('cinemaModalTitle').textContent = title;
       document.getElementById('cinemaModalDesc').textContent = desc;
       
-      updateOwnerUI();
-      reloadCurrentVideo();
+      const visitorWrap = document.getElementById('visitorPlayerWrap');
+      const controlsBar = document.getElementById('customControlsBar');
+      const creatorFrame = document.getElementById('creatorFrame');
 
+      if (isOwner) {
+        // Creator Mode: Open standard YouTube embed with full creator settings
+        visitorWrap.classList.add('hidden');
+        controlsBar.classList.add('hidden');
+        creatorFrame.classList.remove('hidden');
+        creatorFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0`;
+      } else {
+        // Visitor Mode: Custom HTML5 controls, zero YouTube leaks
+        creatorFrame.classList.add('hidden');
+        creatorFrame.src = "";
+        visitorWrap.classList.remove('hidden');
+        controlsBar.classList.remove('hidden');
+
+        if (window.YT && window.YT.Player) {
+          initVisitorPlayer(youtubeId);
+        } else {
+          // Poll if API is still loading
+          const checkAPI = setInterval(() => {
+            if (window.YT && window.YT.Player) {
+              clearInterval(checkAPI);
+              initVisitorPlayer(youtubeId);
+            }
+          }, 100);
+        }
+      }
+
+      updateOwnerUI();
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
     }
 
     function closeCinemaModal() {
-      currentVideoId = '';
-      document.getElementById('cinemaFrame').src = "";
+      clearInterval(trackerTimer);
+      if (document.fullscreenElement) {
+        document.exitFullscreen().catch(() => {});
+      }
+      if (ytPlayer && ytPlayer.destroy) {
+        try { ytPlayer.destroy(); } catch(e){}
+        ytPlayer = null;
+      }
+      document.getElementById('creatorFrame').src = "";
       document.getElementById('cinemaModal').classList.add('hidden');
       document.getElementById('cinemaModal').classList.remove('flex');
     }
 
+    function updateOwnerUI() {
+      const btnText = document.getElementById('ownerBtnText');
+      const btn = document.getElementById('ownerToggleBtn');
+      if (btn && btnText) {
+        if (isOwner) {
+          btnText.textContent = "Creator Mode (Active)";
+          btn.classList.add('bg-royal-gold/20', 'border-royal-gold');
+        } else {
+          btnText.textContent = "Creator Access";
+          btn.classList.remove('bg-royal-gold/20', 'border-royal-gold');
+        }
+      }
+    }
+
+    function toggleOwnerMode() {
+      if (!isOwner) {
+        const pass = prompt("Enter Creator PIN to unlock native controls:", "");
+        if (pass === "1234") {
+          isOwner = true;
+          localStorage.setItem('abhisha_owner', 'true');
+          updateOwnerUI();
+          if (currentVideoId) {
+            closeCinemaModal();
+            launchCinema(document.getElementById('cinemaModalTitle').textContent, document.getElementById('cinemaModalDesc').textContent, currentVideoId);
+          }
+          alert("Creator Access Unlocked!");
+        } else if (pass !== null) {
+          alert("Incorrect PIN.");
+        }
+      } else {
+        isOwner = false;
+        localStorage.setItem('abhisha_owner', 'false');
+        updateOwnerUI();
+        if (currentVideoId) {
+          closeCinemaModal();
+          launchCinema(document.getElementById('cinemaModalTitle').textContent, document.getElementById('cinemaModalDesc').textContent, currentVideoId);
+        }
+        alert("Switched back to Visitor Mode.");
+      }
+    }
+
+    // Audio & General Modal Helpers
     let aCtx = null, isPlaying = false, timer = null;
     function toggleAudio() {
       const icon = document.getElementById('audioIcon');
