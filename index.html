@@ -58,7 +58,7 @@
     }
     .velvet-card {
       background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
       border: 1px solid rgba(212, 175, 55, 0.4);
       box-shadow: 0 16px 36px -10px rgba(74, 14, 23, 0.16);
     }
@@ -159,16 +159,16 @@
 
   <!-- Modern Glassmorphic Floating Controls -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
+    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
     </button>
-    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-royal-velvet/95 backdrop-blur-md text-royal-goldlight shadow-2xl flex items-center justify-center border-2 border-royal-gold hover:scale-110 transition-transform duration-300">
+    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-royal-velvet/95 backdrop-blur-xl text-royal-goldlight shadow-2xl flex items-center justify-center border-2 border-royal-gold hover:scale-110 transition-transform duration-300">
       <i id="audioIcon" class="fa-solid fa-music text-xl"></i>
     </button>
   </div>
 
   <!-- NAVIGATION BAR -->
-  <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-md border-b border-royal-gold/30 transition-all shadow-md">
+  <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-xl border-b border-royal-gold/30 transition-all shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
       <a href="#top" class="flex items-center gap-3 group cursor-pointer">
         <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider group-hover:scale-105 group-hover:border-royal-gold transition-transform">A&B</span>
@@ -217,9 +217,9 @@
         Abhisek <span class="font-script lowercase text-5xl sm:text-7xl md:text-8xl gold-foil mx-2">&</span> Barsha
       </h1>
 
-      <!-- Transitioned from an "invitation date" to an "origin story" archive format -->
+      <!-- Removed "Est." as requested, refined layout -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-[10px] sm:text-xs tracking-[0.35em] uppercase text-stone-300 mb-10 drop-shadow font-semibold">
-        <span>Est. 22 January 2025</span>
+        <span>22 January 2025</span>
         <span class="hidden sm:inline text-royal-gold">•</span>
         <span class="w-8 h-[1px] bg-royal-gold/50 sm:hidden block my-1"></span>
         <span>Katak & Brahmapur, India</span>
@@ -227,34 +227,34 @@
 
       <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-royal-gold/50 shadow-2xl text-royal-charcoal mb-8">
         <p class="text-[10px] uppercase tracking-[0.3em] text-royal-cardinal font-bold mb-4 flex items-center justify-center gap-2">
-          <span>❤️</span> DAYS OF TOGETHERNESS & SACRED BOND <span>❤️</span>
+          <i class="fa-solid fa-heart pulse-heart text-royal-cardinal"></i> DAYS OF TOGETHERNESS & SACRED BOND <i class="fa-solid fa-heart pulse-heart text-royal-cardinal"></i>
         </p>
         <div class="grid grid-cols-4 gap-2 sm:gap-4 divide-x divide-royal-gold/25">
           <div>
-            <span id="daysBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Days</span>
+            <span id="daysBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Days</span>
           </div>
           <div>
-            <span id="hoursBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Hours</span>
+            <span id="hoursBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Hours</span>
           </div>
           <div>
-            <span id="minsBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Mins</span>
+            <span id="minsBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Mins</span>
           </div>
           <div>
-            <span id="secsBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Secs</span>
+            <span id="secsBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Secs</span>
           </div>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
-        <a href="#gallery" class="px-8 py-3.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-deepmaroon transition shadow-xl border border-royal-gold/40 flex items-center gap-2">
-          <i class="fa-solid fa-images text-royal-gold"></i> Albums
+        <a href="#gallery" class="group px-8 py-3.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-deepmaroon transition shadow-xl border border-royal-gold/40 flex items-center gap-2">
+          <i class="fa-solid fa-images text-royal-gold group-hover:scale-110 transition-transform"></i> Albums
         </a>
-        <a href="#cinema" class="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-white hover:text-royal-deepmaroon transition shadow-xl border border-white/30 flex items-center gap-2">
-          <i class="fa-solid fa-circle-play text-royal-gold"></i> Cinema Hub
+        <a href="#cinema" class="group px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-white hover:text-royal-deepmaroon transition shadow-xl border border-white/30 flex items-center gap-2">
+          <i class="fa-solid fa-circle-play text-royal-gold group-hover:scale-110 transition-transform"></i> Cinema Hub
         </a>
       </div>
       
@@ -265,7 +265,7 @@
     </div>
   </header>
 
-  <!-- 1. THE WEDDING CEREMONIES (Now The Sacred Chronicles) -->
+  <!-- 1. THE WEDDING CEREMONIES (The Sacred Chronicles) -->
   <section id="events" class="py-24 px-6 max-w-7xl mx-auto relative z-30 reveal">
     <div class="text-center mb-16">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Archived Memories</span>
@@ -505,14 +505,14 @@
 
     <!-- Category Filter Tabs -->
     <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
-      <button onclick="filterGallery('all')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-white shadow-md border border-royal-gold/40">All Moments</button>
-      <button onclick="filterGallery('engagement')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Engagement Ceremony</button>
-      <button onclick="filterGallery('prewedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Pre-Wedding Shoots</button>
-      <button onclick="filterGallery('ring')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Ring Ceremony</button>
-      <button onclick="filterGallery('haldi')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Haldi & Mehendi Ceremony</button>
-      <button onclick="filterGallery('wedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Wedding Ceremony</button>
-      <button onclick="filterGallery('reception')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Reception Ceremony</button>
-      <button onclick="filterGallery('anniversary')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">1st Anniversary Ceremony</button>
+      <button onclick="filterGallery('all')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-white shadow-md border border-royal-gold/40 transition-colors">All Moments</button>
+      <button onclick="filterGallery('engagement')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Engagement Ceremony</button>
+      <button onclick="filterGallery('prewedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Pre-Wedding Shoots</button>
+      <button onclick="filterGallery('ring')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Ring Ceremony</button>
+      <button onclick="filterGallery('haldi')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Haldi & Mehendi Ceremony</button>
+      <button onclick="filterGallery('wedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Wedding Ceremony</button>
+      <button onclick="filterGallery('reception')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">Reception Ceremony</button>
+      <button onclick="filterGallery('anniversary')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10 transition-colors">1st Anniversary Ceremony</button>
     </div>
 
     <!-- Gallery Grid -->
@@ -650,11 +650,11 @@
 
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
-        <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg">All Events</button>
-        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Engagement Ceremony</button>
-        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Pre-Wedding Shoots</button>
-        <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Ring Ceremony</button>
-        <button onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Wedding Ceremonies</button>
+        <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg transition-colors">All Events</button>
+        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Engagement Ceremony</button>
+        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Pre-Wedding Shoots</button>
+        <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Ring Ceremony</button>
+        <button onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Wedding Ceremonies</button>
       </div>
 
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -996,8 +996,8 @@
         <form id="blessingForm" onsubmit="postBlessing(event)" class="space-y-4">
           <input type="text" id="bName" placeholder="Your Name & Family Title" required class="w-full px-5 py-3 rounded-xl border border-royal-gold/30 bg-white/90 text-sm focus:outline-none focus:border-royal-cardinal">
           <textarea id="bMsg" rows="3" placeholder="Share your heartfelt blessing and prayer for the couple..." required class="w-full px-5 py-3 rounded-xl border border-royal-gold/30 bg-white/90 text-sm focus:outline-none focus:border-royal-cardinal"></textarea>
-          <button type="submit" id="submitBlessingBtn" class="w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg flex items-center justify-center gap-2">
-            <span>Bestow Blessing</span> <i class="fa-solid fa-feather"></i>
+          <button type="submit" id="submitBlessingBtn" class="group w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg flex items-center justify-center gap-2">
+            <span>Bestow Blessing</span> <i class="fa-solid fa-feather group-hover:scale-110 transition-transform"></i>
           </button>
         </form>
       </div>
@@ -1100,7 +1100,7 @@
   <footer class="py-16 bg-royal-deepmaroon text-white text-center text-xs tracking-wider border-t border-royal-gold/30 relative z-30">
     <p class="font-script text-5xl text-royal-gold mb-3">Abhisek & Barsha</p>
     <p class="text-royal-goldlight/70 uppercase text-[10px] tracking-[0.25em] mb-4">#Abhisha &bull; Forever United</p>
-    <p class="text-stone-400">Crafted with love for our wedding memories.</p>
+    <p class="text-stone-400">Crafted with love for our wedding memories. &copy; 2025&ndash;2026</p>
   </footer>
 
   <!-- Scripts -->
@@ -1141,7 +1141,7 @@
       revealElements.forEach(el => revealObserver.observe(el));
     });
 
-    // The 5 Romantic Travel & Life Memories
+    // 5 Romantic Travel & Life Memories
     const memoriesList = [
       {
         quote: "Golden desert sunsets and city lights mirrored in your eyes, beginning our journey where dreams touch the sky.",
@@ -1211,6 +1211,9 @@
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate((p.rotation * Math.PI) / 180);
+        // Added soft glowing shadow to the falling petals
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = 'rgba(180, 40, 55, 0.4)';
         ctx.fillStyle = `rgba(180, 40, 55, ${p.opacity})`;
         ctx.beginPath();
         ctx.ellipse(0, 0, p.size, p.size * 0.6, 0, 0, Math.PI * 2);
@@ -1620,7 +1623,7 @@
       // Immediate visual feedback on page
       renderBlessingCard(name, msg, dateFormatted);
 
-      // Permanent background post to your Google Sheet using no-cors to prevent App Script redirects from failing
+      // Permanent background post to your Google Sheet using no-cors
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: "POST",
         mode: "no-cors",
