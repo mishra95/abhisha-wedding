@@ -24,10 +24,10 @@
               cream: '#FAF6EE',
               ivory: '#F4ECE1',
               gold: '#D4AF37',
-              goldlight: '#F5E7B2',
+              goldlight: '#F8E9C2',
               golddark: '#997A15',
-              velvet: '#4A0E17',
-              deepmaroon: '#2B0408',
+              velvet: '#5B101C',
+              deepmaroon: '#240307',
               cardinal: '#7A1C28',
               charcoal: '#1A1817'
             }
@@ -44,41 +44,33 @@
   </script>
 
   <style>
-    /* Gold Metallic Gradients */
+    /* Golden Foil Metallic Effects */
     .gold-foil {
-      background: linear-gradient(135deg, #B8860B 0%, #FFD700 35%, #FDB931 60%, #996515 100%);
+      background: linear-gradient(135deg, #B8860B 0%, #FFE27A 35%, #FDB931 65%, #996515 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .gold-foil-bg {
-      background: linear-gradient(135deg, #C59A4E 0%, #F3E0A9 50%, #A27932 100%);
-    }
     .velvet-card {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 15px 35px -10px rgba(74, 14, 23, 0.08);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      box-shadow: 0 16px 36px -10px rgba(74, 14, 23, 0.12);
     }
-    .gold-shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-    .gold-shimmer::after {
-      content: '';
+    /* Dramatic Rich Vignette Floral Backdrop */
+    .hero-cinematic-bg {
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255,255,255,0.35), transparent);
-      transform: rotate(30deg);
-      animation: shimmer 6s infinite;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85');
+      background-size: cover;
+      background-position: center 30%;
+      filter: saturate(1.15) brightness(0.65);
     }
-    @keyframes shimmer {
-      0% { transform: translate(-100%, -100%) rotate(30deg); }
-      100% { transform: translate(100%, 100%) rotate(30deg); }
+    .hero-vignette-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(18, 5, 8, 0.45) 0%, rgba(15, 3, 6, 0.85) 65%, rgba(10, 1, 3, 0.96) 100%),
+                  linear-gradient(to bottom, rgba(15, 3, 6, 0.8) 0%, transparent 25%, transparent 75%, #FAF6EE 100%);
     }
-    /* Ambient Canvas */
     #petalCanvas {
       position: fixed;
       top: 0;
@@ -86,17 +78,17 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 20;
+      z-index: 25;
     }
   </style>
 </head>
 
 <body class="bg-royal-cream text-royal-charcoal font-sans antialiased selection:bg-royal-gold selection:text-royal-deepmaroon relative">
 
-  <!-- Interactive Petal Canvas -->
+  <!-- Ambient Floating Petals -->
   <canvas id="petalCanvas"></canvas>
 
-  <!-- Floating Audio & Studio Controls -->
+  <!-- Floating Audio & QR Button -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
     <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
@@ -106,86 +98,99 @@
     </button>
   </div>
 
-  <!-- Royal Header Navigation -->
-  <nav class="fixed top-0 left-0 w-full z-40 bg-royal-cream/90 backdrop-blur-md border-b border-royal-gold/25 transition-all">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <!-- Transparent Glass Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/75 backdrop-blur-md border-b border-royal-gold/30 transition-all">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
       <a href="#" class="flex items-center gap-3">
-        <span class="font-script text-3xl sm:text-4xl text-royal-cardinal font-bold">Abhisek & Barsha</span>
-        <span class="text-[10px] tracking-[0.25em] uppercase text-royal-golddark font-semibold border-l border-royal-gold/40 pl-3 hidden sm:inline-block">#Abhisha</span>
+        <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider">A&B</span>
+        <div class="text-left">
+          <span class="block font-cinzel text-sm sm:text-base tracking-widest text-royal-goldlight font-bold">ABHISEK & BARSHA</span>
+          <span class="block text-[9px] tracking-[0.25em] text-stone-300 uppercase">22 January 2025 • #Abhisha</span>
+        </div>
       </a>
-      <div class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.2em] font-semibold text-royal-charcoal/80">
-        <a href="#events" class="hover:text-royal-cardinal transition">Ceremonies</a>
-        <a href="#journey" class="hover:text-royal-cardinal transition">Baraat Route</a>
-        <a href="#culture" class="hover:text-royal-cardinal transition">Odia Traditions</a>
-        <a href="#cinema" class="hover:text-royal-cardinal transition">Films</a>
-        <a href="#gallery" class="hover:text-royal-cardinal transition">Gallery</a>
-        <a href="#anniversary" class="hover:text-royal-cardinal transition">Anniversary</a>
-        <a href="#blessings" class="hover:text-royal-cardinal transition">Blessings</a>
+      <div class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-200">
+        <a href="#events" class="hover:text-royal-gold transition">Ceremonies</a>
+        <a href="#journey" class="hover:text-royal-gold transition">Baraat Route</a>
+        <a href="#culture" class="hover:text-royal-gold transition">Odia Traditions</a>
+        <a href="#cinema" class="hover:text-royal-gold transition">Cinema</a>
+        <a href="#gallery" class="hover:text-royal-gold transition">Albums</a>
+        <a href="#anniversary" class="hover:text-royal-gold transition">Anniversary</a>
+        <a href="#blessings" class="hover:text-royal-gold transition">Wishes</a>
       </div>
       <div class="flex items-center gap-3">
-        <button onclick="shareLink()" class="px-5 py-2 rounded-full bg-royal-velvet text-royal-goldlight text-xs tracking-widest uppercase font-semibold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
+        <button onclick="shareLink()" class="px-5 py-2 rounded-full bg-royal-velvet border border-royal-gold/40 text-royal-goldlight text-xs tracking-widest uppercase font-semibold hover:bg-royal-cardinal transition shadow-md flex items-center gap-2">
           <i class="fa-solid fa-share-nodes"></i> <span>Share</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Editorial Hero Section -->
-  <header class="min-h-screen pt-32 pb-20 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
-    <!-- Traditional Arch Background Motif -->
-    <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-      <i class="fa-solid fa-om text-[36rem]"></i>
-    </div>
+  <!-- Editorial Hero Section with Rich Backdrop & Vignette -->
+  <header class="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+    <!-- Cinematic Image Layer -->
+    <div class="hero-cinematic-bg"></div>
+    <!-- Dark Vignette Overlay Layer -->
+    <div class="hero-vignette-overlay"></div>
 
-    <div class="max-w-5xl mx-auto z-30">
-      <div class="inline-block px-6 py-1.5 rounded-full border border-royal-gold/50 bg-white/60 backdrop-blur-sm mb-6">
-        <span class="text-[11px] uppercase tracking-[0.35em] text-royal-golddark font-semibold">Under the Blessings of Lord Jagannath</span>
+    <div class="max-w-5xl mx-auto z-30 relative text-white">
+      <!-- Hashtag Ribbon -->
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] tracking-widest uppercase font-semibold text-royal-goldlight mb-8">
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#Abhisha</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#ForeverBegins</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#AbhiKiBarsha</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#OdiaRoyalWedding</span>
       </div>
 
-      <p class="font-script text-4xl sm:text-6xl md:text-7xl text-royal-cardinal mb-2 font-normal">Our Forever Chapter</p>
+      <p class="font-script text-4xl sm:text-6xl md:text-7xl text-royal-goldlight mb-4 font-normal drop-shadow-lg">
+        Two souls, one sacred eternal promise
+      </p>
       
-      <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-bold tracking-wider uppercase mb-6 gold-foil">
-        Abhisek <span class="font-script lowercase text-4xl sm:text-6xl md:text-7xl text-royal-cardinal">&</span> Barsha
+      <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-wider uppercase mb-4 text-white drop-shadow-2xl">
+        Abhisek <span class="font-script lowercase text-4xl sm:text-6xl md:text-7xl text-royal-gold">&</span> Barsha
       </h1>
 
-      <p class="font-serif italic text-lg sm:text-xl md:text-2xl text-stone-700 max-w-2xl mx-auto mb-10 leading-relaxed">
-        "Two souls, seven sacred vows, and a lifetime of love bound forever."
+      <p class="text-xs sm:text-sm tracking-[0.35em] uppercase text-stone-200 mb-10 drop-shadow">
+        Wednesday, 22nd January 2025 &bull; Gopalpur-on-Sea & Cuttack, Odisha
       </p>
 
-      <!-- Live Married Timer Card -->
-      <div class="max-w-xl mx-auto velvet-card rounded-3xl p-6 sm:p-8 gold-shimmer mb-10">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-royal-golddark font-semibold mb-4">Cherishing Togetherness Since 22 January 2025</p>
-        <div class="grid grid-cols-4 gap-2 sm:gap-4 divide-x divide-royal-gold/20">
+      <!-- Glassmorphic Married Counter Card -->
+      <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-royal-gold/50 shadow-2xl text-royal-charcoal mb-8">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-royal-cardinal font-bold mb-4 flex items-center justify-center gap-2">
+          <span>❤️</span> DAYS OF TOGETHERNESS & SACRED BOND <span>❤️</span>
+        </p>
+        <div class="grid grid-cols-4 gap-2 sm:gap-4 divide-x divide-royal-gold/25">
           <div>
             <span id="daysBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-medium">Days</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Days</span>
           </div>
           <div>
             <span id="hoursBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-medium">Hours</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Hours</span>
           </div>
           <div>
             <span id="minsBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-medium">Minutes</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Mins</span>
           </div>
           <div>
             <span id="secsBox" class="block font-serif text-3xl sm:text-5xl font-bold text-royal-cardinal">--</span>
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-medium">Seconds</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold">Secs</span>
           </div>
         </div>
       </div>
 
-      <!-- Wedding Hashtags -->
-      <div class="flex flex-wrap items-center justify-center gap-3 text-xs tracking-wider font-medium text-royal-velvet">
-        <span class="px-4 py-1.5 rounded-full bg-royal-gold/15 border border-royal-gold/30">#Abhisha</span>
-        <span class="px-4 py-1.5 rounded-full bg-royal-gold/15 border border-royal-gold/30">#ForeverBegins</span>
-        <span class="px-4 py-1.5 rounded-full bg-royal-gold/15 border border-royal-gold/30">#AbhiKiBarsha</span>
-        <span class="px-4 py-1.5 rounded-full bg-royal-gold/15 border border-royal-gold/30">#OdiaRoyalWedding</span>
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#events" class="px-8 py-3.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-deepmaroon transition shadow-xl border border-royal-gold/40">
+          Explore Ceremonies
+        </a>
+        <a href="#journey" class="px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-white hover:text-royal-deepmaroon transition shadow-xl border border-white/30">
+          Baraat Route
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Ceremonies & Itinerary -->
+  <!-- Ceremonies Itinerary -->
   <section id="events" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
     <div class="text-center mb-16">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Timetable</span>
@@ -297,7 +302,7 @@
       </div>
 
       <!-- 1st Anniversary -->
-      <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
+      <div id="anniversary" class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-[10px] uppercase tracking-widest font-bold text-purple-900 bg-purple-100 px-3 py-1 rounded-full">First Anniversary 🥂</span>
@@ -320,13 +325,13 @@
     </div>
   </section>
 
-  <!-- Interactive Baraat Journey Roadmap -->
+  <!-- Baraat Journey Roadmap -->
   <section id="journey" class="py-20 bg-royal-ivory/60 border-y border-royal-gold/25 relative z-30">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-14">
-        <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">The Scenic Expedition</span>
+        <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">The Scenic Route</span>
         <h2 class="font-cinzel text-3xl sm:text-4xl text-royal-cardinal font-bold">The Baraat Road Journey</h2>
-        <p class="text-sm text-stone-600 mt-2">From Tarini Vihar, Cuttack to the beaches of Gopalpur-on-Sea</p>
+        <p class="text-sm text-stone-600 mt-2">From Tarini Vihar, Cuttack down to Gopalpur-on-Sea</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
@@ -363,7 +368,7 @@
     </div>
   </section>
 
-  <!-- Odia Wedding Heritage Cards -->
+  <!-- Odia Customs Guide -->
   <section id="culture" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
     <div class="text-center mb-16">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Sacred Heritage</span>
@@ -399,7 +404,7 @@
     </div>
   </section>
 
-  <!-- Cinema Reel / Wedding Films Section -->
+  <!-- Wedding Cinema / Reel -->
   <section id="cinema" class="py-24 bg-royal-deepmaroon text-white relative z-30 overflow-hidden">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-goldlight font-semibold block mb-2">4K Highlights & Teasers</span>
@@ -428,7 +433,6 @@
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
 
-    <!-- Filter Buttons -->
     <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
       <button onclick="filterGallery('all')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-royal-cardinal text-white font-semibold shadow">All Moments</button>
       <button onclick="filterGallery('ring')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Ring Ceremony</button>
@@ -437,7 +441,6 @@
       <button onclick="filterGallery('reception')" class="gallery-btn px-6 py-2 rounded-full text-xs uppercase tracking-wider bg-white border border-royal-gold/40 text-stone-700 font-semibold hover:bg-royal-gold/10">Grand Reception</button>
     </div>
 
-    <!-- Gallery Placeholder Grid -->
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="velvet-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Sacred Vows')">
         <div class="h-64 overflow-hidden relative">
@@ -474,7 +477,7 @@
     </div>
   </section>
 
-  <!-- Blessings Wall -->
+  <!-- Guest Wishes Wall -->
   <section id="blessings" class="py-24 bg-royal-ivory/40 border-t border-royal-gold/25 relative z-30">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-14">
@@ -560,7 +563,7 @@
     setInterval(runTimer, 1000);
     runTimer();
 
-    // Floating Rose Petal Particle Animation
+    // Floating Petals
     const canvas = document.getElementById('petalCanvas');
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -606,7 +609,7 @@
     }
     drawPetals();
 
-    // Ambient Harp Synthesizer
+    // Harp Melodies
     let aCtx = null, isPlaying = false, timer = null;
     function toggleAudio() {
       const icon = document.getElementById('audioIcon');
@@ -638,7 +641,6 @@
       }
     }
 
-    // Modal Helpers
     function openPhotoModal(src, caption) {
       document.getElementById('modalImg').src = src;
       document.getElementById('modalCaption').textContent = caption;
@@ -651,7 +653,6 @@
     }
 
     function openCinemaModal() {
-      // Default placeholder cinematic preview
       document.getElementById('cinemaFrame').src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
@@ -686,7 +687,6 @@
       }
     }
 
-    // Blessings Wall
     function postBlessing(e) {
       e.preventDefault();
       const name = document.getElementById('bName').value.trim();
