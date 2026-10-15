@@ -455,7 +455,7 @@
     </div>
   </section>
 
-  <!-- 4. ALBUMS & PHOTO GALLERY (Updated with Working Chronological Filters, Names & Quotes) -->
+  <!-- 4. ALBUMS & PHOTO GALLERY (Updated Category Filter Tabs & 1st Anniversary Card) -->
   <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto relative z-30">
     <div class="text-center mb-14">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Visual Keepsakes</span>
@@ -463,29 +463,30 @@
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
 
-    <!-- Category Filter Tabs: Arranged in sequence like Cinema Hub -->
+    <!-- Category Filter Tabs: Renamed and Extended -->
     <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
       <button onclick="filterGallery('all')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-white shadow-md border border-royal-gold/40">All Moments</button>
-      <button onclick="filterGallery('engagement')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Engagement (Nirbandha)</button>
+      <button onclick="filterGallery('engagement')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Engagement Ceremony</button>
       <button onclick="filterGallery('prewedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Pre-Wedding Shoots</button>
       <button onclick="filterGallery('ring')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Ring Ceremony</button>
-      <button onclick="filterGallery('haldi')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Haldi & Mehendi</button>
+      <button onclick="filterGallery('haldi')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Haldi & Mehendi Ceremony</button>
       <button onclick="filterGallery('wedding')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Wedding Ceremony</button>
       <button onclick="filterGallery('reception')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">Reception Ceremony</button>
+      <button onclick="filterGallery('anniversary')" class="gallery-btn px-5 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40 hover:bg-royal-gold/10">1st Anniversary Ceremony</button>
     </div>
 
     <!-- Gallery Grid with Name, Location, and Quote under each Photo -->
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Engagement / Nirbandha -->
+      <!-- Engagement Ceremony -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="engagement" onclick="openPhotoModal('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80', 'Sacred Betel Blessings', 'In the presence of the Divine and our elders, two families unite into one everlasting bond.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Nirbandha Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Engagement 🌿</span>
         </div>
         <div class="p-5 text-center">
-          <h5 class="font-serif text-xl font-bold text-royal-cardinal mb-1">Nirbandha Ceremony</h5>
+          <h5 class="font-serif text-xl font-bold text-royal-cardinal mb-1">Engagement Ceremony</h5>
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide">Bishnu Mandir, Shaheed Nagar</p>
           <blockquote class="text-xs italic text-stone-600 border-t border-royal-gold/25 pt-3 leading-relaxed">
             "In the presence of the Divine and our elders, two families unite into one everlasting bond."
@@ -494,7 +495,7 @@
       </div>
 
       <!-- Pre-Wedding Shoots -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="prewedding" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Glimpses of Forever', 'Every step, every smile, whispers the quiet beginning of a lifetime together.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="prewedding" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Glimpses of Forever', 'Every step, every glance, whispers the quiet beginning of a lifetime together.')">
         <div class="h-64 overflow-hidden relative">
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
@@ -525,7 +526,7 @@
         </div>
       </div>
 
-      <!-- Haldi & Mehendi -->
+      <!-- Haldi & Mehendi Ceremony -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="haldi" onclick="openPhotoModal('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80', 'Colors of Radiance', 'Adorned in yellow hues and deep henna shades, drenched in laughter and boundless blessings.')">
         <div class="h-64 overflow-hidden relative">
           <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Haldi & Mehendi Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -573,6 +574,22 @@
         </div>
       </div>
 
+      <!-- 1st Anniversary Ceremony Card -->
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="anniversary" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'One Year of Sacred Bond', '365 days of laughter, patience, and love that continues to bloom stronger each passing day.')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="1st Anniversary Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+          <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
+        </div>
+        <div class="p-5 text-center">
+          <h5 class="font-serif text-xl font-bold text-royal-cardinal mb-1">1st Anniversary Ceremony</h5>
+          <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide">Hotel 7 Saat, Infocity</p>
+          <blockquote class="text-xs italic text-stone-600 border-t border-royal-gold/25 pt-3 leading-relaxed">
+            "365 days of laughter, patience, and love that continues to bloom stronger each passing day."
+          </blockquote>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -591,7 +608,7 @@
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
         <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg">All 11 Chapters</button>
-        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Engagement (Nirbandha)</button>
+        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Engagement Ceremony</button>
         <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Pre-Wedding Shoots</button>
         <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Ring Ceremony</button>
         <button onclick="filterCinema('marriage')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold">Wedding Celebration</button>
@@ -792,7 +809,7 @@
         <!-- 11. Marriage Ceremony (Full) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/60" data-cat="marriage" onclick="launchCinema('Marriage Ceremony', 'The master film: Baradhara, Haldi, Mehendi, sacred Vedic pheras, and Reception feast.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Marriage Ceremony Complete" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Marriage Ceremony Complete" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-cardinal text-royal-goldlight flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform border border-royal-gold">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -954,7 +971,7 @@
     </div>
   </div>
 
-  <!-- Photo Fullscreen Lightbox Modal (Updated with Title & Quote Display) -->
+  <!-- Photo Fullscreen Lightbox Modal -->
   <div id="photoModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-4">
     <button onclick="closePhotoModal()" class="absolute top-6 right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
       <i class="fa-solid fa-xmark"></i>
