@@ -150,6 +150,12 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Elegant Monogram Styling */
+    .monogram-ring {
+      background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
+      border: 1px solid rgba(212,175,55,0.6);
+      box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
+    }
   </style>
 </head>
 
@@ -159,10 +165,10 @@
 
   <!-- Modern Glassmorphic Floating Controls -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
-    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
+    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
     </button>
-    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-royal-velvet/95 backdrop-blur-xl text-royal-goldlight shadow-2xl flex items-center justify-center border-2 border-royal-gold hover:scale-110 transition-transform duration-300">
+    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-royal-velvet/95 backdrop-blur-md text-royal-goldlight shadow-2xl flex items-center justify-center border-2 border-royal-gold hover:scale-110 transition-transform duration-300">
       <i id="audioIcon" class="fa-solid fa-music text-xl"></i>
     </button>
   </div>
@@ -170,13 +176,16 @@
   <!-- NAVIGATION BAR -->
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-xl border-b border-royal-gold/30 transition-all shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
-      <a href="#top" class="flex items-center gap-3 group cursor-pointer">
-        <span class="w-9 h-9 rounded-full border border-royal-gold/60 text-royal-gold font-serif flex items-center justify-center text-xs tracking-wider group-hover:scale-105 group-hover:border-royal-gold transition-transform">A&B</span>
-        <div class="text-left">
-          <span class="block font-cinzel text-sm sm:text-base tracking-widest text-royal-goldlight font-bold group-hover:text-white transition-colors">ABHISEK & BARSHA</span>
-          <span class="block text-[9px] tracking-[0.25em] text-stone-300 uppercase">22 January 2025 • #Abhisha</span>
+      
+      <!-- 1st Update: Elegant A&B Monogram Logo -->
+      <a href="#top" class="flex items-center group cursor-pointer">
+        <div class="w-12 h-12 rounded-full monogram-ring flex items-center justify-center relative overflow-hidden group-hover:scale-105 group-hover:border-royal-gold transition-all duration-500">
+          <span class="font-cinzel text-xl font-bold text-white drop-shadow-md">A</span>
+          <span class="font-script text-royal-gold text-2xl absolute opacity-80 mix-blend-screen transform translate-x-0.5 translate-y-0.5">&</span>
+          <span class="font-cinzel text-xl font-bold text-white drop-shadow-md ml-1 z-10">B</span>
         </div>
       </a>
+
       <div class="hidden lg:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-200">
         <a href="#events" class="hover:text-royal-gold transition">Chronicles</a>
         <a href="#journey" class="hover:text-royal-gold transition">The Path</a>
@@ -186,6 +195,7 @@
         <a href="#anniversary" class="hover:text-royal-gold transition">Our Story</a>
         <a href="#blessings" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Wishes</a>
       </div>
+      
       <div class="flex items-center gap-3">
         <button onclick="shareLink()" class="px-5 py-2 rounded-full bg-royal-velvet border border-royal-gold/40 text-royal-goldlight text-xs tracking-widest uppercase font-semibold hover:bg-royal-cardinal transition shadow-md flex items-center gap-2">
           <i class="fa-solid fa-share-nodes"></i> <span>Share</span>
@@ -207,22 +217,20 @@
         <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#OdiaRoyalWedding</span>
       </div>
 
-      <!-- Modernized with true gold-foil CSS -->
       <p class="font-script text-4xl sm:text-6xl md:text-7xl gold-foil mb-4 font-normal drop-shadow-lg">
         Two souls, one sacred eternal promise
       </p>
       
-      <!-- Increased tracking for a high-end cinematic editorial look -->
       <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-[0.15em] uppercase mb-6 text-white drop-shadow-2xl leading-tight">
         Abhisek <span class="font-script lowercase text-5xl sm:text-7xl md:text-8xl gold-foil mx-2">&</span> Barsha
       </h1>
 
-      <!-- Removed "Est." as requested, refined layout -->
+      <!-- 2nd Update: Restored full location details -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-[10px] sm:text-xs tracking-[0.35em] uppercase text-stone-300 mb-10 drop-shadow font-semibold">
         <span>22 January 2025</span>
         <span class="hidden sm:inline text-royal-gold">•</span>
         <span class="w-8 h-[1px] bg-royal-gold/50 sm:hidden block my-1"></span>
-        <span>Katak & Brahmapur, India</span>
+        <span>Katak & Brahmapur, Odisha, India</span>
       </div>
 
       <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-royal-gold/50 shadow-2xl text-royal-charcoal mb-8">
@@ -410,7 +418,7 @@
     </div>
   </section>
 
-  <!-- 2. BARAAT ROUTE JOURNEY (The Path to Forever) -->
+  <!-- 2. BARAAT ROUTE JOURNEY -->
   <section id="journey" class="py-28 relative z-30 overflow-hidden text-white border-y border-royal-gold/30 reveal">
     <div class="baraat-cinematic-bg"></div>
     <div class="baraat-vignette-overlay"></div>
@@ -418,7 +426,7 @@
     <div class="max-w-6xl mx-auto px-6 relative z-10">
       <div class="text-center mb-16">
         <span class="text-xs uppercase tracking-[0.35em] text-royal-goldlight font-semibold block mb-2 drop-shadow">The Scenic Route</span>
-        <h2 class="font-cinzel text-3xl sm:text-5xl text-white font-extrabold drop-shadow-2xl">The Path to Forever</h2>
+        <h2 class="font-cinzel text-3xl sm:text-5xl text-white font-extrabold drop-shadow-2xl">The Baraat Road Journey</h2>
         <p class="text-sm text-stone-300 mt-3 max-w-lg mx-auto leading-relaxed">
           Traversing from Katak through the coastal plains down to Gopalpur
         </p>
@@ -862,7 +870,7 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> Play</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-royal-gold mb-1">Wedding Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Wedding Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The full uncut cinematic chronicle documenting every sacred chanting, Vedic ritual, and family feast.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-goldlight font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Stream Full Ceremony</span>
           </div>
