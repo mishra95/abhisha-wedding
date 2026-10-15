@@ -734,7 +734,7 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> Play</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Ring Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser for Ring Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
@@ -762,7 +762,7 @@
         <!-- 8. Ring Ceremony (Full) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="ring" onclick="launchCinema('Ring Ceremony', 'Complete uncut recording of the Ring Ceremony celebration at Hotel 7 Saat.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-cardinal text-royal-goldlight flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform border border-royal-gold">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -899,11 +899,12 @@
             </div>
           </div>
 
-          <!-- Action Buttons: Both matching rich crimson & gold buttons -->
+          <!-- Action Buttons -->
           <div class="pt-2 flex flex-wrap gap-4">
             <a href="#gallery" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
               <i class="fa-solid fa-images"></i> Relive Our Albums
             </a>
+            <!-- Updated Button: Matched Style & Scroll to Cinema -->
             <a href="#cinema" class="px-6 py-2.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-wider uppercase font-bold hover:bg-royal-deepmaroon transition shadow-md flex items-center gap-2">
               <i class="fa-solid fa-circle-play text-royal-gold"></i> Relive our Best Day
             </a>
@@ -1072,6 +1073,7 @@
 
   <!-- Scripts -->
   <script>
+    // Live Togetherness Timer
     const weddingTimestamp = new Date('2025-01-22T07:05:00+05:30').getTime();
     function runTimer() {
       const now = new Date().getTime();
@@ -1092,6 +1094,7 @@
     setInterval(runTimer, 1000);
     runTimer();
 
+    // The 5 Romantic Travel & Life Memories
     const memoriesList = [
       {
         quote: "Golden desert sunsets and city lights mirrored in your eyes, beginning our journey where dreams touch the sky.",
@@ -1570,7 +1573,7 @@
       // Immediate visual feedback on page
       renderBlessingCard(name, msg, dateFormatted);
 
-      // Permanent background post to your Google Sheet
+      // Permanent background post to your Google Sheet using no-cors to prevent App Script redirects from failing
       fetch(GOOGLE_SHEET_WEBAPP_URL, {
         method: "POST",
         mode: "no-cors",
