@@ -16,6 +16,10 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
+  <!-- Firebase SDK (Compatibility mode for easy GitHub Pages integration) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -813,7 +817,7 @@
         <!-- 8. Ring Ceremony (Full) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border-2 border-royal-gold/50" data-cat="ring" onclick="launchCinema('Ring Ceremony', 'Complete uncut recording of the Ring Ceremony celebration at Hotel 7 Saat.', 'JqFzhcWo3EU')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-cardinal text-royal-goldlight flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform border border-royal-gold">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -830,9 +834,9 @@
         </div>
 
         <!-- 9. Teaser of Wedding Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'JqFzhcWo3EU')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'qY6Kui1D4qk')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -999,7 +1003,7 @@
     </div>
   </section>
 
-  <!-- 7. GUEST WISHES WALL (WITH CUSTOM SCROLLBAR & DATE FORMATTING) -->
+  <!-- 7. GUEST WISHES WALL (CONNECTED TO GOOGLE SHEET WEB APP) -->
   <section id="blessings" class="py-24 bg-royal-ivory/40 border-t border-royal-gold/25 relative z-30 reveal">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-14">
