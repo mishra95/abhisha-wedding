@@ -16,10 +16,6 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
-  <!-- Firebase SDK (Compatibility mode for easy GitHub Pages integration) -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -682,9 +678,9 @@
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
         <!-- 1. Teaser of Engagement Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'JqFzhcWo3EU')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -701,9 +697,9 @@
         </div>
 
         <!-- 2. Highlights of Engagement Ceremony -->
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'JqFzhcWo3EU')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'SXwykKF85Bo')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -1024,12 +1020,12 @@
         </form>
       </div>
 
-      <!-- 2nd Update: Scrollable Container for Dynamic Comments -->
+      <!-- Scrollable Container for Dynamic Comments -->
       <div id="blessingsStreamScroll" class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
         <!-- New fetched/posted comments will be injected here via JavaScript -->
       </div>
 
-      <!-- 3rd Update: Pinned Permanent Original Comment -->
+      <!-- Pinned Permanent Original Comment -->
       <div class="mt-4 pt-4 border-t border-royal-gold/30">
         <div class="velvet-card p-6 rounded-2xl bg-white/60">
           <div class="flex items-center justify-between mb-2">
@@ -1602,7 +1598,7 @@
       });
     }
 
-    // 1st Update: Parse Date properly to DD MMM YYYY
+    // Parse Date properly to DD MMM YYYY
     function formatDateToDDMMMYYYY(dateString) {
       if (!dateString) return 'Blessed Moment';
       const d = new Date(dateString);
