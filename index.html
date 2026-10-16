@@ -16,6 +16,10 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
+  <!-- Firebase SDK (Compatibility mode for easy GitHub Pages integration) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -151,6 +155,7 @@
     .animate-float {
       animation: floatArrow 2.5s infinite ease-in-out;
     }
+    /* Modern Reveal Animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -160,11 +165,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Elegant Monogram Styling */
     .monogram-ring {
       background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
       border: 1px solid rgba(212,175,55,0.6);
       box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
     }
+    /* Custom Scrollbar for Comments */
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
@@ -186,6 +193,7 @@
 
   <canvas id="petalCanvas"></canvas>
 
+  <!-- Modern Glassmorphic Floating Controls -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
     <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
@@ -195,8 +203,11 @@
     </button>
   </div>
 
+  <!-- NAVIGATION BAR -->
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-xl border-b border-royal-gold/30 transition-all shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
+      
+      <!-- Elegant A&B Monogram Logo -->
       <a href="#top" class="flex items-center group cursor-pointer">
         <div class="w-12 h-12 rounded-full monogram-ring flex items-center justify-center relative overflow-hidden group-hover:scale-105 group-hover:border-royal-gold transition-all duration-500">
           <span class="font-cinzel text-xl font-bold text-white drop-shadow-md">A</span>
@@ -284,6 +295,7 @@
         </a>
       </div>
       
+      <!-- Scroll Indicator -->
       <a href="#events" class="inline-block text-royal-goldlight/70 hover:text-white transition mt-4 animate-float cursor-pointer">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
       </a>
@@ -299,6 +311,8 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- 1. Nirbandha Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -320,6 +334,7 @@
         </div>
       </div>
 
+      <!-- 2. Ring Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -341,6 +356,7 @@
         </div>
       </div>
 
+      <!-- 3. Haldi & Mehendi Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -362,6 +378,7 @@
         </div>
       </div>
 
+      <!-- 4. Wedding Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -383,6 +400,7 @@
         </div>
       </div>
 
+      <!-- 5. Reception Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -404,6 +422,7 @@
         </div>
       </div>
 
+      <!-- 6. 1st Anniversary Ceremony Milestone Card -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -515,10 +534,17 @@
 
   <!-- 4. ALBUMS & PHOTO GALLERY -->
   <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto relative z-30 reveal">
-    <div class="text-center mb-14">
+    <div class="text-center mb-10">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Visual Keepsakes</span>
       <h2 class="font-cinzel text-4xl sm:text-5xl text-royal-cardinal font-bold">Captured Moments</h2>
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
+    </div>
+    
+    <!-- Added Guest Upload Button directly to the Gallery section -->
+    <div class="text-center mb-10">
+      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
+      </button>
     </div>
 
     <!-- Category Filter Tabs -->
@@ -651,7 +677,7 @@
     </div>
   </section>
 
-  <!-- 5. CINEMA HUB (State-of-the-Art Coming Soon Studio Logic) -->
+  <!-- 5. CINEMA HUB -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40 reveal">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -677,7 +703,7 @@
 
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-        <!-- 1. Teaser of Engagement Ceremony (ACTIVE) -->
+        <!-- 1. Teaser of Engagement Ceremony -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -696,7 +722,7 @@
           </div>
         </div>
 
-        <!-- 2. Highlights of Engagement Ceremony (ACTIVE) -->
+        <!-- 2. Highlights of Engagement Ceremony -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'SXwykKF85Bo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -715,7 +741,7 @@
           </div>
         </div>
 
-        <!-- 3. Engagement Ceremony (COMING SOON) -->
+        <!-- 3. Engagement Ceremony (Full) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="engagement">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -731,10 +757,10 @@
           </div>
           <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
             <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Engagement Ceremony</h4>
-            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Complete traditional Nirbandha ceremony recorded from start to finish.</p>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Complete traditional Nirbandha ceremony recorded from start to finish without cuts.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-4/5 animate-rendering"></div>
+              <div class="h-full rounded-full w-[90%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Final Review...</span>
@@ -743,7 +769,7 @@
           </div>
         </div>
 
-        <!-- 4. Teaser of Pre-Wedding (COMING SOON) -->
+        <!-- 4. Teaser of Pre-Wedding -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -762,7 +788,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Scenic landscapes and romantic backdrops capturing the early chapter of our bond.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[90%] animate-rendering"></div>
+              <div class="h-full rounded-full w-[80%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Exporting 4K Master...</span>
@@ -771,7 +797,7 @@
           </div>
         </div>
 
-        <!-- 5. Pre-Wedding Shoot (COMING SOON) -->
+        <!-- 5. Pre-Wedding Shoot -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -790,7 +816,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full official edition of our romantic pre-wedding shoots across scenic locations.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[60%] animate-rendering"></div>
+              <div class="h-full rounded-full w-[45%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Color Grading & Edits...</span>
@@ -799,7 +825,7 @@
           </div>
         </div>
 
-        <!-- 6. Teaser for Ring Ceremony (COMING SOON) -->
+        <!-- 6. Teaser for Ring Ceremony -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -818,7 +844,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-3/4 animate-rendering"></div>
+              <div class="h-full rounded-full w-[70%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Sound Mixing...</span>
@@ -827,7 +853,7 @@
           </div>
         </div>
 
-        <!-- 7. Highlights of Ring Ceremony (COMING SOON) -->
+        <!-- 7. Highlights of Ring Ceremony -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -846,7 +872,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Family congratulations, stage moments, and celebrations from 18th December 2024.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-1/2 animate-rendering"></div>
+              <div class="h-full rounded-full w-[40%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Editing Sequence...</span>
@@ -855,7 +881,7 @@
           </div>
         </div>
 
-        <!-- 8. Ring Ceremony (Full) (COMING SOON) -->
+        <!-- 8. Ring Ceremony (Full) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -874,7 +900,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The complete unedited recording of all stage ceremonies and the grand feast.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-1/3 animate-rendering"></div>
+              <div class="h-full rounded-full w-[25%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Syncing Audio Feeds...</span>
@@ -902,7 +928,7 @@
           </div>
         </div>
 
-        <!-- 10. Highlights of Wedding Ceremony (COMING SOON) -->
+        <!-- 10. Highlights of Wedding Ceremony -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -930,7 +956,7 @@
           </div>
         </div>
 
-        <!-- 11. Wedding Ceremony Complete (COMING SOON) -->
+        <!-- 11. Wedding Ceremony Complete -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
             <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
@@ -949,7 +975,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full uncut cinematic chronicle documenting every sacred chanting, Vedic ritual, and family feast.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[20%] animate-rendering"></div>
+              <div class="h-full rounded-full w-[5%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Processing Raw Footage...</span>
@@ -1110,6 +1136,30 @@
       
     </div>
   </section>
+
+  <!-- 8. GUEST UPLOAD MODAL -->
+  <div id="uploadModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center relative border border-royal-gold/40 shadow-2xl">
+      <button onclick="closeUploadModal()" class="absolute top-4 right-4 text-stone-400 hover:text-royal-cardinal transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+      
+      <div class="w-16 h-16 rounded-full bg-royal-gold/10 flex items-center justify-center mx-auto mb-4 border border-royal-gold/50 shadow-inner">
+        <i class="fa-solid fa-cloud-arrow-up text-2xl text-royal-golddark animate-pulse"></i>
+      </div>
+      
+      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-2">Share Your View</h4>
+      <p class="text-sm text-stone-600 mb-6 leading-relaxed">
+        Did you capture a beautiful moment, a candid smile, or a fun video from our celebrations? Upload them directly to our personal secure drive!
+      </p>
+      
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?usp=publish-editor" target="_blank" onclick="closeUploadModal()" class="block w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg mb-3">
+        Open Secure Upload Portal
+      </a>
+      
+      <p class="text-[10px] text-stone-400 uppercase tracking-wider font-semibold">Supports High-Quality Photos & Videos</p>
+    </div>
+  </div>
 
   <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
   <div id="cinemaModal" class="fixed inset-0 z-50 bg-black/95 hidden items-center justify-center p-2 sm:p-4">
@@ -1634,6 +1684,16 @@
     function closeShareModal() {
       document.getElementById('shareModal').classList.add('hidden');
       document.getElementById('shareModal').classList.remove('flex');
+    }
+
+    // Guest Upload Modal Logic
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.remove('hidden');
+      document.getElementById('uploadModal').classList.add('flex');
+    }
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.add('hidden');
+      document.getElementById('uploadModal').classList.remove('flex');
     }
 
     function copyCurrentLink() {
