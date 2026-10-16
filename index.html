@@ -16,6 +16,10 @@
   <!-- YouTube IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
 
+  <!-- Firebase SDK (Compatibility mode for easy GitHub Pages integration) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -68,18 +72,46 @@
       border-color: #D4AF37;
       box-shadow: 0 24px 48px -12px rgba(212, 175, 55, 0.3);
     }
-    .coming-soon-card {
-      background: #0f0406;
-      border: 1px solid rgba(212, 175, 55, 0.15);
+    
+    /* INNOVATIVE POST-PRODUCTION CARD STYLING */
+    .post-production-card {
+      background: linear-gradient(145deg, #130406 0%, #0a0102 100%);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s ease;
     }
-    @keyframes renderingBar {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
+    .post-production-card:hover {
+      border-color: rgba(212, 175, 55, 0.5);
     }
-    .animate-rendering {
-      background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.9) 50%, rgba(212,175,55,0.1) 100%);
-      background-size: 200% 100%;
-      animation: renderingBar 2.5s infinite linear;
+    .scanline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(212, 175, 55, 0.8);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 1);
+      animation: scan 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      z-index: 10;
+    }
+    @keyframes scan {
+      0% { top: -10%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { top: 110%; opacity: 0; }
+    }
+    .film-overlay {
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.15) 2px,
+        rgba(0, 0, 0, 0.15) 4px
+      );
+      position: absolute;
+      inset: 0;
+      z-index: 5;
     }
     
     .hero-cinematic-bg {
@@ -199,7 +231,6 @@
   <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-xl border-b border-royal-gold/30 transition-all shadow-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
       
-      <!-- Elegant A&B Monogram Logo -->
       <a href="#top" class="flex items-center group cursor-pointer">
         <div class="w-12 h-12 rounded-full monogram-ring flex items-center justify-center relative overflow-hidden group-hover:scale-105 group-hover:border-royal-gold transition-all duration-500">
           <span class="font-cinzel text-xl font-bold text-white drop-shadow-md">A</span>
@@ -528,7 +559,7 @@
     
     <!-- Guest Upload Button -->
     <div class="text-center mb-10">
-      <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
       </button>
     </div>
@@ -656,7 +687,7 @@
     </div>
   </section>
 
-  <!-- 5. CINEMA HUB -->
+  <!-- 5. CINEMA HUB (With Fixed Category Filtering & New Post-Production UI) -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40 reveal">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -671,9 +702,9 @@
         <div class="w-24 h-1 bg-royal-gold mx-auto mt-6 rounded-full shadow-lg"></div>
       </div>
 
-      <!-- Guest Upload Button for Videos -->
+      <!-- Guest Upload Button -->
       <div class="text-center mb-10">
-        <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
           <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Videos
         </button>
       </div>
@@ -725,164 +756,164 @@
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="engagement">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="engagement">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Engagement Ceremony</h4>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Engagement Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
+            </div>
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Complete traditional Nirbandha ceremony recorded from start to finish without cuts.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[90%] animate-rendering"></div>
-            </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Final Review...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-full animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Rendering</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="prewedding">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Teaser" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 0.5s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Teaser of Pre-Wedding</h4>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Teaser of Pre-Wedding</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
+            </div>
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Scenic landscapes and romantic backdrops capturing the early chapter of our bond.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[80%] animate-rendering"></div>
-            </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Exporting 4K Master...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[80%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Exporting 4K</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="prewedding">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 1.2s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Pre-Wedding Shoot</h4>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Pre-Wedding Shoot</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
+            </div>
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full official edition of our romantic pre-wedding shoots across scenic locations.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[45%] animate-rendering"></div>
-            </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Color Grading & Edits...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[45%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Color Grading</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="ring">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 0.8s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Teaser for Ring Ceremony</h4>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Teaser for Ring Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
+            </div>
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[70%] animate-rendering"></div>
-            </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Sound Mixing...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[70%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Sound Mixing</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="ring">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Highlights" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 2.1s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Highlights of Ring Ceremony</h4>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Highlights of Ring Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
+            </div>
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Family congratulations, stage moments, and celebrations from 18th December 2024.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[40%] animate-rendering"></div>
-            </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Editing Sequence...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[40%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Sequencing</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="ring">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 0.3s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Ring Ceremony</h4>
-            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The complete unedited recording of all stage ceremonies and the grand feast.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[25%] animate-rendering"></div>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Ring Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
             </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Syncing Audio Feeds...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The complete unedited recording of all stage ceremonies and the grand feast.</p>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[25%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Syncing Audio</span>
             </div>
           </div>
         </div>
@@ -905,56 +936,56 @@
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="wedding">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 1.5s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Highlights of Wedding Ceremony</h4>
-            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">A montage journey covering Baradhara, Haldi, Mehendi, the beachside Mandap, and our Grand Reception.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[85%] animate-rendering"></div>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Highlights of Wedding Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
             </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Adding Cinematic Score...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">A montage journey covering Baradhara, Haldi, Mehendi, the beachside Mandap, and our Grand Reception.</p>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[85%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Cinematic Score</span>
             </div>
           </div>
         </div>
 
-        <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
-          <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
-            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
-              <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
+        <div class="post-production-card rounded-3xl overflow-hidden cursor-not-allowed" data-cat="wedding">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 filter brightness-[0.35] sepia-[0.3] hue-rotate-[-30deg]">
+            <div class="film-overlay"></div>
+            <div class="scanline" style="animation-delay: 2.7s;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-20">
+              <div class="w-14 h-14 rounded-full bg-black/60 border border-royal-gold/40 flex items-center justify-center mb-3 backdrop-blur-md shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+                <i class="fa-solid fa-clapperboard text-royal-gold text-xl animate-pulse"></i>
               </div>
-              <span class="text-[9px] tracking-[0.3em] font-cinzel text-royal-gold/80 uppercase font-bold drop-shadow-md">In The Studio</span>
+              <span class="text-[9px] tracking-[0.4em] font-cinzel text-royal-goldlight uppercase font-bold drop-shadow-lg bg-black/50 px-4 py-1 rounded-full border border-royal-gold/30">Post-Production</span>
             </div>
-            <span class="absolute top-3 left-3 bg-stone-900/80 text-stone-400 text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-stone-700 backdrop-blur-md">
-              <i class="fa-solid fa-lock text-[8px] mr-1"></i> Locked
-            </span>
           </div>
-          <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
-            <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Wedding Ceremony</h4>
-            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full uncut cinematic chronicle documenting every sacred chanting, Vedic ritual, and family feast.</p>
-            
-            <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[5%] animate-rendering"></div>
+          <div class="p-6 relative z-20">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-cinzel text-lg font-bold text-stone-300">Wedding Ceremony</h4>
+              <i class="fa-solid fa-lock text-stone-500 text-xs"></i>
             </div>
-            <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
-              <span>Processing Raw Footage...</span>
-              <span class="text-royal-gold/70 animate-pulse">Processing</span>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full uncut cinematic chronicle documenting every sacred chanting, Vedic ritual, and family feast.</p>
+            <div class="flex items-center gap-3">
+              <div class="flex-1 h-1 bg-stone-800 rounded-full overflow-hidden">
+                <div class="h-full bg-royal-gold/60 rounded-full w-[5%] animate-[pulse_2s_ease-in-out_infinite]"></div>
+              </div>
+              <span class="text-[9px] uppercase tracking-widest text-royal-gold font-semibold animate-pulse">Raw Footage</span>
             </div>
           </div>
         </div>
@@ -1066,7 +1097,7 @@
     </div>
   </section>
 
-  <!-- 7. GUEST WISHES WALL (CONNECTED TO GOOGLE SHEET WEB APP) -->
+  <!-- 7. GUEST WISHES WALL -->
   <section id="blessings" class="py-24 bg-royal-ivory/40 border-t border-royal-gold/25 relative z-30 reveal">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-14">
@@ -1102,6 +1133,31 @@
       
     </div>
   </section>
+
+  <!-- 8. GUEST UPLOAD MODAL (EMBEDDED IFRAME) -->
+  <div id="uploadModal" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl h-[85vh] relative border border-royal-gold/40 shadow-2xl flex flex-col">
+      
+      <div class="bg-royal-cream px-6 py-4 flex items-center justify-between border-b border-royal-gold/30">
+        <h4 class="font-cinzel text-xl font-bold text-royal-cardinal flex items-center gap-2">
+          <i class="fa-solid fa-cloud-arrow-up text-royal-golddark"></i> Share Your View
+        </h4>
+        <button onclick="closeUploadModal()" class="text-stone-400 hover:text-royal-cardinal transition-colors">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+      </div>
+      
+      <div class="flex-1 w-full relative bg-white">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0 w-full h-full">Loading…</iframe>
+      </div>
+
+      <div class="bg-royal-cream px-6 py-3 border-t border-royal-gold/30 text-center">
+        <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold mb-1">Having trouble signing in on your phone?</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform" target="_blank" class="text-xs font-bold text-royal-cardinal hover:text-royal-gold transition underline underline-offset-2">Click here to open in a new secure tab</a>
+      </div>
+      
+    </div>
+  </div>
 
   <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
   <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-2 sm:p-4">
@@ -1335,8 +1391,9 @@
       });
     }
 
+    // 1st BUG FIX: Filter logic now targets all children inside the grid to properly hide/show the new post-production cards.
     function filterCinema(category) {
-      const cards = document.querySelectorAll('#cinemaGrid .cinema-card');
+      const cards = document.querySelectorAll('#cinemaGrid > div');
       const buttons = document.querySelectorAll('.cinema-filter-btn');
 
       buttons.forEach(btn => {
@@ -1621,14 +1678,13 @@
       document.getElementById('shareModal').classList.remove('flex');
     }
 
-    // Google Secure Popup Upload Login
-    function openUploadPopup() {
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform";
-      const w = 600;
-      const h = 800;
-      const left = (screen.width - w) / 2;
-      const top = (screen.height - h) / 2;
-      window.open(formUrl, 'SecureUploadPortal', `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no`);
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.remove('hidden');
+      document.getElementById('uploadModal').classList.add('flex');
+    }
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.add('hidden');
+      document.getElementById('uploadModal').classList.remove('flex');
     }
 
     function copyCurrentLink() {
