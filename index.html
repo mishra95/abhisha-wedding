@@ -518,7 +518,7 @@
     
     <!-- Upload Button -->
     <div class="text-center mb-10">
-      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+      <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
       </button>
     </div>
@@ -648,15 +648,21 @@
     <!-- THE COMPLETE PHOTO VAULTS -->
     <div class="mt-16 text-center bg-white/60 border border-royal-gold/30 rounded-3xl p-8 max-w-4xl mx-auto shadow-lg relative overflow-hidden reveal">
       <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-royal-gold to-transparent"></div>
-      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-2"><i class="fa-brands fa-google-drive text-royal-gold mr-2"></i> The Complete Photo Vaults</h4>
-      <p class="text-xs text-stone-500 mb-6 leading-relaxed max-w-2xl mx-auto italic">"A photograph is a pause button on life. Step into our complete archives and relive every fleeting smile, sacred chant, and joyous tear frozen in time."</p>
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a href="YOUR_ENGAGEMENT_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Engagement</a>
-        <a href="YOUR_RING_CEREMONY_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Ring Ceremony</a>
-        <a href="YOUR_HALDI_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Haldi</a>
-        <a href="YOUR_MEHENDI_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Mehendi</a>
-        <a href="YOUR_MARRIAGE_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Marriage</a>
-        <a href="YOUR_RECEPTION_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Reception</a>
+      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-3 flex items-center justify-center gap-3">
+        <i class="fa-brands fa-google-drive text-royal-gold"></i> The Complete Photo Vaults
+      </h4>
+      <p class="text-base sm:text-lg font-serif text-stone-600 mb-8 leading-relaxed max-w-2xl mx-auto italic">
+        "A photograph is a pause button on life. Step into our complete archives and relive every fleeting smile, sacred chant, and joyous tear frozen in time."
+      </p>
+      
+      <!-- Vault Buttons (No Pre-Wedding) -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+        <button onclick="openVault('YOUR_ENGAGEMENT_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Engagement</button>
+        <button onclick="openVault('YOUR_RING_CEREMONY_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Ring Ceremony</button>
+        <button onclick="openVault('YOUR_HALDI_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Haldi</button>
+        <button onclick="openVault('YOUR_MEHENDI_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Mehendi</button>
+        <button onclick="openVault('YOUR_MARRIAGE_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Marriage</button>
+        <button onclick="openVault('YOUR_RECEPTION_DRIVE_LINK_HERE')" class="px-6 py-3 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] sm:text-xs uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1.5"></i> Reception</button>
       </div>
     </div>
   </section>
@@ -678,7 +684,7 @@
 
       <!-- Guest Upload Button for Videos -->
       <div class="text-center mb-10">
-        <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
           <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Videos
         </button>
       </div>
@@ -686,16 +692,16 @@
       <!-- Category Filter Tabs -->
       <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
         <button onclick="filterCinema('all')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-royal-goldlight border border-royal-gold/60 shadow-lg transition-colors">All Events</button>
-        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Engagement Ceremony</button>
-        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Pre-Wedding Shoots</button>
+        <button onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Engagement</button>
+        <button onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Pre-Wedding</button>
         <button onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Ring Ceremony</button>
-        <button onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Wedding Ceremonies</button>
+        <button onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Wedding</button>
       </div>
 
       <!-- THE GRID -->
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'A cinematic glimpse into the sacred rituals, heartfelt blessings, and the beautiful beginning of our journey.', 'iWriHLbstAg')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement', 'A cinematic glimpse into the sacred rituals, heartfelt blessings, and the beautiful beginning of our journey.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -713,7 +719,7 @@
           </div>
         </div>
 
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Relive the joy, the tears, and the beautiful family moments that made our Nirbandha unforgettable.', 'SXwykKF85Bo')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement', 'Relive the joy, the tears, and the beautiful family moments that made our Nirbandha unforgettable.', 'SXwykKF85Bo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -835,7 +841,7 @@
           </div>
         </div>
 
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'A breathtaking cinematic trailer of our seaside vows, capturing the emotion and grandeur of our biggest day.', 'qY6Kui1D4qk')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding', 'A breathtaking cinematic trailer of our seaside vows, capturing the emotion and grandeur of our biggest day.', 'qY6Kui1D4qk')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -847,7 +853,7 @@
             <span class="absolute bottom-3 right-3 bg-black/80 text-royal-goldlight text-[10px] font-semibold px-2.5 py-1 rounded-md"><i class="fa-solid fa-film mr-1"></i> Play</span>
           </div>
           <div class="p-6">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Wedding Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Wedding</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-3">A breathtaking cinematic trailer of our seaside vows, capturing the emotion and grandeur of our biggest day.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
@@ -864,7 +870,7 @@
             </div>
           </div>
           <div class="p-6 opacity-80">
-            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Highlights of Wedding Ceremony</h4>
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Highlights of Wedding</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">A beautifully woven montage of Baradhara, Haldi, the sacred Mandap, and our magical Gopalpur wedding.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
           </div>
@@ -1015,10 +1021,8 @@
         </form>
       </div>
 
-      <!-- Scrollable Container for Dynamic Comments with Static Fallbacks -->
       <div id="blessingsStreamScroll" class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar min-h-[120px]">
         
-        <!-- Default Fallback Wish 1 -->
         <div class="velvet-card p-6 rounded-2xl transition-all duration-300">
           <div class="flex items-center justify-between mb-2">
             <span class="font-serif text-lg font-bold text-royal-cardinal">Uncle & Aunt</span>
@@ -1027,7 +1031,6 @@
           <p class="text-sm text-stone-600 leading-relaxed">Wishing you a lifetime of joy, love, and endless beautiful memories together. God bless you both on this wonderful journey!</p>
         </div>
 
-        <!-- Default Fallback Wish 2 -->
         <div class="velvet-card p-6 rounded-2xl transition-all duration-300">
           <div class="flex items-center justify-between mb-2">
             <span class="font-serif text-lg font-bold text-royal-cardinal">The Cousins Squad</span>
@@ -1610,6 +1613,15 @@
       const top = (screen.height - h) / 2;
       window.open(formUrl, 'SecureUploadPortal', `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no`);
       closeUploadModal();
+    }
+    
+    // Fallback Logic for Unconfigured Vault Buttons
+    function openVault(linkName) {
+      if (linkName.startsWith('YOUR_')) {
+        alert("Please add your actual Google Drive folder link to the code to replace: " + linkName);
+      } else {
+        window.open(linkName, '_blank');
+      }
     }
 
     function copyCurrentLink() {
