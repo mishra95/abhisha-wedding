@@ -1021,24 +1021,9 @@
         </form>
       </div>
 
+      <!-- Scrollable Container for Dynamic Comments -->
       <div id="blessingsStreamScroll" class="space-y-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar min-h-[120px]">
-        
-        <div class="velvet-card p-6 rounded-2xl transition-all duration-300">
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-serif text-lg font-bold text-royal-cardinal">Uncle & Aunt</span>
-            <span class="text-xs text-stone-400 font-semibold">25 Jan 2025</span>
-          </div>
-          <p class="text-sm text-stone-600 leading-relaxed">Wishing you a lifetime of joy, love, and endless beautiful memories together. God bless you both on this wonderful journey!</p>
-        </div>
-
-        <div class="velvet-card p-6 rounded-2xl transition-all duration-300">
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-serif text-lg font-bold text-royal-cardinal">The Cousins Squad</span>
-            <span class="text-xs text-stone-400 font-semibold">24 Jan 2025</span>
-          </div>
-          <p class="text-sm text-stone-600 leading-relaxed">What a magical celebration! So happy to see you two tie the knot. Here's to forever and always!</p>
-        </div>
-
+        <!-- Dynamic wishes from Google Sheets will load here -->
       </div>
 
       <div class="mt-4 pt-4 border-t border-royal-gold/30">
@@ -1615,7 +1600,6 @@
       closeUploadModal();
     }
     
-    // Fallback Logic for Unconfigured Vault Buttons
     function openVault(linkName) {
       if (linkName.startsWith('YOUR_')) {
         alert("Please add your actual Google Drive folder link to the code to replace: " + linkName);
