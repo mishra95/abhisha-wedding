@@ -143,6 +143,7 @@
     .animate-float {
       animation: floatArrow 2.5s infinite ease-in-out;
     }
+    /* Modern Reveal Animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -152,11 +153,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Elegant Monogram Styling */
     .monogram-ring {
       background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
       border: 1px solid rgba(212,175,55,0.6);
       box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
     }
+    /* Custom Scrollbar for Comments */
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
@@ -520,7 +523,7 @@
     
     <!-- Guest Upload Button -->
     <div class="text-center mb-10">
-      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+      <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
       </button>
     </div>
@@ -648,7 +651,7 @@
     </div>
   </section>
 
-  <!-- 5. CINEMA HUB (State-of-the-Art Coming Soon Studio Logic) -->
+  <!-- 5. CINEMA HUB -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40 reveal">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -665,7 +668,7 @@
 
       <!-- Guest Upload Button for Videos -->
       <div class="text-center mb-10">
-        <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
           <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Videos
         </button>
       </div>
@@ -682,7 +685,6 @@
       <!-- THE GRID: Exactly 11 perfectly mapped video cards -->
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-        <!-- 1. Teaser of Engagement Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -701,7 +703,6 @@
           </div>
         </div>
 
-        <!-- 2. Highlights of Engagement Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'SXwykKF85Bo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -720,7 +721,6 @@
           </div>
         </div>
 
-        <!-- 3. Engagement Ceremony (COMING SOON - New Elegant Design) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="engagement">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -738,7 +738,6 @@
           </div>
         </div>
 
-        <!-- 4. Teaser of Pre-Wedding (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Teaser of Pre-Wedding', 'Scenic landscapes and romantic backdrops capturing the early chapter of our bond.', '6Tr09QwXOAo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/6Tr09QwXOAo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80'" alt="Pre-Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -757,7 +756,6 @@
           </div>
         </div>
 
-        <!-- 5. Pre-Wedding Shoot (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer border border-emerald-600/30" data-cat="prewedding" onclick="launchCinema('Pre-Wedding Shoot', 'The full official edition of our romantic pre-wedding shoots across scenic locations.', '4DvobIfKaE4')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/4DvobIfKaE4/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80'" alt="Pre-Wedding Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -776,7 +774,6 @@
           </div>
         </div>
 
-        <!-- 6. Teaser for Ring Ceremony (COMING SOON) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -794,7 +791,6 @@
           </div>
         </div>
 
-        <!-- 7. Highlights of Ring Ceremony (COMING SOON) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Highlights" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -812,7 +808,6 @@
           </div>
         </div>
 
-        <!-- 8. Ring Ceremony Full (COMING SOON) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -830,7 +825,6 @@
           </div>
         </div>
 
-        <!-- 9. Teaser of Wedding Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'qY6Kui1D4qk')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -849,7 +843,6 @@
           </div>
         </div>
 
-        <!-- 10. Highlights of Wedding Ceremony (COMING SOON) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -867,7 +860,6 @@
           </div>
         </div>
 
-        <!-- 11. Wedding Ceremony Complete (COMING SOON) -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -1028,31 +1020,6 @@
       
     </div>
   </section>
-
-  <!-- 8. GUEST UPLOAD MODAL (EMBEDDED IFRAME) -->
-  <div id="uploadModal" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-md">
-    <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl h-[85vh] relative border border-royal-gold/40 shadow-2xl flex flex-col">
-      
-      <div class="bg-royal-cream px-6 py-4 flex items-center justify-between border-b border-royal-gold/30">
-        <h4 class="font-cinzel text-xl font-bold text-royal-cardinal flex items-center gap-2">
-          <i class="fa-solid fa-cloud-arrow-up text-royal-golddark"></i> Share Your View
-        </h4>
-        <button onclick="closeUploadModal()" class="text-stone-400 hover:text-royal-cardinal transition-colors">
-          <i class="fa-solid fa-xmark text-2xl"></i>
-        </button>
-      </div>
-      
-      <div class="flex-1 w-full relative bg-white">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0 w-full h-full">Loading…</iframe>
-      </div>
-
-      <div class="bg-royal-cream px-6 py-3 border-t border-royal-gold/30 text-center">
-        <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold mb-1">Having trouble signing in on your phone?</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform" target="_blank" class="text-xs font-bold text-royal-cardinal hover:text-royal-gold transition underline underline-offset-2">Click here to open in a new secure tab</a>
-      </div>
-      
-    </div>
-  </div>
 
   <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
   <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-2 sm:p-4">
@@ -1286,7 +1253,6 @@
       });
     }
 
-    // Completely fixed sorting logic to prevent mismatched videos
     function filterCinema(category) {
       const cards = document.querySelectorAll('#cinemaGrid > div');
       const buttons = document.querySelectorAll('.cinema-filter-btn');
@@ -1573,13 +1539,14 @@
       document.getElementById('shareModal').classList.remove('flex');
     }
 
-    function openUploadModal() {
-      document.getElementById('uploadModal').classList.remove('hidden');
-      document.getElementById('uploadModal').classList.add('flex');
-    }
-    function closeUploadModal() {
-      document.getElementById('uploadModal').classList.add('hidden');
-      document.getElementById('uploadModal').classList.remove('flex');
+    // New Secure Popup Upload Logic
+    function openUploadPopup() {
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform";
+      const w = 600;
+      const h = 800;
+      const left = (screen.width - w) / 2;
+      const top = (screen.height - h) / 2;
+      window.open(formUrl, 'SecureUploadPortal', `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no`);
     }
 
     function copyCurrentLink() {
