@@ -290,12 +290,313 @@
         <a href="#gallery" class="group px-8 py-3.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-deepmaroon transition shadow-xl border border-royal-gold/40 flex items-center gap-2">
           <i class="fa-solid fa-images text-royal-gold group-hover:scale-110 transition-transform"></i> Albums
         </a>
+        <a href="#cinema" class="group px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-white hover:textI completely understand wanting a seamless experience where guests don't have to leave the website or deal with sign-in prompts. 
+
+Here is the candid technical reality of how Google handles file storage: **It is strictly impossible to bypass the Google sign-in requirement when accepting file uploads to Google Drive.** Google enforces this security measure to track who is uploading files and to prevent malicious software from flooding your personal storage. 
+
+If you want guests to upload massive, high-quality 4K videos for free, Google Forms is the best tool, but the Google account sign-in is mandatory. (To bypass sign-ins, you would have to use paid third-party wedding apps like WedUploader or DropEvent).
+
+However, **we can absolutely keep them on your website.** Instead of opening a new tab, we can embed the Google Form directly into the pop-up modal so it feels like a native part of your website.
+
+*Note: Because Apple enforces strict privacy blockers on iPhones (Safari), some guests might have trouble signing into Google inside an embedded box. I have included a "fallback" link inside the popup just in case they need it.*
+
+Here is your final, complete code with the embedded, on-site upload portal:
+
+### Complete Code to Paste into GitHub:
+
+1. Open your repository **`mishra95/abhisha-wedding`** on GitHub.
+2. Open **`index.html`** and click the **Pencil (Edit)** icon.
+3. Select everything (`Ctrl + A` or `Cmd + A`), delete it, and paste this entire code block:
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhisek & Barsha — Our Forever Chapter (#Abhisha)</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)">
+  <link href="[https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap](https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Pinyon+Script&display=swap)" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+  
+  <!-- YouTube IFrame API -->
+  <script src="[https://www.youtube.com/iframe_api](https://www.youtube.com/iframe_api)"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              cream: '#FAF6EE',
+              ivory: '#F4ECE1',
+              gold: '#D4AF37',
+              goldlight: '#F8E9C2',
+              golddark: '#997A15',
+              velvet: '#5B101C',
+              deepmaroon: '#240307',
+              cardinal: '#7A1C28',
+              charcoal: '#1A1817'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            cinzel: ['"Cinzel"', 'serif'],
+            script: ['"Pinyon Script"', 'cursive'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .gold-foil {
+      background: linear-gradient(135deg, #B8860B 0%, #FFE27A 35%, #FDB931 65%, #996515 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .velvet-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 16px 36px -10px rgba(74, 14, 23, 0.16);
+    }
+    .cinema-card {
+      background: #180509;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cinema-card:hover {
+      transform: translateY(-8px);
+      border-color: #D4AF37;
+      box-shadow: 0 24px 48px -12px rgba(212, 175, 55, 0.3);
+    }
+    .coming-soon-card {
+      background: #0f0406;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    @keyframes renderingBar {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .animate-rendering {
+      background: linear-gradient(90deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.9) 50%, rgba(212,175,55,0.1) 100%);
+      background-size: 200% 100%;
+      animation: renderingBar 2.5s infinite linear;
+    }
+    .hero-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('[https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85](https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85)');
+      background-size: cover;
+      background-position: center 30%;
+      filter: saturate(1.15) brightness(0.65);
+    }
+    .hero-vignette-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(18, 5, 8, 0.45) 0%, rgba(15, 3, 6, 0.85) 65%, rgba(10, 1, 3, 0.96) 100%),
+                  linear-gradient(to bottom, rgba(15, 3, 6, 0.8) 0%, transparent 25%, transparent 75%, #FAF6EE 100%);
+    }
+    .baraat-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('[https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85](https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85)');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.2) brightness(0.5);
+    }
+    .baraat-vignette-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(36, 3, 7, 0.55) 0%, rgba(18, 2, 4, 0.88) 75%, rgba(10, 1, 2, 0.98) 100%),
+                  linear-gradient(to bottom, #FAF6EE 0%, transparent 18%, transparent 82%, #FAF6EE 100%);
+    }
+    #petalCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 25;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: #D4AF37;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(0,0,0,0.6);
+    }
+    input[type=range]::-moz-range-thumb {
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: #D4AF37;
+      cursor: pointer;
+      border: none;
+    }
+    @keyframes pulseSlow {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+    .pulse-heart {
+      animation: pulseSlow 3s infinite ease-in-out;
+    }
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+    .animate-float {
+      animation: floatArrow 2.5s infinite ease-in-out;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .monogram-ring {
+      background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
+      border: 1px solid rgba(212,175,55,0.6);
+      box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(122, 28, 40, 0.4);
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(122, 28, 40, 0.8);
+    }
+  </style>
+</head>
+
+<body id="top" class="bg-royal-cream text-royal-charcoal font-sans antialiased selection:bg-royal-gold selection:text-royal-deepmaroon relative">
+
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Modern Glassmorphic Floating Controls -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
+      <i class="fa-solid fa-qrcode text-lg"></i>
+    </button>
+    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-14 h-14 rounded-full bg-royal-velvet/95 backdrop-blur-xl text-royal-goldlight shadow-2xl flex items-center justify-center border-2 border-royal-gold hover:scale-110 transition-transform duration-300">
+      <i id="audioIcon" class="fa-solid fa-music text-xl"></i>
+    </button>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="fixed top-0 left-0 w-full z-40 bg-royal-deepmaroon/90 backdrop-blur-xl border-b border-royal-gold/30 transition-all shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-white">
+      
+      <!-- Elegant A&B Monogram Logo -->
+      <a href="#top" class="flex items-center group cursor-pointer">
+        <div class="w-12 h-12 rounded-full monogram-ring flex items-center justify-center relative overflow-hidden group-hover:scale-105 group-hover:border-royal-gold transition-all duration-500">
+          <span class="font-cinzel text-xl font-bold text-white drop-shadow-md">A</span>
+          <span class="font-script text-royal-gold text-2xl absolute opacity-80 mix-blend-screen transform translate-x-0.5 translate-y-0.5">&</span>
+          <span class="font-cinzel text-xl font-bold text-white drop-shadow-md ml-1 z-10">B</span>
+        </div>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-6 text-[11px] uppercase tracking-[0.2em] font-semibold text-stone-200">
+        <a href="#events" class="hover:text-royal-gold transition">Chronicles</a>
+        <a href="#journey" class="hover:text-royal-gold transition">The Path</a>
+        <a href="#culture" class="hover:text-royal-gold transition">Traditions</a>
+        <a href="#gallery" class="hover:text-royal-gold transition">Albums</a>
+        <a href="#cinema" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Cinema Hub</a>
+        <a href="#anniversary" class="hover:text-royal-gold transition">Our Story</a>
+        <a href="#blessings" class="hover:text-royal-gold transition font-bold text-royal-goldlight">Wishes</a>
+      </div>
+      
+      <div class="flex items-center gap-3">
+        <button onclick="shareLink()" class="px-5 py-2 rounded-full bg-royal-velvet border border-royal-gold/40 text-royal-goldlight text-xs tracking-widest uppercase font-semibold hover:bg-royal-cardinal transition shadow-md flex items-center gap-2">
+          <i class="fa-solid fa-share-nodes"></i> <span>Share</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+    <div class="hero-cinematic-bg"></div>
+    <div class="hero-vignette-overlay"></div>
+
+    <div class="max-w-5xl mx-auto z-30 relative text-white reveal active">
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] tracking-widest uppercase font-semibold text-royal-goldlight mb-8">
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#Abhisha</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#ForeverBegins</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#AbhiKiBarsha</span>
+        <span class="px-4 py-1 rounded-full bg-black/40 backdrop-blur-md border border-royal-gold/30">#OdiaRoyalWedding</span>
+      </div>
+
+      <p class="font-script text-4xl sm:text-6xl md:text-7xl gold-foil mb-4 font-normal drop-shadow-lg">
+        Two souls, one sacred eternal promise
+      </p>
+      
+      <h1 class="font-cinzel text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-[0.15em] uppercase mb-6 text-white drop-shadow-2xl leading-tight">
+        Abhisek <span class="font-script lowercase text-5xl sm:text-7xl md:text-8xl gold-foil mx-2">&</span> Barsha
+      </h1>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-[10px] sm:text-xs tracking-[0.35em] uppercase text-stone-300 mb-10 drop-shadow font-semibold">
+        <span>22 January 2025</span>
+        <span class="hidden sm:inline text-royal-gold">•</span>
+        <span class="w-8 h-[1px] bg-royal-gold/50 sm:hidden block my-1"></span>
+        <span>Katak & Brahmapur, Odisha, India</span>
+      </div>
+
+      <div class="max-w-xl mx-auto bg-white/95 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-royal-gold/50 shadow-2xl text-royal-charcoal mb-8">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-royal-cardinal font-bold mb-4 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-heart pulse-heart text-royal-cardinal"></i> DAYS OF TOGETHERNESS & SACRED BOND <i class="fa-solid fa-heart pulse-heart text-royal-cardinal"></i>
+        </p>
+        <div class="grid grid-cols-4 gap-2 sm:gap-4 divide-x divide-royal-gold/25">
+          <div>
+            <span id="daysBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Days</span>
+          </div>
+          <div>
+            <span id="hoursBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Hours</span>
+          </div>
+          <div>
+            <span id="minsBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Mins</span>
+          </div>
+          <div>
+            <span id="secsBox" class="block font-serif text-3xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-royal-cardinal to-royal-deepmaroon">--</span>
+            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1 block">Secs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+        <a href="#gallery" class="group px-8 py-3.5 rounded-full bg-royal-cardinal text-royal-goldlight font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-deepmaroon transition shadow-xl border border-royal-gold/40 flex items-center gap-2">
+          <i class="fa-solid fa-images text-royal-gold group-hover:scale-110 transition-transform"></i> Albums
+        </a>
         <a href="#cinema" class="group px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-white hover:text-royal-deepmaroon transition shadow-xl border border-white/30 flex items-center gap-2">
           <i class="fa-solid fa-circle-play text-royal-gold group-hover:scale-110 transition-transform"></i> Cinema Hub
         </a>
       </div>
       
-      <!-- Scroll Indicator -->
       <a href="#events" class="inline-block text-royal-goldlight/70 hover:text-white transition mt-4 animate-float cursor-pointer">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
       </a>
@@ -312,7 +613,6 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
-      <!-- 1. Nirbandha Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -328,13 +628,12 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Bishnu Mandir, Shaheed Nagar
           </span>
-          <a href="https://maps.app.goo.gl/7dJh3Nii4xzLmGke" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="[https://maps.app.goo.gl/7dJh3Nii4xzLmGke](https://maps.app.goo.gl/7dJh3Nii4xzLmGke)" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
 
-      <!-- 2. Ring Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -350,13 +649,12 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
           </span>
-          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="[https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9](https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9)" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
 
-      <!-- 3. Haldi & Mehendi Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -372,13 +670,12 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Home - Bidanasi
           </span>
-          <a href="https://maps.app.goo.gl/i7zvu6CJtT21Z94K8" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="[https://maps.app.goo.gl/i7zvu6CJtT21Z94K8](https://maps.app.goo.gl/i7zvu6CJtT21Z94K8)" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
 
-      <!-- 4. Wedding Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -394,13 +691,12 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 02:00 PM &bull; OTDC Panthanivas, Gopalpur
           </span>
-          <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="[https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6](https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6)" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
 
-      <!-- 5. Reception Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -416,13 +712,12 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM &bull; JBS Garden, Tulsipur
           </span>
-          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="[https://maps.app.goo.gl/dCDfDkNF3KCnbgG79](https://maps.app.goo.gl/dCDfDkNF3KCnbgG79)" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
 
-      <!-- 6. 1st Anniversary Ceremony Milestone Card -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -468,7 +763,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Departure Point</h4>
           <p class="text-xs font-bold text-royal-cardinal mb-3">Mishra Bhawan</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">Tarini Vihar, Bidanasi, Katak</p>
-          <a href="https://goo.gl/maps/dzH9qaRfEZLwQax66" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
+          <a href="[https://goo.gl/maps/dzH9qaRfEZLwQax66](https://goo.gl/maps/dzH9qaRfEZLwQax66)" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -478,7 +773,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Highway Halt</h4>
           <p class="text-xs font-bold text-royal-golddark mb-3">Rest & Procession Prep</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">Hotel Aditya Inn, Buxipalli, Gopalpur</p>
-          <a href="https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition">
+          <a href="[https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8](https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8)" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -488,7 +783,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Wedding Mandap</h4>
           <p class="text-xs font-bold text-royal-cardinal mb-3">Sacred Pheras by the Sea</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">OTDC Panthanivas, Gopalpur</p>
-          <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
+          <a href="[https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6](https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6)" target="_blank" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -540,7 +835,7 @@
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
     
-    <!-- Added Guest Upload Button directly to the Gallery section -->
+    <!-- Added Guest Upload Button -->
     <div class="text-center mb-10">
       <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
@@ -563,9 +858,9 @@
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Engagement Ceremony -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="engagement" onclick="openPhotoModal('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80', 'Sacred Betel Blessings', 'In the presence of the Divine and our elders, two families unite into one everlasting bond.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="engagement" onclick="openPhotoModal('[https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80)', 'Sacred Betel Blessings', 'In the presence of the Divine and our elders, two families unite into one everlasting bond.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80)" alt="Engagement Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Engagement 🌿</span>
         </div>
@@ -579,9 +874,9 @@
       </div>
 
       <!-- Pre-Wedding Shoots -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="prewedding" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'Glimpses of Forever', 'Every step, every glance, whispers the quiet beginning of a lifetime together.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="prewedding" onclick="openPhotoModal('[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80)', 'Glimpses of Forever', 'Every step, every glance, whispers the quiet beginning of a lifetime together.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80)" alt="Pre-Wedding Shoot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
@@ -595,9 +890,9 @@
       </div>
 
       <!-- Ring Ceremony -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="ring" onclick="openPhotoModal('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80', 'The Golden Circles', 'A circle has no beginning and no end; as is our promise, pure and unending.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="ring" onclick="openPhotoModal('[https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80)', 'The Golden Circles', 'A circle has no beginning and no end; as is our promise, pure and unending.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80)" alt="Ring Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Ring Ceremony 💍</span>
         </div>
@@ -611,9 +906,9 @@
       </div>
 
       <!-- Haldi & Mehendi Ceremony -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="haldi" onclick="openPhotoModal('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80', 'Colors of Radiance', 'Adorned in yellow hues and deep henna shades, drenched in laughter and boundless blessings.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="haldi" onclick="openPhotoModal('[https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80)', 'Colors of Radiance', 'Adorned in yellow hues and deep henna shades, drenched in laughter and boundless blessings.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Haldi & Mehendi Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80)" alt="Haldi & Mehendi Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-amber-800 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Haldi & Mehendi 🌼</span>
         </div>
@@ -627,9 +922,9 @@
       </div>
 
       <!-- Wedding Ceremony -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="wedding" onclick="openPhotoModal('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80', 'Sacred Pheras by the Sea', 'Seven holy rounds around Agni, seven lifelong promises sealed for all eternity.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="wedding" onclick="openPhotoModal('[https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80)', 'Sacred Pheras by the Sea', 'Seven holy rounds around Agni, seven lifelong promises sealed for all eternity.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80)" alt="Wedding Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding Mandap 🌸</span>
         </div>
@@ -643,9 +938,9 @@
       </div>
 
       <!-- Reception Ceremony -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="reception" onclick="openPhotoModal('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80', 'A Night of Celebration', 'Surrounded by warmth, smiles, and the music of loved ones celebrating our union.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="reception" onclick="openPhotoModal('[https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80)', 'A Night of Celebration', 'Surrounded by warmth, smiles, and the music of loved ones celebrating our union.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Reception Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80)" alt="Reception Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-blue-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Reception ✨</span>
         </div>
@@ -659,9 +954,9 @@
       </div>
 
       <!-- 1st Anniversary Ceremony Card -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="anniversary" onclick="openPhotoModal('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80', 'One Year of Sacred Bond', '365 days of laughter, patience, and love that continues to bloom stronger each passing day.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="anniversary" onclick="openPhotoModal('[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80)', 'One Year of Sacred Bond', '365 days of laughter, patience, and love that continues to bloom stronger each passing day.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="1st Anniversary Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80)" alt="1st Anniversary Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
         </div>
@@ -677,7 +972,7 @@
     </div>
   </section>
 
-  <!-- 5. CINEMA HUB -->
+  <!-- 5. CINEMA HUB (State-of-the-Art Coming Soon Studio Logic) -->
   <section id="cinema" class="py-28 bg-[#120205] text-white relative z-30 overflow-hidden border-y border-royal-gold/40 reveal">
     <div class="max-w-7xl mx-auto px-6">
       
@@ -703,10 +998,10 @@
 
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
-        <!-- 1. Teaser of Engagement Ceremony -->
+        <!-- 1. Teaser of Engagement Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="[https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg](https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg)" onerror="this.src='[https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80)'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -722,10 +1017,10 @@
           </div>
         </div>
 
-        <!-- 2. Highlights of Engagement Ceremony -->
+        <!-- 2. Highlights of Engagement Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Highlights of Engagement Ceremony', 'Cherished moments with family, traditional rituals, and elder blessings.', 'SXwykKF85Bo')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="[https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg](https://img.youtube.com/vi/SXwykKF85Bo/hqdefault.jpg)" onerror="this.src='[https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80)'" alt="Engagement Highlights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -741,10 +1036,10 @@
           </div>
         </div>
 
-        <!-- 3. Engagement Ceremony (Full) -->
+        <!-- 3. Engagement Ceremony (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="engagement">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80)" alt="Engagement Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -757,10 +1052,10 @@
           </div>
           <div class="p-6 bg-gradient-to-b from-[#120205] to-[#0a0102]">
             <h4 class="font-cinzel text-lg font-bold text-stone-400 mb-1 opacity-80">Engagement Ceremony</h4>
-            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Complete traditional Nirbandha ceremony recorded from start to finish without cuts.</p>
+            <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Complete traditional Nirbandha ceremony recorded from start to finish.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[90%] animate-rendering"></div>
+              <div class="h-full rounded-full w-4/5 animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Final Review...</span>
@@ -769,10 +1064,10 @@
           </div>
         </div>
 
-        <!-- 4. Teaser of Pre-Wedding -->
+        <!-- 4. Teaser of Pre-Wedding (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80)" alt="Pre-Wedding Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -788,7 +1083,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Scenic landscapes and romantic backdrops capturing the early chapter of our bond.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[80%] animate-rendering"></div>
+              <div class="h-full rounded-full w-[90%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Exporting 4K Master...</span>
@@ -797,10 +1092,10 @@
           </div>
         </div>
 
-        <!-- 5. Pre-Wedding Shoot -->
+        <!-- 5. Pre-Wedding Shoot (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="prewedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Pre-Wedding Shoot" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80)" alt="Pre-Wedding Shoot" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -816,7 +1111,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The full official edition of our romantic pre-wedding shoots across scenic locations.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[45%] animate-rendering"></div>
+              <div class="h-full rounded-full w-[60%] animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Color Grading & Edits...</span>
@@ -825,10 +1120,10 @@
           </div>
         </div>
 
-        <!-- 6. Teaser for Ring Ceremony -->
+        <!-- 6. Teaser for Ring Ceremony (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80)" alt="Ring Teaser" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -844,7 +1139,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The sparkling ring exchange and musical welcome at Hotel 7 Saat, Bhubaneswar.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[70%] animate-rendering"></div>
+              <div class="h-full rounded-full w-3/4 animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Sound Mixing...</span>
@@ -853,10 +1148,10 @@
           </div>
         </div>
 
-        <!-- 7. Highlights of Ring Ceremony -->
+        <!-- 7. Highlights of Ring Ceremony (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ring Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80)" alt="Ring Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -872,7 +1167,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">Family congratulations, stage moments, and celebrations from 18th December 2024.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[40%] animate-rendering"></div>
+              <div class="h-full rounded-full w-1/2 animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Editing Sequence...</span>
@@ -881,10 +1176,10 @@
           </div>
         </div>
 
-        <!-- 8. Ring Ceremony (Full) -->
+        <!-- 8. Ring Ceremony (Full) (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80)" alt="Ring Ceremony" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -900,7 +1195,7 @@
             <p class="text-xs text-stone-500 leading-relaxed mb-4 line-clamp-2">The complete unedited recording of all stage ceremonies and the grand feast.</p>
             
             <div class="w-full bg-stone-800/80 rounded-full h-1.5 mb-2 overflow-hidden border border-stone-700/50">
-              <div class="h-full rounded-full w-[25%] animate-rendering"></div>
+              <div class="h-full rounded-full w-1/3 animate-rendering"></div>
             </div>
             <div class="flex justify-between items-center text-[9px] uppercase tracking-widest text-stone-500 font-semibold">
               <span>Syncing Audio Feeds...</span>
@@ -912,7 +1207,7 @@
         <!-- 9. Teaser of Wedding Ceremony (ACTIVE) -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding Ceremony', 'Sacred fire, seaside breeze, and the emotional trailer of our wedding at Gopalpur.', 'qY6Kui1D4qk')">
           <div class="relative aspect-video overflow-hidden">
-            <img src="https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="[https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg](https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg)" onerror="this.src='[https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80)'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
               <div class="w-16 h-16 rounded-full bg-royal-gold text-royal-deepmaroon flex items-center justify-center text-2xl shadow-2xl group-hover:scale-115 transition-transform">
                 <i class="fa-solid fa-play ml-1"></i>
@@ -928,10 +1223,10 @@
           </div>
         </div>
 
-        <!-- 10. Highlights of Wedding Ceremony -->
+        <!-- 10. Highlights of Wedding Ceremony (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80)" alt="Wedding Highlights" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -956,10 +1251,10 @@
           </div>
         </div>
 
-        <!-- 11. Wedding Ceremony Complete -->
+        <!-- 11. Wedding Ceremony Complete (COMING SOON) -->
         <div class="coming-soon-card rounded-3xl overflow-hidden relative cursor-default" data-cat="wedding">
           <div class="relative aspect-video overflow-hidden grayscale border-b border-stone-800">
-            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
+            <img src="[https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80)" alt="Wedding Ceremony Complete" class="w-full h-full object-cover scale-105 blur-[3px] brightness-50">
             <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center">
               <div class="w-14 h-14 rounded-full border border-royal-gold/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 <i class="fa-solid fa-hourglass-half text-royal-gold/60 text-xl animate-pulse"></i>
@@ -1061,7 +1356,7 @@
 
         <!-- Right: Photo Keepsake Frame with Live Days Together Overlay -->
         <div class="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-4/5 shadow-2xl border-2 border-royal-gold/40">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Forever Abhisha" class="w-full h-full object-cover">
+          <img src="[https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80](https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80)" alt="Forever Abhisha" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8 text-white">
             <div class="bg-black/40 backdrop-blur-md rounded-2xl p-4 border border-white/20 mb-3">
               <span class="text-[9px] uppercase tracking-[0.25em] text-royal-goldlight font-semibold block mb-1">DAYS IN HARMONY</span>
@@ -1137,27 +1432,31 @@
     </div>
   </section>
 
-  <!-- 8. GUEST UPLOAD MODAL -->
-  <div id="uploadModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-md">
-    <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center relative border border-royal-gold/40 shadow-2xl">
-      <button onclick="closeUploadModal()" class="absolute top-4 right-4 text-stone-400 hover:text-royal-cardinal transition-colors">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
+  <!-- 8. GUEST UPLOAD MODAL (EMBEDDED IFRAME) -->
+  <div id="uploadModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl h-[85vh] relative border border-royal-gold/40 shadow-2xl flex flex-col">
       
-      <div class="w-16 h-16 rounded-full bg-royal-gold/10 flex items-center justify-center mx-auto mb-4 border border-royal-gold/50 shadow-inner">
-        <i class="fa-solid fa-cloud-arrow-up text-2xl text-royal-golddark animate-pulse"></i>
+      <!-- Header -->
+      <div class="bg-royal-cream px-6 py-4 flex items-center justify-between border-b border-royal-gold/30">
+        <h4 class="font-cinzel text-xl font-bold text-royal-cardinal flex items-center gap-2">
+          <i class="fa-solid fa-cloud-arrow-up text-royal-golddark"></i> Share Your View
+        </h4>
+        <button onclick="closeUploadModal()" class="text-stone-400 hover:text-royal-cardinal transition-colors">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
       </div>
       
-      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-2">Share Your View</h4>
-      <p class="text-sm text-stone-600 mb-6 leading-relaxed">
-        Did you capture a beautiful moment, a candid smile, or a fun video from our celebrations? Upload them directly to our personal secure drive!
-      </p>
+      <!-- Embedded Google Form -->
+      <div class="flex-1 w-full relative bg-royal-cream/50">
+        <iframe src="[https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?embedded=true](https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?embedded=true)" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0">Loading…</iframe>
+      </div>
+
+      <!-- Footer/Fallback for Mobile Safari Blockers -->
+      <div class="bg-royal-cream px-6 py-3 border-t border-royal-gold/30 text-center">
+        <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold mb-1">Having trouble signing in on your phone?</p>
+        <a href="[https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform](https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform)" target="_blank" class="text-xs font-bold text-royal-cardinal hover:text-royal-gold transition underline underline-offset-2">Click here to open in a new secure tab</a>
+      </div>
       
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?usp=publish-editor" target="_blank" onclick="closeUploadModal()" class="block w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg mb-3">
-        Open Secure Upload Portal
-      </a>
-      
-      <p class="text-[10px] text-stone-400 uppercase tracking-wider font-semibold">Supports High-Quality Photos & Videos</p>
     </div>
   </div>
 
@@ -1235,7 +1534,7 @@
       <h4 class="font-cinzel text-xl font-bold text-royal-cardinal mb-2">Scan & Share</h4>
       <p class="text-xs text-stone-500 mb-6">Scan to open Abhisek & Barsha's wedding celebration</p>
       <div class="p-4 bg-royal-cream rounded-2xl inline-block border border-royal-gold/30 mb-6">
-        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(window.location.href)}" alt="QR Code" class="mx-auto rounded">
+        <img id="qrImg" src="[https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=$](https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=$){encodeURIComponent(window.location.href)}" alt="QR Code" class="mx-auto rounded">
       </div>
       <button onclick="copyCurrentLink()" class="w-full py-2.5 rounded-xl bg-royal-velvet text-white text-xs uppercase tracking-widest font-semibold hover:bg-stone-900 transition">Copy Website Link</button>
     </div>
@@ -1553,7 +1852,7 @@
         visitorWrap.classList.add('hidden');
         controlsBar.classList.add('hidden');
         creatorFrame.classList.remove('hidden');
-        creatorFrame.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0`;
+        creatorFrame.src = `[https://www.youtube.com/embed/$](https://www.youtube.com/embed/$){youtubeId}?autoplay=1&controls=1&rel=0`;
       } else {
         creatorFrame.classList.add('hidden');
         creatorFrame.src = "";
@@ -1677,7 +1976,7 @@
     }
 
     function openShareModal() {
-      document.getElementById('qrImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(window.location.href)}`;
+      document.getElementById('qrImg').src = `[https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=$](https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=$){encodeURIComponent(window.location.href)}`;
       document.getElementById('shareModal').classList.remove('hidden');
       document.getElementById('shareModal').classList.add('flex');
     }
@@ -1713,7 +2012,7 @@
     // ==========================================
     // PERMANENT GOOGLE SHEETS WEB APP INTEGRATION
     // ==========================================
-    const GOOGLE_SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxp3Lbxn4KJRPcAmgD8T4JiX0bJHev87geBFeE5iuUWjvRSd_qYosFfPed0yD0138P64g/exec";
+    const GOOGLE_SHEET_WEBAPP_URL = "[https://script.google.com/macros/s/AKfycbxp3Lbxn4KJRPcAmgD8T4JiX0bJHev87geBFeE5iuUWjvRSd_qYosFfPed0yD0138P64g/exec](https://script.google.com/macros/s/AKfycbxp3Lbxn4KJRPcAmgD8T4JiX0bJHev87geBFeE5iuUWjvRSd_qYosFfPed0yD0138P64g/exec)";
 
     function escapeHtml(string) {
       return String(string).replace(/[&<>"'`=\/]/g, function (s) {
