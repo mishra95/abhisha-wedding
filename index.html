@@ -68,7 +68,6 @@
       border-color: #D4AF37;
       box-shadow: 0 24px 48px -12px rgba(212, 175, 55, 0.3);
     }
-    /* Coming Soon Card Styling */
     .coming-soon-card {
       background: #0f0406;
       border: 1px solid rgba(212, 175, 55, 0.15);
@@ -82,6 +81,7 @@
       background-size: 200% 100%;
       animation: renderingBar 2.5s infinite linear;
     }
+    
     .hero-cinematic-bg {
       position: absolute;
       inset: 0;
@@ -150,7 +150,6 @@
     .animate-float {
       animation: floatArrow 2.5s infinite ease-in-out;
     }
-    /* Modern Reveal Animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -160,13 +159,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Elegant Monogram Styling */
     .monogram-ring {
       background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
       border: 1px solid rgba(212,175,55,0.6);
       box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
     }
-    /* Custom Scrollbar for Comments */
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
@@ -188,7 +185,7 @@
 
   <canvas id="petalCanvas"></canvas>
 
-  <!-- Modern Glassmorphic Floating Controls -->
+  <!-- Floating Controls -->
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
     <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
@@ -531,7 +528,7 @@
     
     <!-- Guest Upload Button -->
     <div class="text-center mb-10">
-      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+      <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
       </button>
     </div>
@@ -674,9 +671,9 @@
         <div class="w-24 h-1 bg-royal-gold mx-auto mt-6 rounded-full shadow-lg"></div>
       </div>
 
-      <!-- Guest Video Upload Button -->
+      <!-- Guest Upload Button for Videos -->
       <div class="text-center mb-10">
-        <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
           <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Videos
         </button>
       </div>
@@ -1105,31 +1102,6 @@
       
     </div>
   </section>
-
-  <!-- 8. GUEST UPLOAD MODAL (EMBEDDED IFRAME) -->
-  <div id="uploadModal" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-md">
-    <div class="bg-white rounded-3xl overflow-hidden w-full max-w-2xl h-[85vh] relative border border-royal-gold/40 shadow-2xl flex flex-col">
-      
-      <div class="bg-royal-cream px-6 py-4 flex items-center justify-between border-b border-royal-gold/30">
-        <h4 class="font-cinzel text-xl font-bold text-royal-cardinal flex items-center gap-2">
-          <i class="fa-solid fa-cloud-arrow-up text-royal-golddark"></i> Share Your View
-        </h4>
-        <button onclick="closeUploadModal()" class="text-stone-400 hover:text-royal-cardinal transition-colors">
-          <i class="fa-solid fa-xmark text-2xl"></i>
-        </button>
-      </div>
-      
-      <div class="flex-1 w-full relative bg-white">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="absolute inset-0 w-full h-full">Loading…</iframe>
-      </div>
-
-      <div class="bg-royal-cream px-6 py-3 border-t border-royal-gold/30 text-center">
-        <p class="text-[10px] text-stone-500 uppercase tracking-wider font-semibold mb-1">Having trouble signing in on your phone?</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform" target="_blank" class="text-xs font-bold text-royal-cardinal hover:text-royal-gold transition underline underline-offset-2">Click here to open in a new secure tab</a>
-      </div>
-      
-    </div>
-  </div>
 
   <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
   <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-2 sm:p-4">
@@ -1649,13 +1621,14 @@
       document.getElementById('shareModal').classList.remove('flex');
     }
 
-    function openUploadModal() {
-      document.getElementById('uploadModal').classList.remove('hidden');
-      document.getElementById('uploadModal').classList.add('flex');
-    }
-    function closeUploadModal() {
-      document.getElementById('uploadModal').classList.add('hidden');
-      document.getElementById('uploadModal').classList.remove('flex');
+    // Google Secure Popup Upload Login
+    function openUploadPopup() {
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform";
+      const w = 600;
+      const h = 800;
+      const left = (screen.width - w) / 2;
+      const top = (screen.height - h) / 2;
+      window.open(formUrl, 'SecureUploadPortal', `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no`);
     }
 
     function copyCurrentLink() {
