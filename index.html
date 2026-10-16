@@ -68,13 +68,10 @@
       border-color: #D4AF37;
       box-shadow: 0 24px 48px -12px rgba(212, 175, 55, 0.3);
     }
-    
-    /* Elegant Coming Soon Overlay */
     .coming-soon-overlay {
       background: rgba(26, 24, 23, 0.55);
       backdrop-filter: blur(6px);
     }
-    
     .hero-cinematic-bg {
       position: absolute;
       inset: 0;
@@ -143,7 +140,6 @@
     .animate-float {
       animation: floatArrow 2.5s infinite ease-in-out;
     }
-    /* Modern Reveal Animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -153,13 +149,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Elegant Monogram Styling */
     .monogram-ring {
       background: linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%);
       border: 1px solid rgba(212,175,55,0.6);
       box-shadow: inset 0 0 10px rgba(212,175,55,0.2), 0 0 15px rgba(212,175,55,0.1);
     }
-    /* Custom Scrollbar for Comments */
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
@@ -283,6 +277,7 @@
         </a>
       </div>
       
+      <!-- Scroll Indicator -->
       <a href="#events" class="inline-block text-royal-goldlight/70 hover:text-white transition mt-4 animate-float cursor-pointer">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
       </a>
@@ -299,6 +294,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
+      <!-- 1. Nirbandha Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -310,16 +306,22 @@
             The traditional Odia formal engagement and formalization of vows with auspicious betel nuts (Gua), coconuts, and blessings marking the start of our journey together.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Bishnu Mandir, Shaheed Nagar
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Bishnu Mandir
           </span>
-          <a href="https://maps.app.goo.gl/7dJh3Nii4xzLmGke" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
+          <div class="flex items-center gap-4">
+            <a href="YOUR_ENGAGEMENT_DRIVE_LINK_HERE" target="_blank" class="text-xs text-royal-golddark hover:text-royal-cardinal font-bold flex items-center gap-1 transition-colors" title="View Full Album">
+              <i class="fa-solid fa-folder-open"></i> Full Album
+            </a>
+            <a href="https://maps.app.goo.gl/7dJh3Nii4xzLmGke" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-location-dot"></i> Map
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- 2. Ring Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -331,37 +333,49 @@
             The joyous exchange of rings amidst family celebrations, laughter, and musical toasts with our loved ones in Bhubaneswar.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat
           </span>
-          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
+          <div class="flex items-center gap-4">
+            <a href="YOUR_RING_CEREMONY_DRIVE_LINK_HERE" target="_blank" class="text-xs text-royal-golddark hover:text-royal-cardinal font-bold flex items-center gap-1 transition-colors" title="View Full Album">
+              <i class="fa-solid fa-folder-open"></i> Full Album
+            </a>
+            <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-location-dot"></i> Map
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- 3. Haldi & Mehendi Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-royal-cardinal px-3 py-1 rounded-full shadow-sm">Vibrant Colors 🌼</span>
             <span class="text-xs font-semibold text-royal-velvet">Mon, 20 Jan 2025</span>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Haldi & Mehendi Ceremony</h3>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">Haldi & Mehendi</h3>
           <p class="text-stone-600 text-sm leading-relaxed mb-4">
             A celebration of auspicious turmeric paste, intricate henna art, cheerful song, and bright blessings in preparation for our sacred wedding rituals.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Home - Bidanasi
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Home
           </span>
-          <a href="https://maps.app.goo.gl/i7zvu6CJtT21Z94K8" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
+          <div class="flex items-center gap-4">
+            <a href="YOUR_HALDI_DRIVE_LINK_HERE" target="_blank" class="text-xs text-royal-golddark hover:text-royal-cardinal font-bold flex items-center gap-1 transition-colors" title="View Full Album">
+              <i class="fa-solid fa-folder-open"></i> Full Album
+            </a>
+            <a href="https://maps.app.goo.gl/i7zvu6CJtT21Z94K8" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-location-dot"></i> Map
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- 4. Wedding Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -373,16 +387,22 @@
             The solemnization of our union through sacred Vedic pheras around the holy fire, Hastaganthi, and lifelong vows celebrated by the Gopalpur seashore.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 02:00 PM &bull; OTDC Panthanivas, Gopalpur
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 02:00 PM &bull; Panthanivas
           </span>
-          <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
+          <div class="flex items-center gap-4">
+            <a href="YOUR_WEDDING_DRIVE_LINK_HERE" target="_blank" class="text-xs text-royal-golddark hover:text-royal-cardinal font-bold flex items-center gap-1 transition-colors" title="View Full Album">
+              <i class="fa-solid fa-folder-open"></i> Full Album
+            </a>
+            <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-location-dot"></i> Map
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- 5. Reception Ceremony -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
@@ -394,30 +414,36 @@
             An evening of formal celebration, congratulations, delicious feasts, and warm fellowship with our broader circle of family and friends.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM &bull; JBS Garden, Tulsipur
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM &bull; JBS Garden
           </span>
-          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <i class="fa-solid fa-location-dot"></i> Directions
-          </a>
+          <div class="flex items-center gap-4">
+            <a href="YOUR_RECEPTION_DRIVE_LINK_HERE" target="_blank" class="text-xs text-royal-golddark hover:text-royal-cardinal font-bold flex items-center gap-1 transition-colors" title="View Full Album">
+              <i class="fa-solid fa-folder-open"></i> Full Album
+            </a>
+            <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+              <i class="fa-solid fa-location-dot"></i> Map
+            </a>
+          </div>
         </div>
       </div>
 
+      <!-- 6. 1st Anniversary Ceremony Milestone Card -->
       <div class="velvet-card rounded-2xl p-7 flex flex-col justify-between hover:-translate-y-1.5 transition-transform duration-300">
         <div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-[10px] uppercase tracking-widest font-bold text-white bg-royal-cardinal px-3 py-1 rounded-full shadow-sm">First Anniversary 🥂</span>
             <span class="text-xs font-semibold text-royal-velvet">Sun, 1 Mar 2026</span>
           </div>
-          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary Milestone</h3>
+          <h3 class="font-serif text-3xl font-bold text-royal-charcoal mb-2">1st Anniversary</h3>
           <p class="text-stone-600 text-sm leading-relaxed mb-4">
             Commemorating 365 days of love, companionship, and shared memories celebrated with family, dear friends, and elder blessings.
           </p>
         </div>
-        <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
+        <div class="pt-4 border-t border-royal-gold/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-heart text-royal-cardinal mr-1"></i> Completed with Gratitude
+            <i class="fa-regular fa-heart text-royal-cardinal mr-1"></i> Milestone Reached
           </span>
           <a href="#anniversary" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <span>Our Journey</span> <i class="fa-solid fa-arrow-down"></i>
@@ -521,9 +547,9 @@
       <div class="w-24 h-1 bg-royal-gold mx-auto mt-4 rounded-full"></div>
     </div>
     
-    <!-- Guest Upload Button -->
+    <!-- Upload Button -->
     <div class="text-center mb-10">
-      <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+      <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
         <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Photos
       </button>
     </div>
@@ -649,6 +675,21 @@
       </div>
 
     </div>
+
+    <!-- THE COMPLETE PHOTO VAULTS -->
+    <div class="mt-16 text-center bg-white/60 border border-royal-gold/30 rounded-3xl p-8 max-w-4xl mx-auto shadow-lg relative overflow-hidden reveal">
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-royal-gold to-transparent"></div>
+      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-2"><i class="fa-brands fa-google-drive text-royal-gold mr-2"></i> The Complete Photo Vaults</h4>
+      <p class="text-xs text-stone-500 mb-6 leading-relaxed max-w-2xl mx-auto">Access the full, high-resolution collections of every sacred moment. These secure Google Drive folders contain all 1000+ unedited memories organized by event.</p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="YOUR_ENGAGEMENT_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Engagement</a>
+        <a href="YOUR_PREWEDDING_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Pre-Wedding</a>
+        <a href="YOUR_RING_CEREMONY_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Ring Ceremony</a>
+        <a href="YOUR_HALDI_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Haldi</a>
+        <a href="YOUR_WEDDING_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Wedding</a>
+        <a href="YOUR_RECEPTION_DRIVE_LINK_HERE" target="_blank" class="px-5 py-2.5 rounded-full border border-royal-gold/40 text-royal-cardinal text-[10px] uppercase tracking-widest font-bold hover:bg-royal-gold hover:text-white transition shadow-sm bg-white"><i class="fa-solid fa-folder mr-1"></i> Reception</a>
+      </div>
+    </div>
   </section>
 
   <!-- 5. CINEMA HUB -->
@@ -668,7 +709,7 @@
 
       <!-- Guest Upload Button for Videos -->
       <div class="text-center mb-10">
-        <button onclick="openUploadPopup()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
+        <button onclick="openUploadModal()" class="px-8 py-3 rounded-full bg-royal-gold text-royal-deepmaroon font-cinzel text-xs tracking-widest uppercase font-bold hover:bg-royal-goldlight transition shadow-xl border border-royal-gold/40 inline-flex items-center gap-2">
           <i class="fa-solid fa-cloud-arrow-up text-lg"></i> Contribute Your Videos
         </button>
       </div>
@@ -682,7 +723,7 @@
         <button onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Wedding Ceremonies</button>
       </div>
 
-      <!-- THE GRID: Exactly 11 perfectly mapped video cards -->
+      <!-- THE GRID -->
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement Ceremony', 'Sacred promises, betel nut (Gua) blessings, and the formal announcement of our union.', 'iWriHLbstAg')">
@@ -1020,6 +1061,30 @@
       
     </div>
   </section>
+
+  <!-- 8. GUEST UPLOAD MODAL -->
+  <div id="uploadModal" class="fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center p-2 sm:p-4 backdrop-blur-md">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center relative border border-royal-gold/40 shadow-2xl">
+      <button onclick="closeUploadModal()" class="absolute top-4 right-4 text-stone-400 hover:text-royal-cardinal transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+      
+      <div class="w-16 h-16 rounded-full bg-royal-gold/10 flex items-center justify-center mx-auto mb-4 border border-royal-gold/50 shadow-inner">
+        <i class="fa-solid fa-cloud-arrow-up text-2xl text-royal-golddark animate-pulse"></i>
+      </div>
+      
+      <h4 class="font-cinzel text-2xl font-bold text-royal-cardinal mb-2">Share Your View</h4>
+      <p class="text-sm text-stone-600 mb-6 leading-relaxed">
+        Did you capture a beautiful moment, a candid smile, or a fun video from our celebrations? Upload them directly to our personal secure drive!
+      </p>
+      
+      <button onclick="openUploadPopup()" class="block w-full py-3.5 rounded-xl bg-royal-cardinal text-royal-goldlight font-semibold text-xs tracking-widest uppercase hover:bg-royal-deepmaroon transition shadow-lg mb-3">
+        Open Secure Upload Portal
+      </button>
+      
+      <p class="text-[10px] text-stone-400 uppercase tracking-wider font-semibold">Supports High-Quality Photos & Videos</p>
+    </div>
+  </div>
 
   <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
   <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-2 sm:p-4">
@@ -1539,7 +1604,15 @@
       document.getElementById('shareModal').classList.remove('flex');
     }
 
-    // New Secure Popup Upload Logic
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.remove('hidden');
+      document.getElementById('uploadModal').classList.add('flex');
+    }
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.add('hidden');
+      document.getElementById('uploadModal').classList.remove('flex');
+    }
+
     function openUploadPopup() {
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScOdQSsFED5G_DI14JJ8H7ISpHM05YpXNU1_f-cxba_trA40w/viewform";
       const w = 600;
@@ -1547,6 +1620,7 @@
       const left = (screen.width - w) / 2;
       const top = (screen.height - h) / 2;
       window.open(formUrl, 'SecureUploadPortal', `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no`);
+      closeUploadModal();
     }
 
     function copyCurrentLink() {
