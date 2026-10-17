@@ -220,21 +220,18 @@
   <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
     
     <!-- Install App Button -->
-    <button id="installAppBtn" class="hidden w-12 h-12 rounded-full bg-royal-cardinal/95 backdrop-blur-xl text-royal-goldlight shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300 relative group">
+    <button id="installAppBtn" class="hidden w-12 h-12 rounded-full bg-royal-cardinal/95 backdrop-blur-xl text-royal-goldlight shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-download text-lg"></i>
-      <span class="absolute right-14 bg-black/80 text-white text-[10px] px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest uppercase font-semibold">Install App</span>
     </button>
 
     <!-- Share/QR Button -->
-    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300 relative group">
+    <button onclick="openShareModal()" class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-xl text-royal-cardinal shadow-xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i class="fa-solid fa-qrcode text-lg"></i>
-      <span class="absolute right-14 bg-black/80 text-white text-[10px] px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest uppercase font-semibold">Share QR</span>
     </button>
     
     <!-- Music Button -->
-    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-12 h-12 rounded-full bg-royal-velvet/95 backdrop-blur-xl text-royal-goldlight shadow-2xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300 relative group">
+    <button id="musicToggleBtn" onclick="toggleAudio()" class="w-12 h-12 rounded-full bg-royal-velvet/95 backdrop-blur-xl text-royal-goldlight shadow-2xl flex items-center justify-center border border-royal-gold/40 hover:scale-110 transition-transform duration-300">
       <i id="audioIcon" class="fa-solid fa-music text-lg"></i>
-      <span class="absolute right-14 bg-black/80 text-white text-[10px] px-2.5 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-widest uppercase font-semibold">Play Music</span>
     </button>
   </div>
 
@@ -1559,7 +1556,6 @@
           } else if (modal.webkitRequestFullscreen) {
             await modal.webkitRequestFullscreen();
           }
-          // Lock landscape orientation on mobile if supported
           if (screen.orientation && screen.orientation.lock) {
             screen.orientation.lock('landscape').catch(() => {});
           }
@@ -1623,7 +1619,6 @@
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
 
-      // Auto-request full screen on mobile devices
       if (window.innerWidth <= 768) {
         toggleImmersiveFullscreen();
       }
