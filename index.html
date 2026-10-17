@@ -1914,7 +1914,21 @@
       }
     });
 
-    // --- CINEMA UTILS ---
+    // --- AUDIO & UTILS ---
+    function forceStopAudio() {
+      if (isPlaying) {
+        clearInterval(timer);
+        isPlaying = false;
+        document.getElementById('audioIcon').className = 'fa-solid fa-music text-xl';
+      }
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        forceStopAudio();
+      }
+    });
+
     function formatTime(sec) {
       if (!sec || isNaN(sec)) return "0:00";
       sec = Math.floor(sec);
