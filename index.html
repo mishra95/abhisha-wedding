@@ -412,10 +412,10 @@
         </div>
         <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-heart text-royal-cardinal mr-1"></i> Milestone Reached
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
           </span>
-          <a href="#anniversary" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
-            <span>Our Journey</span> <i class="fa-solid fa-arrow-down"></i>
+          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+            <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
       </div>
@@ -1591,7 +1591,7 @@
           const gain = aCtx.createGain();
           osc.type = 'sine';
           osc.frequency.setValueAtTime(chords[idx % chords.length], aCtx.currentTime);
-          gain.gain.setValueAtTime(0.2, aCtx.currentTime);
+          gain.gain.setValueAtTime(0.3, aCtx.currentTime);
           gain.gain.exponentialRampToValueAtTime(0.0001, aCtx.currentTime + 1.8);
           osc.connect(gain);
           gain.connect(aCtx.destination);
