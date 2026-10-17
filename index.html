@@ -7,7 +7,7 @@
   
   <!-- App / PWA Meta Tags -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#5B101C">
+  <meta name="theme-color" content="#000000">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Abhisha">
@@ -175,6 +175,39 @@
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background: rgba(122, 28, 40, 0.8);
+    }
+
+    /* Immersive Fullscreen Netflix Mode */
+    #cinemaModal:fullscreen,
+    #cinemaModal:-webkit-full-screen {
+      width: 100vw !important;
+      height: 100vh !important;
+      background: #000000 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    #cinemaModal:fullscreen #playerContainer,
+    #cinemaModal:-webkit-full-screen #playerContainer {
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      border-radius: 0 !important;
+      border: none !important;
+    }
+    #cinemaModal:fullscreen #videoStage,
+    #cinemaModal:-webkit-full-screen #videoStage {
+      height: 100vh !important;
+      max-height: 100vh !important;
+    }
+    #cinemaModal:fullscreen #videoStage iframe,
+    #cinemaModal:-webkit-full-screen #videoStage iframe {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+    #cinemaModal:fullscreen #cinemaFooterInfo,
+    #cinemaModal:-webkit-full-screen #cinemaFooterInfo {
+      display: none !important;
     }
   </style>
 </head>
@@ -1132,48 +1165,48 @@
     </div>
   </div>
 
-  <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS -->
-  <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-2 sm:p-4">
-    <button onclick="closeCinemaModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors">
+  <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS & IMMERSIVE FULLSCREEN -->
+  <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-0 md:p-4">
+    <button id="cinemaCloseBtn" onclick="closeCinemaModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors drop-shadow-md">
       <i class="fa-solid fa-xmark"></i>
     </button>
     
-    <div id="playerContainer" class="w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl border border-royal-gold/40 bg-[#120205] flex flex-col">
+    <div id="playerContainer" class="w-full max-w-5xl rounded-none md:rounded-3xl overflow-hidden shadow-2xl border-0 md:border border-royal-gold/40 bg-black flex flex-col h-full md:h-auto justify-center">
       
-      <div class="aspect-video w-full bg-black relative overflow-hidden select-none">
-        <div id="visitorPlayerWrap" class="w-full h-full relative">
-          <div id="videoClickCatcher" class="absolute inset-0 z-20 cursor-pointer" onclick="togglePlayState()"></div>
+      <div id="videoStage" class="w-full h-full md:aspect-video bg-black relative overflow-hidden select-none flex items-center justify-center">
+        <div id="visitorPlayerWrap" class="w-full h-full relative flex items-center justify-center">
+          <div id="videoClickCatcher" class="absolute inset-0 z-20 cursor-pointer" onclick="handleStageClick()"></div>
           <div id="ytPlayerSlot" class="w-full h-full pointer-events-none"></div>
         </div>
 
         <iframe id="creatorFrame" class="w-full h-full hidden" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
-      </div>
-      
-      <!-- Custom Control Bar -->
-      <div id="customControlsBar" class="bg-[#180509] px-4 py-3 border-t border-royal-gold/20 flex flex-col gap-2">
-        <input type="range" id="videoScrubber" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-royal-gold" oninput="onScrub(this.value)">
+        
+        <!-- Custom On-Screen Overlay Controls (Auto-fades like Netflix) -->
+        <div id="customControlsBar" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 sm:px-6 py-4 z-30 transition-opacity duration-300 flex flex-col gap-2">
+          <input type="range" id="videoScrubber" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-royal-gold" oninput="onScrub(this.value)">
 
-        <div class="flex items-center justify-between text-xs text-stone-300">
-          <div class="flex items-center gap-3">
-            <button onclick="togglePlayState()" id="playPauseBtn" class="w-7 h-7 flex items-center justify-center text-royal-gold hover:text-white transition">
-              <i class="fa-solid fa-play"></i>
-            </button>
-            <span id="timeDisplay" class="font-mono text-[11px] text-stone-400">0:00 / 0:00</span>
-          </div>
-          
-          <div class="flex items-center gap-4">
-            <button onclick="toggleMute()" id="muteBtn" class="text-stone-400 hover:text-royal-gold transition">
-              <i class="fa-solid fa-volume-high"></i>
-            </button>
-            <button onclick="toggleContainerFullscreen()" title="Fullscreen" class="text-stone-300 hover:text-royal-gold transition text-sm">
-              <i id="fsIcon" class="fa-solid fa-expand"></i>
-            </button>
+          <div class="flex items-center justify-between text-xs text-stone-200">
+            <div class="flex items-center gap-3">
+              <button onclick="togglePlayState()" id="playPauseBtn" class="w-8 h-8 flex items-center justify-center text-royal-gold hover:text-white transition text-base">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <span id="timeDisplay" class="font-mono text-[11px] text-stone-300">0:00 / 0:00</span>
+            </div>
+            
+            <div class="flex items-center gap-4">
+              <button onclick="toggleMute()" id="muteBtn" class="text-stone-300 hover:text-royal-gold transition text-base">
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+              <button onclick="toggleImmersiveFullscreen()" title="Fullscreen" class="text-stone-200 hover:text-royal-gold transition text-base">
+                <i id="fsIcon" class="fa-solid fa-expand"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Modal Footer -->
-      <div class="p-4 sm:p-5 bg-[#120205] border-t border-royal-gold/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <!-- Modal Footer (Hidden when true fullscreen is on) -->
+      <div id="cinemaFooterInfo" class="p-4 sm:p-5 bg-[#120205] border-t border-royal-gold/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h4 id="cinemaModalTitle" class="font-cinzel text-lg sm:text-xl text-royal-goldlight font-bold">Film Title</h4>
           <p id="cinemaModalDesc" class="text-xs text-stone-400 mt-0.5">Film synopsis and ceremonial details.</p>
@@ -1389,6 +1422,7 @@
     let currentVideoId = '';
     let trackerTimer = null;
     let isUserSeeking = false;
+    let uiHideTimer = null;
 
     function formatTime(sec) {
       if (!sec || isNaN(sec)) return "0:00";
@@ -1421,17 +1455,49 @@
           onReady: (e) => {
             e.target.playVideo();
             startTracking();
+            scheduleControlBarHide();
           },
           onStateChange: (e) => {
             const icon = document.querySelector('#playPauseBtn i');
             if (e.data === YT.PlayerState.PLAYING) {
               icon.className = 'fa-solid fa-pause';
+              scheduleControlBarHide();
             } else {
               icon.className = 'fa-solid fa-play';
+              revealControlBar();
             }
           }
         }
       });
+    }
+
+    function scheduleControlBarHide() {
+      clearTimeout(uiHideTimer);
+      uiHideTimer = setTimeout(() => {
+        const bar = document.getElementById('customControlsBar');
+        const closeBtn = document.getElementById('cinemaCloseBtn');
+        if (ytPlayer && ytPlayer.getPlayerState && ytPlayer.getPlayerState() === YT.PlayerState.PLAYING) {
+          if (bar) bar.style.opacity = '0';
+          if (closeBtn && document.fullscreenElement) closeBtn.style.opacity = '0';
+        }
+      }, 3000);
+    }
+
+    function revealControlBar() {
+      const bar = document.getElementById('customControlsBar');
+      const closeBtn = document.getElementById('cinemaCloseBtn');
+      if (bar) bar.style.opacity = '1';
+      if (closeBtn) closeBtn.style.opacity = '1';
+      scheduleControlBarHide();
+    }
+
+    function handleStageClick() {
+      const bar = document.getElementById('customControlsBar');
+      if (bar && bar.style.opacity === '0') {
+        revealControlBar();
+      } else {
+        togglePlayState();
+      }
     }
 
     function startTracking() {
@@ -1466,6 +1532,7 @@
       ytPlayer.seekTo(targetSec, true);
       document.getElementById('timeDisplay').textContent = `${formatTime(targetSec)} / ${formatTime(dur)}`;
       setTimeout(() => { isUserSeeking = false; }, 300);
+      revealControlBar();
     }
 
     function toggleMute() {
@@ -1478,23 +1545,38 @@
         ytPlayer.mute();
         icon.className = 'fa-solid fa-volume-xmark';
       }
+      revealControlBar();
     }
 
-    function toggleContainerFullscreen() {
-      const container = document.getElementById('playerContainer');
+    async function toggleImmersiveFullscreen() {
+      const modal = document.getElementById('cinemaModal');
       const fsIcon = document.getElementById('fsIcon');
-      if (!document.fullscreenElement) {
-        if (container.requestFullscreen) {
-          container.requestFullscreen();
-        } else if (container.webkitRequestFullscreen) {
-          container.webkitRequestFullscreen();
+
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        try {
+          if (modal.requestFullscreen) {
+            await modal.requestFullscreen();
+          } else if (modal.webkitRequestFullscreen) {
+            await modal.webkitRequestFullscreen();
+          }
+          // Lock landscape orientation on mobile if supported
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(() => {});
+          }
+          if (fsIcon) fsIcon.className = 'fa-solid fa-compress';
+        } catch (err) {
+          console.log('Fullscreen request bypassed: ', err);
         }
-        fsIcon.className = 'fa-solid fa-compress';
       } else {
         if (document.exitFullscreen) {
-          document.exitFullscreen();
+          await document.exitFullscreen().catch(() => {});
+        } else if (document.webkitExitFullscreen) {
+          await document.webkitExitFullscreen().catch(() => {});
         }
-        fsIcon.className = 'fa-solid fa-expand';
+        if (screen.orientation && screen.orientation.unlock) {
+          screen.orientation.unlock();
+        }
+        if (fsIcon) fsIcon.className = 'fa-solid fa-expand';
       }
     }
 
@@ -1540,12 +1622,25 @@
       updateOwnerUI();
       document.getElementById('cinemaModal').classList.remove('hidden');
       document.getElementById('cinemaModal').classList.add('flex');
+
+      // Auto-request full screen on mobile devices
+      if (window.innerWidth <= 768) {
+        toggleImmersiveFullscreen();
+      }
     }
 
     function closeCinemaModal() {
       clearInterval(trackerTimer);
-      if (document.fullscreenElement) {
-        document.exitFullscreen().catch(() => {});
+      clearTimeout(uiHideTimer);
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen().catch(() => {});
+        }
+      }
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
       }
       if (ytPlayer && ytPlayer.destroy) {
         try { ytPlayer.destroy(); } catch(e){}
@@ -1796,7 +1891,6 @@
     let deferredPrompt;
     const installAppBtn = document.getElementById('installAppBtn');
 
-    // Handle iOS specific logic (Apple blocks automatic prompts)
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 
@@ -1807,20 +1901,14 @@
       });
     }
 
-    // Handle standard Android/Desktop Chrome install prompts
     window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault();
-      // Stash the event so it can be triggered later.
       deferredPrompt = e;
-      // Update UI to notify the user they can add to home screen
       installAppBtn.classList.remove('hidden');
 
       installAppBtn.addEventListener('click', async () => {
         if (deferredPrompt) {
-          // Show the prompt
           deferredPrompt.prompt();
-          // Wait for the user to respond to the prompt
           const { outcome } = await deferredPrompt.userChoice;
           if (outcome === 'accepted') {
             installAppBtn.classList.add('hidden');
@@ -1830,7 +1918,6 @@
       });
     });
 
-    // Hide the button if the app is successfully installed
     window.addEventListener('appinstalled', () => {
       installAppBtn.classList.add('hidden');
       deferredPrompt = null;
