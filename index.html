@@ -623,11 +623,11 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="engagement" data-type="album" onclick="switchGalleryTab('engagement')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <!-- Replace src with your local compressed images -->
-          <img src="assets/engagement-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <!-- Rendered 3 Image Collage -->
+          <img src="assets/engagement-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/engagement-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/engagement-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/engagement-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/engagement-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -656,10 +656,10 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="prewedding" data-type="album" onclick="switchGalleryTab('prewedding')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/prewedding-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/prewedding-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/prewedding-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/prewedding-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/prewedding-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/prewedding-3.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -683,15 +683,27 @@
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
       </div>
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-3.jpg', 'Quiet Moments', 'Finding our rhythm together.')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="assets/prewedding-3.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+3'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
+        </div>
+      </div>
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-4.jpg', 'The Horizon', 'Looking forward to forever.')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="assets/prewedding-4.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+4'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
+        </div>
+      </div>
 
       <!-- ================= RING CEREMONY ================= -->
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="ring" data-type="album" onclick="switchGalleryTab('ring')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/ring-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/ringceremony-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/ring-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/ring-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/ringceremony-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/ringceremony-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -703,15 +715,15 @@
         </div>
       </div>
       <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ring-1.jpg', 'The Golden Circles', 'A golden circle of trust.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ringceremony-1.jpg', 'The Golden Circles', 'A golden circle of trust.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="assets/ring-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+1'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="assets/ringceremony-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+1'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Ring Ceremony 💍</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ring-2.jpg', 'Celebration', 'Toasts and joy.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ringceremony-2.jpg', 'Celebration', 'Toasts and joy.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="assets/ring-2.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+2'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="assets/ringceremony-2.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+2'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Ring Ceremony 💍</span>
         </div>
       </div>
@@ -720,10 +732,10 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="haldi" data-type="album" onclick="switchGalleryTab('haldi')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/haldi-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/haldi-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/haldi-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/haldi-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/haldi-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/haldi-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -752,10 +764,10 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="mehendi" data-type="album" onclick="switchGalleryTab('mehendi')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/mehendi-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/mehendi-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/mehendi-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/mehendi-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/mehendi-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/mehendi-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -784,10 +796,10 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="wedding" data-type="album" onclick="switchGalleryTab('wedding')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/wedding-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/wedding-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/wedding-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/wedding-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/wedding-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/wedding-3.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -811,15 +823,21 @@
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding 🌸</span>
         </div>
       </div>
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('assets/wedding-3.jpg', 'Divine Union', 'A lifetime of companionhood.')">
+        <div class="h-64 overflow-hidden relative">
+          <img src="assets/wedding-3.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+3'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding 🌸</span>
+        </div>
+      </div>
 
       <!-- ================= RECEPTION ================= -->
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="reception" data-type="album" onclick="switchGalleryTab('reception')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/reception-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/reception-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/reception-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/reception-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/reception-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/reception-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -848,10 +866,10 @@
       <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300" data-cat="anniversary" data-type="album" onclick="switchGalleryTab('anniversary')">
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
-          <img src="assets/anniversary-cover.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="assets/1stanniversary-1.JPG" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/anniversary-1.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <img src="assets/anniversary-2.jpg" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/1stanniversary-2.JPG" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/1stanniversary-1.JPG" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
@@ -863,15 +881,15 @@
         </div>
       </div>
       <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/anniversary-1.jpg', 'One Year of Sacred Bond', 'One year of holding hands.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/1stanniversary-1.JPG', 'One Year of Sacred Bond', 'One year of holding hands.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="assets/anniversary-1.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+1'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="assets/1stanniversary-1.JPG" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+1'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/anniversary-2.jpg', 'Building Forever', 'Growing together.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer transition-all duration-300 hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/1stanniversary-2.JPG', 'Building Forever', 'Growing together.')">
         <div class="h-64 overflow-hidden relative">
-          <img src="assets/anniversary-2.jpg" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+2'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="assets/1stanniversary-2.JPG" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Photo+2'" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
         </div>
       </div>
