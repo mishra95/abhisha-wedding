@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abhisek & Barsha — Our Forever Chapter (#Abhisha)</title>
   
+  <!-- App / PWA Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#5B101C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Abhisha">
+  <link rel="apple-touch-icon" href="https://placehold.co/192x192/5b101c/d4af37.png?text=A%26B&font=Playfair+Display">
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -412,9 +420,9 @@
         </div>
         <div class="pt-4 border-t border-royal-gold/20 flex items-center justify-between">
           <span class="text-xs text-stone-500 font-medium">
-            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
+            <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM &bull; Celebration Venue
           </span>
-          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
+          <a href="#" target="_blank" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -1765,6 +1773,12 @@
 
     fetchSavedBlessings();
     updateOwnerUI();
+    
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(()=>console.log('SW setup skipped'));
+      });
+    }
   </script>
 </body>
 </html>
