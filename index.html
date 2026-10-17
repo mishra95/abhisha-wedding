@@ -605,7 +605,7 @@
     </div>
 
     <!-- Category Filter Tabs with Fixed Mobile Snappy Buttons -->
-    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+    <div id="galleryFilters" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
       <button id="btn-all" onclick="filterGallery('all')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-white shadow-md border border-royal-gold/40">All Moments</button>
       <button id="btn-engagement" onclick="filterGallery('engagement')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40">Engagement</button>
       <button id="btn-prewedding" onclick="filterGallery('prewedding')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40">Pre-Wedding</button>
@@ -735,7 +735,7 @@
         <div class="h-64 grid grid-cols-2 gap-1 overflow-hidden relative">
           <img src="assets/haldi-1.jpg" decoding="async" loading="lazy" onerror="this.src='https://placehold.co/600x800/240307/d4af37?text=Cover+1'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="grid grid-rows-2 gap-1">
-            <img src="assets/haldi-2.jpg" decoding="async" loading="lazy" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/haldi-2.jpg" decoding="async" loading="lazy onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+2'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <img src="assets/haldi-1.jpg" decoding="async" loading="lazy" onerror="this.src='https://placehold.co/400x400/240307/d4af37?text=Cover+3'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
@@ -1558,12 +1558,27 @@
 
     function switchGalleryTab(category) {
       const targetBtn = document.getElementById('btn-' + category);
-      if (targetBtn) targetBtn.click();
+      if (targetBtn) {
+        // Automatically scroll up to the filter buttons so the screen doesn't jump down
+        const filterSection = document.getElementById('galleryFilters');
+        if (filterSection) {
+          const offset = filterSection.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
+        targetBtn.click();
+      }
     }
 
     function filterGallery(category) {
       const items = document.querySelectorAll('#galleryGrid .gallery-item');
       const buttons = document.querySelectorAll('.gallery-btn');
+
+      // Scroll to top of gallery seamlessly so the user doesn't end up looking at the footer
+      const filterSection = document.getElementById('galleryFilters');
+      if (filterSection) {
+        const offset = filterSection.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
 
       // Safely reset all buttons
       buttons.forEach(btn => {
