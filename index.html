@@ -604,7 +604,7 @@
       </button>
     </div>
 
-    <!-- Category Filter Tabs with Fixed Mobile Snappy Buttons -->
+    <!-- Category Filter Tabs -->
     <div id="galleryFilters" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
       <button id="btn-all" onclick="filterGallery('all')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-royal-cardinal text-white shadow-md border border-royal-gold/40">All Moments</button>
       <button id="btn-engagement" onclick="filterGallery('engagement')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40">Engagement</button>
@@ -617,14 +617,13 @@
       <button id="btn-anniversary" onclick="filterGallery('anniversary')" class="gallery-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-white text-stone-700 border border-royal-gold/40">1st Anniversary</button>
     </div>
 
-    <!-- Gallery Grid with FAST Single-Image Structure -->
+    <!-- Gallery Grid -->
     <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- ================= ENGAGEMENT ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="engagement" data-type="album" onclick="switchGalleryTab('engagement')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/engagement-1.jpg" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/engagement-1.jpg" fetchpriority="high" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -634,25 +633,23 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Where two families became one, and forever began."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="engagement" data-type="photo" onclick="openPhotoModal('assets/engagement-1.jpg', 'Sacred Alliance', 'A beautiful promise made in the presence of our loved ones.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="engagement" data-type="photo" onclick="openPhotoModal('asset/engagement-1.jpg', 'Sacred Alliance', 'A beautiful promise made in the presence of our loved ones.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/engagement-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/engagement-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Engagement 🌿</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="engagement" data-type="photo" onclick="openPhotoModal('assets/engagement-2.jpg', 'Tied Together', 'Two families, one beautiful journey ahead.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="engagement" data-type="photo" onclick="openPhotoModal('asset/engagement-2.jpg', 'Tied Together', 'Two families, one beautiful journey ahead.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/engagement-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/engagement-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Engagement 🌿</span>
         </div>
       </div>
 
       <!-- ================= PRE-WEDDING ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="prewedding" data-type="album" onclick="switchGalleryTab('prewedding')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/prewedding-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/prewedding-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -662,37 +659,35 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Stolen glances and quiet moments before the grand celebration."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-1.jpg', 'Lost in Your Eyes', 'Every love story is beautiful, but ours is my favorite.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('asset/prewedding-1.jpg', 'Lost in Your Eyes', 'Every love story is beautiful, but ours is my favorite.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/prewedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/prewedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-2.jpg', 'A Gentle Touch', 'With you, every single moment feels just like a fairytale.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('asset/prewedding-2.jpg', 'A Gentle Touch', 'With you, every single moment feels just like a fairytale.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/prewedding-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/prewedding-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-3.jpg', 'Perfect Harmony', 'Finding my absolute forever in your smile.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('asset/prewedding-3.jpg', 'Perfect Harmony', 'Finding my absolute forever in your smile.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/prewedding-3.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/prewedding-3.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-4.jpg', 'Our Horizon', 'Walking hand in hand toward our brightest tomorrow.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('asset/prewedding-4.jpg', 'Our Horizon', 'Walking hand in hand toward our brightest tomorrow.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/prewedding-4.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/prewedding-4.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Pre-Wedding 🕊️</span>
         </div>
       </div>
 
       <!-- ================= RING CEREMONY ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="ring" data-type="album" onclick="switchGalleryTab('ring')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/ringceremony-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/ringceremony-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -702,25 +697,23 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"A sparkling promise worn on the finger and kept in the heart."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ringceremony-1.jpg', 'The Golden Promise', 'A perfect circle of trust, reflecting endless love.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('asset/ringceremony-1.jpg', 'The Golden Promise', 'A perfect circle of trust, reflecting endless love.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/ringceremony-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/ringceremony-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Ring Ceremony 💍</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ringceremony-2.jpg', 'Cheers to Us', 'Toasting to love, laughter, and our happily ever after.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="ring" data-type="photo" onclick="openPhotoModal('asset/ringceremony-2.jpg', 'Cheers to Us', 'Toasting to love, laughter, and our happily ever after.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/ringceremony-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/ringceremony-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Ring Ceremony 💍</span>
         </div>
       </div>
 
       <!-- ================= HALDI ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="haldi" data-type="album" onclick="switchGalleryTab('haldi')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/haldi-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/haldi-1.jpg" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -730,25 +723,23 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Drenched in golden hues, laughter, and endless joy."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-1.jpg', 'Golden Glow', 'Painted in vibrant hues of love, turmeric, and pure joy.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="haldi" data-type="photo" onclick="openPhotoModal('asset/haldi-1.jpg', 'Golden Glow', 'Painted in vibrant hues of love, turmeric, and pure joy.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/haldi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/haldi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-amber-800 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Haldi 🌼</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-2.jpg', 'Smiles & Sunshine', 'Surrounded by warmth and getting ready for forever.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="haldi" data-type="photo" onclick="openPhotoModal('asset/haldi-2.jpg', 'Smiles & Sunshine', 'Surrounded by warmth and getting ready for forever.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/haldi-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/haldi-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-amber-800 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Haldi 🌼</span>
         </div>
       </div>
 
       <!-- ================= MEHENDI ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="mehendi" data-type="album" onclick="switchGalleryTab('mehendi')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/mehendi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/mehendi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -758,25 +749,23 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Intricate patterns of love woven beautifully into our hands."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="mehendi" data-type="photo" onclick="openPhotoModal('assets/mehendi-1.jpg', 'Art of Love', 'Hiding your name beautifully in these intricate henna patterns.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="mehendi" data-type="photo" onclick="openPhotoModal('asset/mehendi-1.jpg', 'Art of Love', 'Hiding your name beautifully in these intricate henna patterns.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/mehendi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/mehendi-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Mehendi 🌿</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="mehendi" data-type="photo" onclick="openPhotoModal('assets/mehendi-2.jpg', 'Eternal Bond', 'Darkening with the depth of our bond.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="mehendi" data-type="photo" onclick="openPhotoModal('asset/mehendi-2.jpg', 'Eternal Bond', 'Darkening with the depth of our bond.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/mehendi-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/mehendi-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-emerald-700 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Mehendi 🌿</span>
         </div>
       </div>
 
       <!-- ================= WEDDING ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="wedding" data-type="album" onclick="switchGalleryTab('wedding')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/wedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/wedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -786,31 +775,29 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Two souls, seven vows, and a lifetime of togetherness."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('assets/wedding-1.jpg', 'Sacred Pheras', 'Bound together by the holy fire and a promise of a lifetime.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('asset/wedding-1.jpg', 'Sacred Pheras', 'Bound together by the holy fire and a promise of a lifetime.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/wedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/wedding-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding 🌸</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('assets/wedding-2.jpg', 'Seven Promises', 'Taking seven steps into an eternity of companionship.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('asset/wedding-2.jpg', 'Seven Promises', 'Taking seven steps into an eternity of companionship.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/wedding-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/wedding-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding 🌸</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('assets/wedding-3.jpg', 'Divine Union', 'Two hearts officially merging into one beautiful destiny.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="wedding" data-type="photo" onclick="openPhotoModal('asset/wedding-3.jpg', 'Divine Union', 'Two hearts officially merging into one beautiful destiny.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/wedding-3.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/wedding-3.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-royal-cardinal text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Wedding 🌸</span>
         </div>
       </div>
 
       <!-- ================= RECEPTION ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="reception" data-type="album" onclick="switchGalleryTab('reception')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/reception-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/reception-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -820,25 +807,23 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"A magical night celebrating the beginning of our forever."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="reception" data-type="photo" onclick="openPhotoModal('assets/reception-1.jpg', 'A Magical Evening', 'Surrounded by stars, warm smiles, and our favorite people.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="reception" data-type="photo" onclick="openPhotoModal('asset/reception-1.jpg', 'A Magical Evening', 'Surrounded by stars, warm smiles, and our favorite people.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/reception-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/reception-1.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-blue-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Reception ✨</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="reception" data-type="photo" onclick="openPhotoModal('assets/reception-2.jpg', 'The Next Chapter', 'Stepping into our beautiful new life with immense gratitude.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="reception" data-type="photo" onclick="openPhotoModal('asset/reception-2.jpg', 'The Next Chapter', 'Stepping into our beautiful new life with immense gratitude.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/reception-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/reception-2.jpg" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-blue-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Reception ✨</span>
         </div>
       </div>
 
       <!-- ================= 1ST ANNIVERSARY ================= -->
-      <!-- Album Cover -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="anniversary" data-type="album" onclick="switchGalleryTab('anniversary')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/1stanniversary-1.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="asset/1stanniversary-1.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
             <span class="bg-royal-gold text-royal-deepmaroon font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">View Album</span>
           </div>
@@ -848,16 +833,15 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"365 days of love, laughter, and building our world together."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/1stanniversary-1.JPG', 'One Year Down', '365 days of holding hands and an absolute eternity to go.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('asset/1stanniversary-1.JPG', 'One Year Down', '365 days of holding hands and an absolute eternity to go.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/1stanniversary-1.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/1stanniversary-1.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/1stanniversary-2.JPG', 'Building Forever', 'Every passing day simply makes me love you even more.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer hidden" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('asset/1stanniversary-2.JPG', 'Building Forever', 'Every passing day simply makes me love you even more.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
-          <img src="assets/1stanniversary-2.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <img src="asset/1stanniversary-2.JPG" decoding="async" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-purple-900 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Anniversary 🥂</span>
         </div>
       </div>
@@ -1768,6 +1752,8 @@
     let uiHideTimer = null;
 
     function launchCinema(title, desc, youtubeId) {
+      forceStopAudio();
+      
       const allVideos = Array.from(document.querySelectorAll('.cinema-card'));
       const activeCard = allVideos.find(card => {
          const onclick = card.getAttribute('onclick') || '';
@@ -1832,6 +1818,8 @@
     }
 
     function playNewVideoIndex() {
+      forceStopAudio();
+      
       const card = currentVideoArray[currentVideoIndex];
       const onclickStr = card.getAttribute('onclick');
       const regex = /launchCinema\('([^']+)'\s*,\s*'([^']+)'\s*,\s*'([^']+)'\)/;
@@ -1959,6 +1947,7 @@
         events: {
           onReady: (e) => {
             e.target.playVideo();
+            forceStopAudio();
             startTracking();
             scheduleControlBarHide();
           },
@@ -1966,6 +1955,7 @@
             const icon = document.querySelector('#playPauseBtn i');
             if (e.data === YT.PlayerState.PLAYING) {
               icon.className = 'fa-solid fa-pause';
+              forceStopAudio();
               scheduleControlBarHide();
             } else {
               icon.className = 'fa-solid fa-play';
