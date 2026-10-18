@@ -215,6 +215,10 @@
     #cinemaModal:-webkit-full-screen #cinemaFooterInfo {
       display: none !important;
     }
+
+    .gallery-item {
+      will-change: transform;
+    }
   </style>
 </head>
 
@@ -352,7 +356,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Bishnu Mandir, Shaheed Nagar
           </span>
-          <a href="https://maps.app.goo.gl/RCGY8uJVGGy1c5GQ9" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Bishnu+Mandir%2C+Shaheed+Nagar" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -373,7 +377,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
           </span>
-          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Hotel+7+Saat%2C+Infocity" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -394,7 +398,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 10:00 AM &bull; Home - Bidanasi
           </span>
-          <a href="https://maps.app.goo.gl/Zv7ZVei5UPiQHUP57" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Tarini+Vihar%2C+Bidanasi%2C+Katak" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -415,7 +419,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 02:00 PM &bull; OTDC Panthanivas, Gopalpur
           </span>
-          <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=OTDC+Panthanivas%2C+Gopalpur" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -436,7 +440,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 7:00 PM &bull; JBS Garden, Tulsipur
           </span>
-          <a href="https://maps.app.goo.gl/dCDfDkNF3KCnbgG79" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=JBS+Garden%2C+Tulsipur" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -457,7 +461,7 @@
           <span class="text-xs text-stone-500 font-medium">
             <i class="fa-regular fa-clock text-royal-gold mr-1"></i> 12:00 PM &bull; Hotel 7 Saat, Infocity
           </span>
-          <a href="https://maps.app.goo.gl/v5cCfbC4zzZAS9Yw9" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Hotel+7+Saat%2C+Infocity" target="_blank" rel="noopener noreferrer" class="text-xs text-royal-cardinal hover:text-royal-gold font-bold flex items-center gap-1 transition-colors relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-dot"></i> Directions
           </a>
         </div>
@@ -465,7 +469,7 @@
 
     </div>
 
-    <!-- Section Navigation Arrow -->
+    <!-- Section Navigation Arrow -->						 
     <div class="text-center mt-16">
       <a href="#journey" class="inline-block text-royal-golddark hover:text-royal-cardinal transition animate-float cursor-pointer">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
@@ -494,7 +498,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Departure Point</h4>
           <p class="text-xs font-bold text-royal-cardinal mb-3">Mishra Bhawan</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">Tarini Vihar, Bidanasi, Katak</p>
-          <a href="https://maps.app.goo.gl/Zv7ZVei5UPiQHUP57" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Tarini+Vihar%2C+Bidanasi%2C+Katak" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -504,7 +508,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Highway Halt</h4>
           <p class="text-xs font-bold text-royal-golddark mb-3">Rest & Procession Prep</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">Hotel Aditya Inn, Buxipalli, Gopalpur</p>
-          <a href="https://maps.app.goo.gl/pasYWBhh1UsDrxpZ8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Aditya+Inn%2C+Buxipalli%2C+Gopalpur" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-gold/15 hover:bg-royal-gold hover:text-royal-deepmaroon text-royal-golddark text-xs font-bold transition relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -514,7 +518,7 @@
           <h4 class="font-cinzel text-xl font-bold text-royal-charcoal mb-1 uppercase tracking-wider">Marriage Mandap</h4>
           <p class="text-xs font-bold text-royal-cardinal mb-3">Sacred Pheras by the Sea</p>
           <p class="text-sm text-stone-600 mb-6 leading-relaxed">OTDC Panthanivas, Gopalpur</p>
-          <a href="https://maps.app.goo.gl/2p3RTx4nYEY6g7pz6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition relative z-20 cursor-pointer">
+          <a href="https://www.google.com/maps/search/?api=1&query=OTDC+Panthanivas%2C+Gopalpur" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-royal-cardinal/10 hover:bg-royal-cardinal hover:text-white text-royal-cardinal text-xs font-bold transition relative z-50 cursor-pointer">
             <i class="fa-solid fa-location-arrow"></i> Google Maps
           </a>
         </div>
@@ -564,7 +568,7 @@
       </div>
     </div>
     
-    <!-- Section Navigation Arrow -->
+    <!-- Section Navigation Arrow -->	 
     <div class="text-center mt-16">
       <a href="#gallery" class="inline-block text-royal-golddark hover:text-royal-cardinal transition animate-float cursor-pointer">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
@@ -572,7 +576,7 @@
     </div>
   </section>
 
-  <!-- 4. ALBUMS & PHOTO GALLERY (Super Fast Instant Rendering) -->
+  <!-- 4. ALBUMS & PHOTO GALLERY -->
   <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto relative z-30 reveal">
     <div class="text-center mb-10">
       <span class="text-xs uppercase tracking-[0.35em] text-royal-golddark font-semibold block mb-2">Treasured Memories</span>
@@ -653,7 +657,7 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Stolen glances and quiet moments before the grand celebration."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
+      <!-- Individual Photos -->		
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="prewedding" data-type="photo" onclick="openPhotoModal('assets/prewedding-1.jpg', 'Lost in Your Eyes', 'Every love story is beautiful, but ours is my favorite.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/prewedding-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -680,7 +684,7 @@
       </div>
 
       <!-- ================= RING CEREMONY ================= -->
-      <!-- Static Album Cover -->
+      <!-- Static Album Cover --> 
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="ring" data-type="album" onclick="switchGalleryTab('ring')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/ringceremony-1.jpg" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -697,7 +701,7 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"A sparkling promise worn on the finger and kept in the heart."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
+      <!-- Individual Photos -->	
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="ring" data-type="photo" onclick="openPhotoModal('assets/ringceremony-1.jpg', 'The Golden Promise', 'A perfect circle of trust, reflecting endless love.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/ringceremony-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -712,7 +716,7 @@
       </div>
 
       <!-- ================= HALDI ================= -->
-      <!-- Static Album Cover -->
+      <!-- Static Album Cover -->		 
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="haldi" data-type="album" onclick="switchGalleryTab('haldi')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/haldi-1.jpg" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -730,13 +734,13 @@
         </div>
       </div>
       <!-- Individual Photos -->
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-1.jpg', 'Golden Glow', 'A splash of yellow, a lifetime of brightness.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-1.jpg', 'Golden Glow', 'Basking in the golden moments before forever.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/haldi-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-amber-800 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Haldi 🌼</span>
         </div>
       </div>
-      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-2.jpg', 'Smiles & Sunshine', 'Drenched in love, laughter, and a whole lot of haldi.')">
+      <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="haldi" data-type="photo" onclick="openPhotoModal('assets/haldi-2.jpg', 'Smiles & Sunshine', 'Drenched in haldi, surrounded by laughter and endless joy.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/haldi-2.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
           <span class="absolute top-3 left-3 bg-amber-800 text-white text-[9px] uppercase tracking-widest font-bold px-3 py-1 rounded-full shadow-sm">Haldi 🌼</span>
@@ -744,7 +748,6 @@
       </div>
 
       <!-- ================= MEHENDI ================= -->
-      <!-- Static Album Cover -->
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="mehendi" data-type="album" onclick="switchGalleryTab('mehendi')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/mehendi-1.jpg" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -761,7 +764,6 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Intricate patterns of love woven beautifully into our hands."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="mehendi" data-type="photo" onclick="openPhotoModal('assets/mehendi-1.jpg', 'Art of Love', 'Her name hidden in the henna, her love woven into my soul.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/mehendi-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -776,7 +778,6 @@
       </div>
 
       <!-- ================= WEDDING ================= -->
-      <!-- Static Album Cover -->
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="wedding" data-type="album" onclick="switchGalleryTab('wedding')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/wedding-1.jpg" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -793,7 +794,6 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"Two souls, seven vows, and a lifetime of togetherness."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="wedding" data-type="photo" onclick="openPhotoModal('assets/wedding-1.jpg', 'The Grand Baraat', 'Arriving in style to steal her heart away.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/wedding-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -814,7 +814,6 @@
       </div>
 
       <!-- ================= RECEPTION ================= -->
-      <!-- Static Album Cover -->
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="reception" data-type="album" onclick="switchGalleryTab('reception')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/reception-1.jpg" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -831,7 +830,6 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"A magical night celebrating the beginning of our forever."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="reception" data-type="photo" onclick="openPhotoModal('assets/reception-1.jpg', 'A Magical Evening', 'Surrounded by stars, warm smiles, and our favorite people.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/reception-1.jpg" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -846,7 +844,6 @@
       </div>
 
       <!-- ================= 1ST ANNIVERSARY ================= -->
-      <!-- Static Album Cover -->
       <div class="gallery-item gallery-cover velvet-card rounded-2xl overflow-hidden group cursor-pointer" data-cat="anniversary" data-type="album" onclick="switchGalleryTab('anniversary')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/1stanniversary-1.JPG" fetchpriority="high" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -863,7 +860,6 @@
           <p class="text-[11px] text-stone-500 mb-3 font-semibold tracking-wide italic">"365 days of love, laughter, and building our world together."</p>
         </div>
       </div>
-      <!-- Individual Photos -->
       <div class="gallery-item velvet-card rounded-2xl overflow-hidden group cursor-pointer" style="display: none;" data-cat="anniversary" data-type="photo" onclick="openPhotoModal('assets/1stanniversary-1.JPG', 'One Year Down', '365 days of holding hands and an absolute eternity to go.')">
         <div class="h-64 overflow-hidden relative bg-stone-200">
           <img src="assets/1stanniversary-1.JPG" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
@@ -896,8 +892,8 @@
       <div class="photo-data" data-cat="ring" data-src="assets/ringceremony-2.jpg" data-title="Cheers to Us" data-quote="Toasting to love, laughter, and our happily ever after."></div>
 
       <!-- Haldi -->
-      <div class="photo-data" data-cat="haldi" data-src="assets/haldi-1.jpg" data-title="Golden Glow" data-quote="A splash of yellow, a lifetime of brightness."></div>
-      <div class="photo-data" data-cat="haldi" data-src="assets/haldi-2.jpg" data-title="Smiles & Sunshine" data-quote="Drenched in love, laughter, and a whole lot of haldi."></div>
+      <div class="photo-data" data-cat="haldi" data-src="assets/haldi-1.jpg" data-title="Golden Glow" data-quote="Basking in the golden moments before forever."></div>
+      <div class="photo-data" data-cat="haldi" data-src="assets/haldi-2.jpg" data-title="Smiles & Sunshine" data-quote="Drenched in haldi, surrounded by laughter and endless joy."></div>
 
       <!-- Mehendi -->
       <div class="photo-data" data-cat="mehendi" data-src="assets/mehendi-1.jpg" data-title="Art of Love" data-quote="Her name hidden in the henna, her love woven into my soul."></div>
@@ -941,7 +937,6 @@
       </div>
     </div>
     
-    <!-- Section Navigation Arrow -->
     <div class="text-center mt-16">
       <a href="#cinema" class="inline-block text-royal-golddark hover:text-royal-cardinal transition animate-float cursor-pointer relative z-20">
         <i class="fa-solid fa-chevron-down text-2xl"></i>
@@ -1036,7 +1031,7 @@
           </div>
         </div>
 
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Teaser of Pre-Wedding', 'A cinematic glimpse into the magic that brought our two souls together.', '6Tr09QwXOAo')">
+        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Teaser of Pre-Wedding', 'A beautiful glimpse into the quiet, magical moments that sparked our forever.', '6Tr09QwXOAo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/6Tr09QwXOAo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80'" alt="Pre-Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -1049,7 +1044,7 @@
           </div>
           <div class="p-6">
             <h4 class="font-cinzel text-lg font-bold text-white mb-1 group-hover:text-royal-gold transition-colors">Teaser of Pre-Wedding</h4>
-            <p class="text-xs text-stone-400 leading-relaxed mb-3">A cinematic glimpse into the magic that brought our two souls together.</p>
+            <p class="text-xs text-stone-400 leading-relaxed mb-3">A beautiful glimpse into the quiet, magical moments that sparked our forever.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold font-semibold"><i class="fa-solid fa-circle-play mr-1"></i> Watch Teaser</span>
           </div>
         </div>
@@ -1361,7 +1356,7 @@
     </div>
   </div>
 
-  <!-- 4K CINEMA MODAL WITH FULL CUSTOM ZERO-LEAK CONTROLS & IMMERSIVE FULLSCREEN -->
+  <!-- 4K CINEMA MODAL -->
   <div id="cinemaModal" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-0 md:p-4">
     <button id="cinemaCloseBtn" onclick="closeCinemaModal(true)" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-3xl hover:text-royal-gold z-50 transition-colors drop-shadow-md">
       <i class="fa-solid fa-xmark"></i>
@@ -1386,7 +1381,7 @@
 
         <iframe id="creatorFrame" class="w-full h-full hidden" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
         
-        <!-- Custom On-Screen Overlay Controls -->
+        <!-- Custom Controls Bar -->
         <div id="customControlsBar" class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-4 sm:px-6 py-4 z-30 transition-opacity duration-300 flex flex-col gap-2">
           <input type="range" id="videoScrubber" min="0" max="100" value="0" step="0.1" class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-royal-gold" oninput="onScrub(this.value)">
 
@@ -1441,7 +1436,7 @@
     </button>
 
     <div class="max-w-4xl text-center relative z-40 w-full px-4">
-      <img id="modalImg" src="" alt="Full view" class="max-h-[75vh] max-w-full mx-auto rounded-2xl shadow-2xl border border-royal-gold/30">
+      <img id="modalImg" src="" alt="Full view" class="max-h-[75vh] max-w-full mx-auto rounded-2xl shadow-2xl border border-royal-gold/30 transition-opacity duration-200">
       <h5 id="modalTitle" class="mt-4 font-serif text-2xl font-bold text-royal-goldlight"></h5>
       <p id="modalQuote" class="mt-1 text-sm italic text-stone-300 max-w-xl mx-auto"></p>
     </div>
@@ -1765,9 +1760,17 @@
       const title = item.getAttribute('data-title');
       const quote = item.getAttribute('data-quote');
 
-      document.getElementById('modalImg').src = src;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalQuote').textContent = `"${quote}"`;
+      const modalImg = document.getElementById('modalImg');
+      modalImg.style.opacity = '0'; 
+      
+      const tempImg = new Image();
+      tempImg.onload = () => {
+         modalImg.src = src;
+         document.getElementById('modalTitle').textContent = title;
+         document.getElementById('modalQuote').textContent = `"${quote}"`;
+         modalImg.style.opacity = '1';
+      };
+      tempImg.src = src;
     }
 
     function prevPhoto(e) {
