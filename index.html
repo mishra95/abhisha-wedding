@@ -972,12 +972,18 @@
         <button id="cinema-btn-engagement" onclick="filterCinema('engagement')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Engagement</button>
         <button id="cinema-btn-prewedding" onclick="filterCinema('prewedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Pre-Wedding</button>
         <button id="cinema-btn-ring" onclick="filterCinema('ring')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Ring Ceremony</button>
+        <button id="cinema-btn-bardhara" onclick="filterCinema('bardhara')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Bardhara</button>
+        <button id="cinema-btn-haldi" onclick="filterCinema('haldi')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Haldi</button>
+        <button id="cinema-btn-mehendi" onclick="filterCinema('mehendi')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Mehendi</button>
         <button id="cinema-btn-wedding" onclick="filterCinema('wedding')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Wedding</button>
+        <button id="cinema-btn-pala" onclick="filterCinema('pala')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">Pala</button>
+        <button id="cinema-btn-anniversary" onclick="filterCinema('anniversary')" class="cinema-filter-btn px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold bg-black/40 text-stone-300 border border-royal-gold/30 hover:border-royal-gold transition-colors">1st Anniversary</button>
       </div>
 
       <!-- THE GRID -->
       <div id="cinemaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
 
+		<!-- ================= ENGAGEMENT ================= -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="engagement" onclick="launchCinema('Teaser of Engagement', 'A cinematic glimpse into the sacred rituals, heartfelt blessings, and the beautiful beginning of our journey.', 'iWriHLbstAg')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/iWriHLbstAg/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'" alt="Engagement Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -1031,6 +1037,7 @@
           </div>
         </div>
 
+		<!-- ================= PRE-WEDDING ================= -->
         <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="prewedding" onclick="launchCinema('Teaser of Pre-Wedding', 'A beautiful glimpse into the quiet, magical moments that sparked our forever.', '6Tr09QwXOAo')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/6Tr09QwXOAo/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80'" alt="Pre-Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -1067,6 +1074,7 @@
           </div>
         </div>
 
+		<!-- ================= RING CEREMONY ================= -->
         <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="ring">
           <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Ring Teaser" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
@@ -1118,7 +1126,148 @@
           </div>
         </div>
 
-        <div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding', 'A tiny glimpse of the biggest day of our lives, wrapped in ocean breeze and love.', 'qY6Kui1D4qk')">
+		<!-- ================= BARDHARA ================= -->
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="bardhara">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Teaser of Bardhara" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Teaser of Bardhara</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">A glimpse into our traditional Bardhara rituals and family blessings.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="bardhara">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Bardhara Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Bardhara Ceremony</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The complete coverage of our sacred Bardhara ceremony.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <!-- ================= HALDI ================= -->
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="haldi">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/haldi-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="Teaser of Haldi Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Teaser of Haldi Ceremony</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">A vibrant preview drenched in golden hues, laughter, and endless joy.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="haldi">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/haldi-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="Haldi Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Haldi Ceremony</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The full celebration of our joyous Haldi ceremony with family and friends.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <!-- ================= MEHENDI ================= -->
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="mehendi">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/mehendi-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="Teaser of Mehendi" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Teaser of Mehendi</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">A colourful glimpse of intricate henna patterns, music, and dancing.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="mehendi">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/mehendi-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="Mehendi Ceremony" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Mehendi Ceremony</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The complete evening of our Mehendi celebration.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+		
+		<!-- ================= PALA ================= -->
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="pala">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Teaser of Pala" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Teaser of Pala</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">Highlights of the traditional Odia Pala performance and devotional storytelling.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="pala">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Pala" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Pala</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The complete performance of our auspicious Pala ceremony.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+		
+		<!-- ================= WEDDING ================= -->
+		<div class="cinema-card rounded-3xl overflow-hidden group cursor-pointer" data-cat="wedding" onclick="launchCinema('Teaser of Wedding', 'A tiny glimpse of the biggest day of our lives, wrapped in ocean breeze and love.', 'qY6Kui1D4qk')">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://img.youtube.com/vi/qY6Kui1D4qk/hqdefault.jpg" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'" alt="Wedding Teaser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors flex items-center justify-center">
@@ -1166,6 +1315,41 @@
           <div class="p-6 opacity-80">
             <h4 class="font-cinzel text-lg font-bold text-white mb-1">Wedding Ceremony</h4>
             <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The entire unedited magic of the day two souls officially became one.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+		
+		<!-- ================= 1ST ANNIVERSARY ================= -->
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="anniversary">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/1stanniversary-1.JPG" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="Teaser of 1st Anniversary" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">Teaser of 1st Anniversary</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">A special look back at 365 days of love, laughter, and togetherness.</p>
+            <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
+          </div>
+        </div>
+
+        <div class="cinema-card rounded-3xl overflow-hidden relative cursor-default" data-cat="anniversary">
+          <div class="relative aspect-video overflow-hidden border-b border-royal-gold/20">
+            <img src="assets/1stanniversary-2.JPG" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'" alt="1st Anniversary Celebration" class="w-full h-full object-cover scale-105 filter blur-[3px] brightness-75">
+            <div class="absolute inset-0 coming-soon-overlay flex flex-col items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-royal-velvet/80 text-royal-goldlight flex items-center justify-center text-xl shadow-lg border border-royal-gold/40 mb-3">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <span class="text-[9px] tracking-[0.3em] font-cinzel text-white uppercase font-bold drop-shadow-md bg-black/40 px-4 py-1 rounded-full border border-white/20">Premiering Soon</span>
+            </div>
+          </div>
+          <div class="p-6 opacity-80">
+            <h4 class="font-cinzel text-lg font-bold text-white mb-1">1st Anniversary</h4>
+            <p class="text-xs text-stone-400 leading-relaxed mb-4 line-clamp-2">The full celebration marking our first year of marriage.</p>
             <span class="text-[10px] uppercase tracking-wider text-royal-gold/70 font-semibold"><i class="fa-solid fa-hourglass-half mr-1"></i> In Post-Production</span>
           </div>
         </div>
