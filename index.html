@@ -1635,7 +1635,7 @@
       <h4 class="font-cinzel text-xl font-bold text-royal-cardinal mb-2">Scan & Share</h4>
       <p class="text-xs text-stone-500 mb-6">Scan to open Abhisek & Barsha's wedding celebration</p>
       <div class="p-4 bg-royal-cream rounded-2xl inline-block border border-royal-gold/30 mb-6">
-        <img id="qrImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(window.location.href)}" alt="QR Code" class="mx-auto rounded">
+        <img id="qrImg" src="" alt="QR Code" class="mx-auto rounded">
       </div>
       <button onclick="copyCurrentLink()" class="w-full py-2.5 rounded-xl bg-royal-velvet text-white text-xs uppercase tracking-widest font-semibold hover:bg-stone-900 transition">Copy Website Link</button>
     </div>
@@ -1670,7 +1670,7 @@
     setInterval(runTimer, 1000);
     runTimer();
 
-    document.addEventListener("DOMContentLoaded", () => {
+	document.addEventListener("DOMContentLoaded", () => {
       const revealElements = document.querySelectorAll(".reveal");
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -1679,7 +1679,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
+      }, { rootMargin: "0px 0px 0px 0px", threshold: 0 });
 
       revealElements.forEach(el => revealObserver.observe(el));
     });
@@ -2009,9 +2009,13 @@
         if(nextBtn) nextBtn.style.display = 'flex';
       }
 
-      currentVideoId = youtubeId;
+	  currentVideoId = youtubeId;
       document.getElementById('cinemaModalTitle').textContent = title;
       document.getElementById('cinemaModalDesc').textContent = desc;
+
+      const cModal = document.getElementById('cinemaModal');
+      cModal.classList.remove('hidden');
+      cModal.classList.add('flex');
       
       const visitorWrap = document.getElementById('visitorPlayerWrap');
       const controlsBar = document.getElementById('customControlsBar');
@@ -2041,9 +2045,6 @@
       }
 
       updateOwnerUI();
-      const cModal = document.getElementById('cinemaModal');
-      cModal.classList.remove('hidden');
-      cModal.classList.add('flex');
       pushModalState();
 
       if (window.innerWidth <= 768) {
